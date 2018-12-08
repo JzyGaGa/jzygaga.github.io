@@ -148,14 +148,45 @@
     <section class="article typo">
 
         <div class="article-entry" itemprop="articleBody">
-            
+            <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>Fibonacci数列的递推公式为：Fn=Fn-1+Fn-2，其中F1=F2=1。</p>
+<p>当n比较大时，Fn也非常大，现在我们想知道，Fn除以10007的余数是多少。</p>
+<h1 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h1><p>输入包含一个整数n。</p>
+<h1 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h1><p>输出一行，包含一个整数，表示Fn除以10007的余数。</p>
+<p>说明：在本题中，答案是要求Fn除以10007的余数，因此我们只要能算出这个余数即可，而不需要先计算出Fn的准确值，再将计算的结果除以10007取余数，直接计算余数往往比先算出原数再取余简单。</p>
+<pre><code>package begin4;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        int[] f= new int[1000001];
+        f[1] = f[2] = 1;
+        for (int i = 3; i &lt;= 1000000; i++) {
+            f[i] = (f[i-1] + f[i-2]) % 10007;
+        }
+
+        Scanner in = new Scanner(System.in);
+        System.out.println(f[in.nextInt()]);
+        in.close();
+    }
+
+}
+</code></pre>
         </div>
 
         <section class="meta">
-            <time class="time" itemprop="dateUpdated" datetime="2018-12-05T14:01:18+08:00" content="2018-12-05">
+            <time class="time" itemprop="dateUpdated" datetime="2018-12-09T00:08:25+08:00" content="2018-12-09">
                 <i class="fas fa-pen fa-fw" aria-hidden="true"></i>
-                本文最后更新于：2018-12-05
+                本文最后更新于：2018-12-09
             </time>
+            
+                
+                <div class="tags">
+                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
+                    <a class="tag" href="/tags/蓝桥杯/">蓝桥杯</a>
+                </div>
             
         </section>
 
@@ -321,7 +352,7 @@
             <div><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;标签</div>
         </header>
         <div class="content pure">
-            <a href="/tags/项目/" style="font-size: 14px; color: #999">项目</a>
+            <a href="/tags/蓝桥杯/" style="font-size: 14px; color: #999">蓝桥杯</a> <a href="/tags/项目/" style="font-size: 14px; color: #999">项目</a>
         </div>
     </section>
 
@@ -329,6 +360,16 @@
     
     
         
+    <section class="m_widget toc-wrapper">
+        <header class="header pure">
+            <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;目录</div>
+            <div class="wrapper"><a class="s-toc rightBtn" title="固定到顶部" target="_blank" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
+        </header>
+        <div class="content pure">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#问题描述"><span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#输入格式"><span class="toc-text">输入格式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#输出格式"><span class="toc-text">输出格式</span></a></li></ol>
+        </div>
+    </section>
+
 
     
     
