@@ -5,9 +5,9 @@
   <subtitle>菜鸟的试飞之旅</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://www.maoxin.site/"/>
+  <link href="https://jzygaga.github.io/"/>
   <updated>2018-12-14T15:17:28.698Z</updated>
-  <id>http://www.maoxin.site/</id>
+  <id>https://jzygaga.github.io/</id>
   
   <author>
     <name>FlyingFool</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>数据结构--数组</title>
-    <link href="http://www.maoxin.site/2018/12/14/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%95%B0%E7%BB%84/"/>
-    <id>http://www.maoxin.site/2018/12/14/数据结构-数组/</id>
+    <link href="https://jzygaga.github.io/2018/12/14/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%95%B0%E7%BB%84/"/>
+    <id>https://jzygaga.github.io/2018/12/14/数据结构-数组/</id>
     <published>2018-12-14T15:16:31.000Z</published>
     <updated>2018-12-14T15:17:28.698Z</updated>
     
@@ -28,14 +28,14 @@
     </summary>
     
     
-      <category term="数据结构" scheme="http://www.maoxin.site/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+      <category term="数据结构" scheme="https://jzygaga.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
   </entry>
   
   <entry>
     <title>数据结构目录</title>
-    <link href="http://www.maoxin.site/2018/12/14/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9B%AE%E5%BD%95/"/>
-    <id>http://www.maoxin.site/2018/12/14/数据结构目录/</id>
+    <link href="https://jzygaga.github.io/2018/12/14/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9B%AE%E5%BD%95/"/>
+    <id>https://jzygaga.github.io/2018/12/14/数据结构目录/</id>
     <published>2018-12-14T15:16:18.000Z</published>
     <updated>2018-12-14T15:33:08.159Z</updated>
     
@@ -63,8 +63,8 @@
   
   <entry>
     <title>多线程 </title>
-    <link href="http://www.maoxin.site/2018/12/14/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
-    <id>http://www.maoxin.site/2018/12/14/多线程/</id>
+    <link href="https://jzygaga.github.io/2018/12/14/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
+    <id>https://jzygaga.github.io/2018/12/14/多线程/</id>
     <published>2018-12-14T05:53:05.000Z</published>
     <updated>2018-12-14T12:10:20.970Z</updated>
     
@@ -81,14 +81,14 @@
     </summary>
     
     
-      <category term="多线程 ，线程" scheme="http://www.maoxin.site/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B-%EF%BC%8C%E7%BA%BF%E7%A8%8B/"/>
+      <category term="多线程 ，线程" scheme="https://jzygaga.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B-%EF%BC%8C%E7%BA%BF%E7%A8%8B/"/>
     
   </entry>
   
   <entry>
     <title>capon</title>
-    <link href="http://www.maoxin.site/2018/12/05/capon/"/>
-    <id>http://www.maoxin.site/2018/12/05/capon/</id>
+    <link href="https://jzygaga.github.io/2018/12/05/capon/"/>
+    <id>https://jzygaga.github.io/2018/12/05/capon/</id>
     <published>2018-12-05T06:26:05.000Z</published>
     <updated>2018-12-05T15:28:39.356Z</updated>
     
@@ -104,14 +104,14 @@
     </summary>
     
     
-      <category term="项目" scheme="http://www.maoxin.site/tags/%E9%A1%B9%E7%9B%AE/"/>
+      <category term="项目" scheme="https://jzygaga.github.io/tags/%E9%A1%B9%E7%9B%AE/"/>
     
   </entry>
   
   <entry>
     <title>我滴妈</title>
-    <link href="http://www.maoxin.site/2018/12/05/basic12/"/>
-    <id>http://www.maoxin.site/2018/12/05/basic12/</id>
+    <link href="https://jzygaga.github.io/2018/12/05/basic12/"/>
+    <id>https://jzygaga.github.io/2018/12/05/basic12/</id>
     <published>2018-12-05T06:01:18.000Z</published>
     <updated>2018-12-08T18:28:23.052Z</updated>
     
@@ -127,14 +127,14 @@
     </summary>
     
     
-      <category term="蓝桥杯" scheme="http://www.maoxin.site/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/"/>
+      <category term="蓝桥杯" scheme="https://jzygaga.github.io/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/"/>
     
   </entry>
   
   <entry>
     <title>我滴妈</title>
-    <link href="http://www.maoxin.site/2018/12/05/%E8%93%9D%E6%A1%A5%E8%A2%AB%E5%85%A5%E9%97%A8%E9%A2%98%E7%AC%AC%E4%B8%80%E9%A2%98/"/>
-    <id>http://www.maoxin.site/2018/12/05/蓝桥被入门题第一题/</id>
+    <link href="https://jzygaga.github.io/2018/12/05/%E8%93%9D%E6%A1%A5%E8%A2%AB%E5%85%A5%E9%97%A8%E9%A2%98%E7%AC%AC%E4%B8%80%E9%A2%98/"/>
+    <id>https://jzygaga.github.io/2018/12/05/蓝桥被入门题第一题/</id>
     <published>2018-12-05T06:01:18.000Z</published>
     <updated>2018-12-08T16:08:25.969Z</updated>
     
@@ -151,14 +151,14 @@
     </summary>
     
     
-      <category term="蓝桥杯" scheme="http://www.maoxin.site/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/"/>
+      <category term="蓝桥杯" scheme="https://jzygaga.github.io/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/"/>
     
   </entry>
   
   <entry>
     <title>nihao,exo</title>
-    <link href="http://www.maoxin.site/2018/12/05/nihao-exo/"/>
-    <id>http://www.maoxin.site/2018/12/05/nihao-exo/</id>
+    <link href="https://jzygaga.github.io/2018/12/05/nihao-exo/"/>
+    <id>https://jzygaga.github.io/2018/12/05/nihao-exo/</id>
     <published>2018-12-05T05:41:29.000Z</published>
     <updated>2018-12-05T05:41:29.959Z</updated>
     
@@ -171,8 +171,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://www.maoxin.site/2018/12/05/hello-world/"/>
-    <id>http://www.maoxin.site/2018/12/05/hello-world/</id>
+    <link href="https://jzygaga.github.io/2018/12/05/hello-world/"/>
+    <id>https://jzygaga.github.io/2018/12/05/hello-world/</id>
     <published>2018-12-05T05:01:55.023Z</published>
     <updated>2018-12-05T05:01:55.023Z</updated>
     
