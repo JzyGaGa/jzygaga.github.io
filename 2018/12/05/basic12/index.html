@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <title>nihao,exo | 飞翔的傻瓜</title>
+  <title>我滴妈 | 飞翔的傻瓜</title>
   
   <meta name="keywords" content="编程">
   
@@ -126,10 +126,10 @@
     <div class="l_body">
     <div class='container clearfix'>
         <div class='l_main'>
-            <article id="post-nihao-exo" class="post white-box article-type-post" itemscope="" itemprop="blogPost">
+            <article id="post-basic12" class="post white-box article-type-post" itemscope="" itemprop="blogPost">
     <section class="meta">
         
-            <h1 class="title">nihao,exo</h1>
+            <h1 class="title">我滴妈</h1>
         
         <time class="time">
             <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
@@ -148,14 +148,66 @@
     <section class="article typo">
 
         <div class="article-entry" itemprop="articleBody">
-            
+            <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>123321是一个非常特殊的数，它从左边读和从右边读是一样的。<br>　　输入一个正整数n， 编程求所有这样的五位和六位十进制数，满足各位数字之和等于n 。</p>
+<h1 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h1><p>　　输入一行，包含一个正整数n。</p>
+<h1 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h1><p>　　按从小到大的顺序输出满足条件的整数，每个整数占一行。</p>
+<p>说明：在本题中，答案是要求Fn除以10007的余数，因此我们只要能算出这个余数即可，而不需要先计算出Fn的准确值，再将计算的结果除以10007取余数，直接计算余数往往比先算出原数再取余简单。<br>    package algorithm.Lanqiao.基础练习;</p>
+<pre><code>import java.util.Scanner;
+
+public class base9 {
+public static void main(String[] args) {
+    int n;
+    Scanner in = new Scanner(System.in);
+    n = in.nextInt();
+    in.close();
+    //5位的
+    for (int i = 1; i &lt; 10; i++) {
+        for (int j = 0; j &lt; 10; j++) {
+            for (int k = 0; k &lt; 10; k++) {
+                if (i * 2 + j * 2 + k == n) {
+                    System.out.print(i);
+                    System.out.print(j);
+                    System.out.print(k);
+                    System.out.print(j);
+                    System.out.print(i);
+                    System.out.println();
+                }
+            }
+        }
+
+    }
+    //6位的
+    for (int i = 1; i &lt; 10; i++) {
+        for (int j = 0; j &lt; 10; j++) {
+            for (int k = 0; k &lt; 10; k++) {
+                if (i * 2 + j * 2 + k * 2 == n) {
+                    System.out.print(i);
+                    System.out.print(j);
+                    System.out.print(k);
+                    System.out.print(k);
+                    System.out.print(j);
+                    System.out.print(i);
+                    System.out.println();
+                }
+            }
+        }
+
+    }
+}
+</code></pre>
         </div>
 
         <section class="meta">
-            <time class="time" itemprop="dateUpdated" datetime="2018-12-05T13:41:29+08:00" content="2018-12-05">
+            <time class="time" itemprop="dateUpdated" datetime="2018-12-09T02:28:23+08:00" content="2018-12-09">
                 <i class="fas fa-pen fa-fw" aria-hidden="true"></i>
-                本文最后更新于：2018-12-05
+                本文最后更新于：2018-12-09
             </time>
+            
+                
+                <div class="tags">
+                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
+                    <a class="tag" href="/tags/蓝桥杯/">蓝桥杯</a>
+                </div>
             
         </section>
 
@@ -166,9 +218,9 @@
                         <span class="art-item-left">
                             <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一篇</h6>
                             <h4>
-                                <a href="/2018/12/05/蓝桥被入门题第一题/" rel="prev" title="我滴妈">
+                                <a href="/2018/12/05/capon/" rel="prev" title="capon">
                                   
-                                      我滴妈
+                                      capon
                                   
                                 </a>
                             </h4>
@@ -176,7 +228,7 @@
                                 
                                 <h6 class="tags">
                                     <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
-                                    <a class="tag" href="/tags/蓝桥杯/">蓝桥杯</a>
+                                    <a class="tag" href="/tags/项目/">项目</a>
                                 </h6>
                             
                         </span>
@@ -187,12 +239,18 @@
                         <span class="art-item-right" aria-hidden="true">
                             <h6>下一篇&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
                             <h4>
-                                <a href="/2018/12/05/hello-world/" rel="prev" title="Hello World">
+                                <a href="/2018/12/05/蓝桥被入门题第一题/" rel="prev" title="我滴妈">
                                     
-                                        Hello World
+                                        我滴妈
                                     
                                 </a>
                             </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
+                                    <a class="tag" href="/tags/蓝桥杯/">蓝桥杯</a>
+                                </h6>
                             
                         </span>
                     </section>
@@ -222,9 +280,9 @@
             
                 <li><a href="http://www.maoxin.site/2018/12/05/capon/">capon</a></li>
             
-                <li><a href="http://www.maoxin.site/2018/12/05/basic12/">我滴妈</a></li>
-            
                 <li><a href="http://www.maoxin.site/2018/12/05/蓝桥被入门题第一题/">我滴妈</a></li>
+            
+                <li><a href="http://www.maoxin.site/2018/12/05/nihao-exo/">nihao,exo</a></li>
             
                 <li><a href="http://www.maoxin.site/2018/12/05/hello-world/">Hello World</a></li>
             
@@ -264,7 +322,7 @@
 
 <script>
     window.subData = {
-        title: 'nihao,exo',
+        title: '我滴妈',
         tools: true
     }
 </script>
@@ -333,6 +391,16 @@
     
     
         
+    <section class="m_widget toc-wrapper">
+        <header class="header pure">
+            <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;目录</div>
+            <div class="wrapper"><a class="s-toc rightBtn" title="固定到顶部" target="_blank" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
+        </header>
+        <div class="content pure">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#问题描述"><span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#输入格式"><span class="toc-text">输入格式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#输出格式"><span class="toc-text">输出格式</span></a></li></ol>
+        </div>
+    </section>
+
 
     
     

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.maoxin.site/"/>
-  <updated>2018-12-05T15:28:39.356Z</updated>
+  <updated>2018-12-14T11:57:06.857Z</updated>
   <id>http://www.maoxin.site/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>多线程 </title>
+    <link href="http://www.maoxin.site/2018/12/14/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
+    <id>http://www.maoxin.site/2018/12/14/多线程/</id>
+    <published>2018-12-14T05:53:05.000Z</published>
+    <updated>2018-12-14T11:57:06.857Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://imgchr.com/i/FU85NR" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;img src=&quot;https://imgchr.com/i/FU85NR&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="多线程 ，线程" scheme="http://www.maoxin.site/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B-%EF%BC%8C%E7%BA%BF%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>capon</title>
@@ -41,8 +65,31 @@
   
   <entry>
     <title>我滴妈</title>
-    <link href="http://www.maoxin.site/2018/12/05/%E6%88%91%E6%BB%B4%E5%A6%88/"/>
-    <id>http://www.maoxin.site/2018/12/05/我滴妈/</id>
+    <link href="http://www.maoxin.site/2018/12/05/basic12/"/>
+    <id>http://www.maoxin.site/2018/12/05/basic12/</id>
+    <published>2018-12-05T06:01:18.000Z</published>
+    <updated>2018-12-08T18:28:23.052Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>123321是一个非常特殊的数，它从左边读和从右边读是一样的。<br>　　输入一个正整数n， 编程求所有这样的五位和六位十进制数，满足各位数字之和等于n 。</p><h1 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h1><p>　　输入一行，包含一个正整数n。</p><h1 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h1><p>　　按从小到大的顺序输出满足条件的整数，每个整数占一行。</p><p>说明：在本题中，答案是要求Fn除以10007的余数，因此我们只要能算出这个余数即可，而不需要先计算出Fn的准确值，再将计算的结果除以10007取余数，直接计算余数往往比先算出原数再取余简单。<br>    package algorithm.Lanqiao.基础练习;</p><pre><code>import java.util.Scanner;public class base9 {public static void main(String[] args) {    int n;    Scanner in = new Scanner(System.in);    n = in.nextInt();    in.close();    //5位的    for (int i = 1; i &lt; 10; i++) {        for (int j = 0; j &lt; 10; j++) {            for (int k = 0; k &lt; 10; k++) {                if (i * 2 + j * 2 + k == n) {                    System.out.print(i);                    System.out.print(j);                    System.out.print(k);                    System.out.print(j);                    System.out.print(i);                    System.out.println();                }            }        }    }    //6位的    for (int i = 1; i &lt; 10; i++) {        for (int j = 0; j &lt; 10; j++) {            for (int k = 0; k &lt; 10; k++) {                if (i * 2 + j * 2 + k * 2 == n) {                    System.out.print(i);                    System.out.print(j);                    System.out.print(k);                    System.out.print(k);                    System.out.print(j);                    System.out.print(i);                    System.out.println();                }            }        }    }}</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h1&gt;&lt;p&gt;123321是一个非常特殊的数，它从左边读和从右边读是一样的。&lt;br&gt;　　输入一个正整数n， 编程求所有这样的五位和六位十进
+      
+    
+    </summary>
+    
+    
+      <category term="蓝桥杯" scheme="http://www.maoxin.site/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>我滴妈</title>
+    <link href="http://www.maoxin.site/2018/12/05/%E8%93%9D%E6%A1%A5%E8%A2%AB%E5%85%A5%E9%97%A8%E9%A2%98%E7%AC%AC%E4%B8%80%E9%A2%98/"/>
+    <id>http://www.maoxin.site/2018/12/05/蓝桥被入门题第一题/</id>
     <published>2018-12-05T06:01:18.000Z</published>
     <updated>2018-12-08T16:08:25.969Z</updated>
     
