@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <title>我滴妈 | 飞翔的傻瓜</title>
+  <title>数据结构--数组 | 飞翔的傻瓜</title>
   
   <meta name="keywords" content="编程">
   
@@ -126,14 +126,14 @@
     <div class="l_body">
     <div class='container clearfix'>
         <div class='l_main'>
-            <article id="post-蓝桥被入门题第一题" class="post white-box article-type-post" itemscope="" itemprop="blogPost">
+            <article id="post-数据结构-BST" class="post white-box article-type-post" itemscope="" itemprop="blogPost">
     <section class="meta">
         
-            <h1 class="title">我滴妈</h1>
+            <h1 class="title">数据结构--数组</h1>
         
         <time class="time">
             <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-            2018-12-05
+            2018-12-14
         </time>
         
           <div class="browse busuanzi"><i class="fas fa-eye fa-fw" aria-hidden="true"></i>
@@ -148,44 +148,80 @@
     <section class="article typo">
 
         <div class="article-entry" itemprop="articleBody">
-            <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>Fibonacci数列的递推公式为：Fn=Fn-1+Fn-2，其中F1=F2=1。</p>
-<p>当n比较大时，Fn也非常大，现在我们想知道，Fn除以10007的余数是多少。</p>
-<h1 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h1><p>输入包含一个整数n。</p>
-<h1 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h1><p>输出一行，包含一个整数，表示Fn除以10007的余数。</p>
-<p>说明：在本题中，答案是要求Fn除以10007的余数，因此我们只要能算出这个余数即可，而不需要先计算出Fn的准确值，再将计算的结果除以10007取余数，直接计算余数往往比先算出原数再取余简单。</p>
-<pre><code>package begin4;
+            <h1 id="二叉搜索树"><a href="#二叉搜索树" class="headerlink" title="二叉搜索树"></a>二叉搜索树</h1><pre><code>    public class BST&lt;E extends Comparable&lt;E&gt;&gt; {
 
-import java.util.Scanner;
+    private class Node {
+        public E e;
+        public Node left, right;
 
-public class Main {
-
-    public static void main(String[] args) {
-
-        int[] f= new int[1000001];
-        f[1] = f[2] = 1;
-        for (int i = 3; i &lt;= 1000000; i++) {
-            f[i] = (f[i-1] + f[i-2]) % 10007;
+        public Node(E e) {
+            this.e = e;
+            left = null;
+            right = null;
         }
-
-        Scanner in = new Scanner(System.in);
-        System.out.println(f[in.nextInt()]);
-        in.close();
     }
 
+    private Node root;
+    private int size;
+
+    public BST(){
+        root = null;
+        size = 0;
+    }
+
+    public int size(){
+        return size;
+    }
+
+    public boolean isEmpty(){
+        return size == 0;
+    }
+
+    // 向二分搜索树中添加新的元素e
+    public void add(E e){
+
+        if(root == null){
+            root = new Node(e);
+            size ++;
+        }
+        else
+            add(root, e);
+    }
+
+    // 向以node为根的二分搜索树中插入元素e，递归算法
+    private void add(Node node, E e){
+        if(e.equals(node.e))
+            return;
+        else if(e.compareTo(node.e) &lt; 0 &amp;&amp; node.left == null){
+            node.left = new Node(e);
+            size ++;
+            return;
+        }
+        else if(e.compareTo(node.e) &gt; 0 &amp;&amp; node.right == null){
+            node.right = new Node(e);
+            size ++;
+            return;
+        }
+
+        if(e.compareTo(node.e) &lt; 0)
+            add(node.left, e);
+        else //e.compareTo(node.e) &gt; 0
+            add(node.right, e);
+    }
 }
 </code></pre>
         </div>
 
         <section class="meta">
-            <time class="time" itemprop="dateUpdated" datetime="2018-12-09T00:08:25+08:00" content="2018-12-09">
+            <time class="time" itemprop="dateUpdated" datetime="2018-12-18T21:56:30+08:00" content="2018-12-18">
                 <i class="fas fa-pen fa-fw" aria-hidden="true"></i>
-                本文最后更新于：2018-12-09
+                本文最后更新于：2018-12-18
             </time>
             
                 
                 <div class="tags">
                     <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
-                    <a class="tag" href="/tags/蓝桥杯/">蓝桥杯</a>
+                    <a class="tag" href="/tags/数据结构/">数据结构</a>
                 </div>
             
         </section>
@@ -197,9 +233,9 @@ public class Main {
                         <span class="art-item-left">
                             <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一篇</h6>
                             <h4>
-                                <a href="/2018/12/05/basic12/" rel="prev" title="我滴妈">
+                                <a href="/2018/12/14/数据结构-栈/" rel="prev" title="数据结构--数组">
                                   
-                                      我滴妈
+                                      数据结构--数组
                                   
                                 </a>
                             </h4>
@@ -207,7 +243,7 @@ public class Main {
                                 
                                 <h6 class="tags">
                                     <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
-                                    <a class="tag" href="/tags/蓝桥杯/">蓝桥杯</a>
+                                    <a class="tag" href="/tags/数据结构/">数据结构</a>
                                 </h6>
                             
                         </span>
@@ -218,9 +254,9 @@ public class Main {
                         <span class="art-item-right" aria-hidden="true">
                             <h6>下一篇&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
                             <h4>
-                                <a href="/2018/12/05/nihao-exo/" rel="prev" title="nihao,exo">
+                                <a href="/2018/12/14/数据结构-目录/" rel="prev" title="数据结构目录">
                                     
-                                        nihao,exo
+                                        数据结构目录
                                     
                                 </a>
                             </h4>
@@ -249,15 +285,15 @@ public class Main {
         <h4><i class="fas fa-bookmark fa-fw" aria-hidden="true"></i>&nbsp;你可能感兴趣的文章</h4>
         <ul>
             
+                <li><a href="https://jzygaga.github.io/2018/12/14/数据结构-数组/">数据结构--数组</a></li>
+            
+                <li><a href="https://jzygaga.github.io/2018/12/14/数据结构-栈/">数据结构--数组</a></li>
+            
+                <li><a href="https://jzygaga.github.io/2018/12/14/数据结构-目录/">数据结构目录</a></li>
+            
                 <li><a href="https://jzygaga.github.io/2018/12/14/多线程/">多线程 </a></li>
             
                 <li><a href="https://jzygaga.github.io/2018/12/05/capon/">capon</a></li>
-            
-                <li><a href="https://jzygaga.github.io/2018/12/05/basic12/">我滴妈</a></li>
-            
-                <li><a href="https://jzygaga.github.io/2018/12/05/nihao-exo/">nihao,exo</a></li>
-            
-                <li><a href="https://jzygaga.github.io/2018/12/05/hello-world/">Hello World</a></li>
             
         </ul>
     </div>
@@ -295,7 +331,7 @@ public class Main {
 
 <script>
     window.subData = {
-        title: '我滴妈',
+        title: '数据结构--数组',
         tools: true
     }
 </script>
@@ -370,7 +406,7 @@ public class Main {
             <div class="wrapper"><a class="s-toc rightBtn" title="固定到顶部" target="_blank" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
         </header>
         <div class="content pure">
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#问题描述"><span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#输入格式"><span class="toc-text">输入格式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#输出格式"><span class="toc-text">输出格式</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#二叉搜索树"><span class="toc-text">二叉搜索树</span></a></li></ol>
         </div>
     </section>
 
