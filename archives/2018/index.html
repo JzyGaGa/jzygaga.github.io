@@ -139,6 +139,123 @@
             <article class="post reveal ">
     <section class="meta">
         <h2 class="title">
+            <a href="/2018/12/29/lamda/">
+                
+                    lamda
+                
+            </a>
+        </h2>
+        <time class="time">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2018-12-29
+        </time>
+        
+
+    </section>
+
+    <section class="article typo">
+        <h1 id="JAVA8新特性——Lamda表达式"><a href="#JAVA8新特性——Lamda表达式" class="headerlink" title="JAVA8新特性——Lamda表达式"></a>JAVA8新特性——Lamda表达式</h1><h2 id="Lamda表达式，读作λ表达式，它实质属于函数式编程的概念，要理解函数式编程的产生目的，就要先理解匿名内部类。"><a href="#Lamda表达式，读作λ表达式，它实质属于函数式编程的概念，要理解函数式编程的产生目的，就要先理解匿名内部类。" class="headerlink" title="Lamda表达式，读作λ表达式，它实质属于函数式编程的概念，要理解函数式编程的产生目的，就要先理解匿名内部类。"></a>Lamda表达式，读作λ表达式，它实质属于函数式编程的概念，要理解函数式编程的产生目的，就要先理解匿名内部类。</h2><ul>
+<li><p>先来看看传统的匿名内部类调用方式:</p>
+<pre><code>interface MyInterface{
+
+    void lMethod();
+}
+public class Main {
+
+    public static void test(MyInterface myInterface){
+        myInterface.lMethod();
+    }
+
+    public static void main(String[] args) {
+        test(new MyInterface() {
+            @Override
+            public void lMethod() {
+                System.out.println(&quot;Hello World!&quot;);
+            }
+        });
+    }
+}
+</code></pre><p>　在主类中的这么几行代码，嵌套几层就为了输出一个Hello World！是不是很麻烦？但是由于java结构的完整性，我们还不得不那么做，现在JDK1.8来了。</p>
+</li>
+<li><p>再来看看使用Lamda表达式改写上面的代码：</p>
+<pre><code> interface Myinterface{
+    void IMethod();
+ }
+
+public class Main {
+    public static void test(Myinterface myinterface){
+        myinterface.IMethod();
+    }
+    public static void main(String[] args) {
+        test(()-&gt; System.out.println(&quot;666&quot;));
+    }
+}
+</code></pre><p>这就是Lamda表达式语言，为了解决匿名内部类繁杂的操作而出现。</p>
+</li>
+<li><p>Lamda语法有三种形式：</p>
+<ol>
+<li>(参数) -&gt;单行语句；</li>
+<li>(参数) -&gt;{多行语句}；</li>
+<li><p>(参数) -&gt;表达式；<br>括号（）可以大致理解为就是方法，里面是参数变量，在上面的例子中()-&gt;System.out.println(“Hello World!”) 前面的()代表void lMethod()方法，它没有入参，所以为空，-&gt;后面是一个单行语句；<br>如果-&gt;后面是多行语句，需要用{ }装起来，每条语句后需要有分号;<br>-&gt;后面也可以是一个表达式，如：a+b等。</p>
+<ul>
+<li><p>(参数) -&gt;单行语句；</p>
+<pre><code> interface MyInterface{
+
+    void lMethod(String str);
+}
+public class Main {
+
+    public static void test(MyInterface myInterface){
+        myInterface.lMethod(&quot;Hello World!&quot;);//设置参数内容
+    }
+
+    public static void main(String[] args) {
+        //首先在()中定义此表达式里面需要接收变量s，后面的单行语句中就可以使用该变量了
+        test((s)-&gt;System.out.println(s));
+    }
+}
+</code></pre></li>
+<li><p>(参数) -&gt;多行语句；</p>
+<pre><code> interface Myinterface{
+    void IMethod(String str);
+ }
+public class Main {
+    public static void test(Myinterface myinterface){
+        myinterface.IMethod(&quot;hello word&quot;);
+    }
+    public static void main(String[] args) {
+        test((s)-&gt; {
+            s=s+s;
+            System.out.println(s);
+        });
+    }
+}
+</code></pre><p>　这样，Lamda表达式就看起来很简单了，有不有！</p>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<p>　　匿名内部类，我们比较常用的地方在哪儿？线程类Thread，以前我们可能这样写：</p>
+<h1 id="总结：利用Lamda表达式是为了避免匿名内部类定义过多无用的操作。"><a href="#总结：利用Lamda表达式是为了避免匿名内部类定义过多无用的操作。" class="headerlink" title="　总结：利用Lamda表达式是为了避免匿名内部类定义过多无用的操作。"></a>　总结：利用Lamda表达式是为了避免匿名内部类定义过多无用的操作。</h1>
+        
+
+        
+            <div class="full-width auto-padding tags">
+                
+                    <a href="/tags/lamda/"><i class="fas fa-tag fa-fw"></i>&nbsp;lamda</a>
+                
+            </div>
+        
+    </section>
+</article>
+
+        </div>
+    
+        <div class="post-wrapper">
+            <article class="post reveal ">
+    <section class="meta">
+        <h2 class="title">
             <a href="/2018/12/22/数据结构-并查集/">
                 
                     并查集
@@ -987,122 +1104,6 @@ public class AVLTree&lt;K extends Comparable&lt;K&gt;, V&gt; {
             <article class="post reveal ">
     <section class="meta">
         <h2 class="title">
-            <a href="/2018/12/20/211. Add and Search Word - Data structure design/">
-                
-                    leetcode
-                
-            </a>
-        </h2>
-        <time class="time">
-            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2018-12-20
-        </time>
-        
-
-    </section>
-
-    <section class="article typo">
-        <h1 id="211-Add-and-Search-Word-Data-structure-design"><a href="#211-Add-and-Search-Word-Data-structure-design" class="headerlink" title="211. Add and Search Word - Data structure design"></a>211. Add and Search Word - Data structure design</h1><p><strong> Design a data structure that supports the following two operations:
-</strong> </p>
-<h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><pre><code>addWord(&quot;bad&quot;)
-addWord(&quot;dad&quot;)
-addWord(&quot;mad&quot;)
-search(&quot;pad&quot;) -&gt; false
-search(&quot;bad&quot;) -&gt; true
-search(&quot;.ad&quot;) -&gt; true
-search(&quot;b..&quot;) -&gt; true
-</code></pre><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre><code>class WordDictionary {
-
-private class Node{
-    public boolean isWord;
-    public TreeMap&lt;Character,Node&gt; next;
-public Node(boolean isWord) {
-    this.isWord=isWord;
-    next=new TreeMap&lt;&gt;();
-}
-public Node() {
-    this(false);
-}
-}
-
-private Node root;
-private int size;
-
-/** Initialize your data structure here. */
-public WordDictionary() {
-    root=new Node();
-    size=0;
-}
-
-/** Adds a word into the data structure. */
-public void addWord(String word) {
-    Node cur=root;
-    for(int i=0;i&lt;word.length();i++) {
-        char c = word.charAt(i);
-        if(cur.next.get(c)==null) {
-            cur.next.put(c, new Node());
-        }
-        cur=cur.next.get(c);
-    }
-    cur.isWord=true;
-    size++;
-}
-
-/** Returns if the word is in the data structure. A word could contain the dot character &apos;.&apos; to represent any one letter. */
-public boolean search(String word) {
-    int i=0;
-    Node cur=root;
-    return recurtionSearch(i,word,cur);
-}
-
-private boolean recurtionSearch(int i,String str,Node cur) {
-    if(i==str.length())
-        return cur.isWord;
-    char m=str.charAt(i);
-    if(m!=&apos;.&apos;) {
-        if(cur.next.get(m)==null)
-            return false;
-        return recurtionSearch(++i, str,cur.next.get(m));
-    }else {
-        //这个逻辑，就跳过点.这个位置
-        for(char c:cur.next.keySet())
-            if(recurtionSearch(++i, str,cur.next.get(c)))
-                return true;
-        return false;
-    }
-}
-//    public static void main(String[] args) {
-//        WordDictionary wordDictionary = new WordDictionary();
-//        wordDictionary.addWord(&quot;123&quot;);
-//        ;
-//        System.out.println(wordDictionary.search(&quot;.3&quot;));
-//    }
-}
-
-/**
- * Your WordDictionary object will be instantiated and called as such:
- * WordDictionary obj = new WordDictionary();
- * obj.addWord(word);
- * boolean param_2 = obj.search(word);
- */
-</code></pre>
-        
-
-        
-            <div class="full-width auto-padding tags">
-                
-                    <a href="/tags/leetcode-Trie/"><i class="fas fa-tag fa-fw"></i>&nbsp;leetcode Trie</a>
-                
-            </div>
-        
-    </section>
-</article>
-
-        </div>
-    
-        <div class="post-wrapper">
-            <article class="post reveal ">
-    <section class="meta">
-        <h2 class="title">
             <a href="/2018/12/20/leetcode-208. Implement Trie (Prefix Tree) - 副本/">
                 
                     leetcode
@@ -1224,6 +1225,122 @@ public boolean startsWith(String prefix) {
             <article class="post reveal ">
     <section class="meta">
         <h2 class="title">
+            <a href="/2018/12/20/211. Add and Search Word - Data structure design/">
+                
+                    leetcode
+                
+            </a>
+        </h2>
+        <time class="time">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2018-12-20
+        </time>
+        
+
+    </section>
+
+    <section class="article typo">
+        <h1 id="211-Add-and-Search-Word-Data-structure-design"><a href="#211-Add-and-Search-Word-Data-structure-design" class="headerlink" title="211. Add and Search Word - Data structure design"></a>211. Add and Search Word - Data structure design</h1><p><strong> Design a data structure that supports the following two operations:
+</strong> </p>
+<h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><pre><code>addWord(&quot;bad&quot;)
+addWord(&quot;dad&quot;)
+addWord(&quot;mad&quot;)
+search(&quot;pad&quot;) -&gt; false
+search(&quot;bad&quot;) -&gt; true
+search(&quot;.ad&quot;) -&gt; true
+search(&quot;b..&quot;) -&gt; true
+</code></pre><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre><code>class WordDictionary {
+
+private class Node{
+    public boolean isWord;
+    public TreeMap&lt;Character,Node&gt; next;
+public Node(boolean isWord) {
+    this.isWord=isWord;
+    next=new TreeMap&lt;&gt;();
+}
+public Node() {
+    this(false);
+}
+}
+
+private Node root;
+private int size;
+
+/** Initialize your data structure here. */
+public WordDictionary() {
+    root=new Node();
+    size=0;
+}
+
+/** Adds a word into the data structure. */
+public void addWord(String word) {
+    Node cur=root;
+    for(int i=0;i&lt;word.length();i++) {
+        char c = word.charAt(i);
+        if(cur.next.get(c)==null) {
+            cur.next.put(c, new Node());
+        }
+        cur=cur.next.get(c);
+    }
+    cur.isWord=true;
+    size++;
+}
+
+/** Returns if the word is in the data structure. A word could contain the dot character &apos;.&apos; to represent any one letter. */
+public boolean search(String word) {
+    int i=0;
+    Node cur=root;
+    return recurtionSearch(i,word,cur);
+}
+
+private boolean recurtionSearch(int i,String str,Node cur) {
+    if(i==str.length())
+        return cur.isWord;
+    char m=str.charAt(i);
+    if(m!=&apos;.&apos;) {
+        if(cur.next.get(m)==null)
+            return false;
+        return recurtionSearch(++i, str,cur.next.get(m));
+    }else {
+        //这个逻辑，就跳过点.这个位置
+        for(char c:cur.next.keySet())
+            if(recurtionSearch(++i, str,cur.next.get(c)))
+                return true;
+        return false;
+    }
+}
+//    public static void main(String[] args) {
+//        WordDictionary wordDictionary = new WordDictionary();
+//        wordDictionary.addWord(&quot;123&quot;);
+//        ;
+//        System.out.println(wordDictionary.search(&quot;.3&quot;));
+//    }
+}
+
+/**
+ * Your WordDictionary object will be instantiated and called as such:
+ * WordDictionary obj = new WordDictionary();
+ * obj.addWord(word);
+ * boolean param_2 = obj.search(word);
+ */
+</code></pre>
+        
+
+        
+            <div class="full-width auto-padding tags">
+                
+                    <a href="/tags/leetcode-Trie/"><i class="fas fa-tag fa-fw"></i>&nbsp;leetcode Trie</a>
+                
+            </div>
+        
+    </section>
+</article>
+
+        </div>
+    
+        <div class="post-wrapper">
+            <article class="post reveal ">
+    <section class="meta">
+        <h2 class="title">
             <a href="/2018/12/16/递归入门/">
                 
                     递归入门
@@ -1241,72 +1358,6 @@ public boolean startsWith(String prefix) {
         
         
 
-        
-    </section>
-</article>
-
-        </div>
-    
-        <div class="post-wrapper">
-            <article class="post reveal ">
-    <section class="meta">
-        <h2 class="title">
-            <a href="/2018/12/14/数据结构-数组/">
-                
-                    数据结构--数组
-                
-            </a>
-        </h2>
-        <time class="time">
-            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2018-12-14
-        </time>
-        
-
-    </section>
-
-    <section class="article typo">
-        
-        
-
-        
-            <div class="full-width auto-padding tags">
-                
-                    <a href="/tags/数据结构/"><i class="fas fa-tag fa-fw"></i>&nbsp;数据结构</a>
-                
-            </div>
-        
-    </section>
-</article>
-
-        </div>
-    
-        <div class="post-wrapper">
-            <article class="post reveal ">
-    <section class="meta">
-        <h2 class="title">
-            <a href="/2018/12/14/数据结构-栈/">
-                
-                    数据结构--数组
-                
-            </a>
-        </h2>
-        <time class="time">
-            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2018-12-14
-        </time>
-        
-
-    </section>
-
-    <section class="article typo">
-        
-        
-
-        
-            <div class="full-width auto-padding tags">
-                
-                    <a href="/tags/数据结构/"><i class="fas fa-tag fa-fw"></i>&nbsp;数据结构</a>
-                
-            </div>
         
     </section>
 </article>
@@ -1411,9 +1462,9 @@ public boolean startsWith(String prefix) {
             <article class="post reveal ">
     <section class="meta">
         <h2 class="title">
-            <a href="/2018/12/14/数据结构-目录/">
+            <a href="/2018/12/14/数据结构-数组/">
                 
-                    数据结构目录
+                    数据结构--数组
                 
             </a>
         </h2>
@@ -1425,26 +1476,48 @@ public boolean startsWith(String prefix) {
     </section>
 
     <section class="article typo">
-        <h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><table>
-<thead>
-<tr>
-<th>数据结构</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://jzygaga.github.io/2018/12/14/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%95%B0%E7%BB%84/">数组</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="http://coding.net" target="_blank" rel="noopener">超强大的云开发平台Coding</a></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-
+        
         
 
+        
+            <div class="full-width auto-padding tags">
+                
+                    <a href="/tags/数据结构/"><i class="fas fa-tag fa-fw"></i>&nbsp;数据结构</a>
+                
+            </div>
+        
+    </section>
+</article>
+
+        </div>
+    
+        <div class="post-wrapper">
+            <article class="post reveal ">
+    <section class="meta">
+        <h2 class="title">
+            <a href="/2018/12/14/数据结构-栈/">
+                
+                    数据结构--数组
+                
+            </a>
+        </h2>
+        <time class="time">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2018-12-14
+        </time>
+        
+
+    </section>
+
+    <section class="article typo">
+        
+        
+
+        
+            <div class="full-width auto-padding tags">
+                
+                    <a href="/tags/数据结构/"><i class="fas fa-tag fa-fw"></i>&nbsp;数据结构</a>
+                
+            </div>
         
     </section>
 </article>
@@ -1537,7 +1610,7 @@ public boolean startsWith(String prefix) {
             <div><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;标签</div>
         </header>
         <div class="content pure">
-            <a href="/tags/leetcode-Trie/" style="font-size: 19px; color: #777">leetcode Trie</a> <a href="/tags/多线程-，线程/" style="font-size: 14px; color: #999">多线程 ，线程</a> <a href="/tags/数据结构/" style="font-size: 24px; color: #555">数据结构</a> <a href="/tags/蓝桥杯/" style="font-size: 19px; color: #777">蓝桥杯</a> <a href="/tags/项目/" style="font-size: 14px; color: #999">项目</a>
+            <a href="/tags/lamda/" style="font-size: 14px; color: #999">lamda</a> <a href="/tags/leetcode-Trie/" style="font-size: 19px; color: #777">leetcode Trie</a> <a href="/tags/多线程-，线程/" style="font-size: 14px; color: #999">多线程 ，线程</a> <a href="/tags/数据结构/" style="font-size: 24px; color: #555">数据结构</a> <a href="/tags/蓝桥杯/" style="font-size: 19px; color: #777">蓝桥杯</a> <a href="/tags/项目/" style="font-size: 14px; color: #999">项目</a>
         </div>
     </section>
 
