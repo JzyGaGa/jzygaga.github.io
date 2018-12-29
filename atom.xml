@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jzygaga.github.io/"/>
-  <updated>2018-12-22T03:48:20.900Z</updated>
+  <updated>2018-12-29T06:25:43.329Z</updated>
   <id>https://jzygaga.github.io/</id>
   
   <author>
@@ -21,11 +21,13 @@
     <link href="https://jzygaga.github.io/2018/12/22/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%B9%B6%E6%9F%A5%E9%9B%86/"/>
     <id>https://jzygaga.github.io/2018/12/22/数据结构-并查集/</id>
     <published>2018-12-22T03:44:56.000Z</published>
-    <updated>2018-12-22T03:48:20.900Z</updated>
+    <updated>2018-12-29T06:25:43.329Z</updated>
     
     <summary type="html">
     
     </summary>
+    
+      <category term="数据结构" scheme="https://jzygaga.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
     
       <category term="数据结构" scheme="https://jzygaga.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
