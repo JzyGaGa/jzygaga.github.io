@@ -134,33 +134,6 @@
             <article class="post reveal ">
     <section class="meta">
         <h2 class="title">
-            <a href="/2018/12/30/准备编辑的博客/">
-                
-                    准备编辑的博客
-                
-            </a>
-        </h2>
-        <time class="time">
-            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2018-12-30
-        </time>
-        
-
-    </section>
-
-    <section class="article typo">
-        
-        
-
-        
-    </section>
-</article>
-
-        </div>
-    
-        <div class="post-wrapper">
-            <article class="post reveal ">
-    <section class="meta">
-        <h2 class="title">
             <a href="/2018/12/29/lamda/">
                 
                     lamda
@@ -1405,6 +1378,100 @@ public boolean startsWith(String prefix) {
 
     <section class="article typo">
         
+        
+
+        
+            <div class="full-width auto-padding tags">
+                
+                    <a href="/tags/数据结构/"><i class="fas fa-tag fa-fw"></i>&nbsp;数据结构</a>
+                
+            </div>
+        
+    </section>
+</article>
+
+        </div>
+    
+        <div class="post-wrapper">
+            <article class="post reveal ">
+    <section class="meta">
+        <h2 class="title">
+            <a href="/2018/12/14/数据结构-BST/">
+                
+                    数据结构--数组
+                
+            </a>
+        </h2>
+        <time class="time">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2018-12-14
+        </time>
+        
+
+    </section>
+
+    <section class="article typo">
+        <h1 id="二叉搜索树"><a href="#二叉搜索树" class="headerlink" title="二叉搜索树"></a>二叉搜索树</h1><pre><code>    public class BST&lt;E extends Comparable&lt;E&gt;&gt; {
+
+    private class Node {
+        public E e;
+        public Node left, right;
+
+        public Node(E e) {
+            this.e = e;
+            left = null;
+            right = null;
+        }
+    }
+
+    private Node root;
+    private int size;
+
+    public BST(){
+        root = null;
+        size = 0;
+    }
+
+    public int size(){
+        return size;
+    }
+
+    public boolean isEmpty(){
+        return size == 0;
+    }
+
+    // 向二分搜索树中添加新的元素e
+    public void add(E e){
+
+        if(root == null){
+            root = new Node(e);
+            size ++;
+        }
+        else
+            add(root, e);
+    }
+
+    // 向以node为根的二分搜索树中插入元素e，递归算法
+    private void add(Node node, E e){
+        if(e.equals(node.e))
+            return;
+        else if(e.compareTo(node.e) &lt; 0 &amp;&amp; node.left == null){
+            node.left = new Node(e);
+            size ++;
+            return;
+        }
+        else if(e.compareTo(node.e) &gt; 0 &amp;&amp; node.right == null){
+            node.right = new Node(e);
+            size ++;
+            return;
+        }
+
+        if(e.compareTo(node.e) &lt; 0)
+            add(node.left, e);
+        else //e.compareTo(node.e) &gt; 0
+            add(node.right, e);
+    }
+}
+</code></pre>
         
 
         
