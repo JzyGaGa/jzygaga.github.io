@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jzygaga.github.io/"/>
-  <updated>2018-12-29T09:50:11.775Z</updated>
+  <updated>2019-01-01T12:33:44.722Z</updated>
   <id>https://jzygaga.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://jzygaga.github.io/2018/12/29/lamda/"/>
     <id>https://jzygaga.github.io/2018/12/29/lamda/</id>
     <published>2018-12-29T09:07:54.000Z</published>
-    <updated>2018-12-29T09:50:11.775Z</updated>
+    <updated>2019-01-01T12:33:44.722Z</updated>
     
     <content type="html"><![CDATA[<h1 id="JAVA8新特性——Lamda表达式"><a href="#JAVA8新特性——Lamda表达式" class="headerlink" title="JAVA8新特性——Lamda表达式"></a>JAVA8新特性——Lamda表达式</h1><h2 id="Lamda表达式，读作λ表达式，它实质属于函数式编程的概念，要理解函数式编程的产生目的，就要先理解匿名内部类。"><a href="#Lamda表达式，读作λ表达式，它实质属于函数式编程的概念，要理解函数式编程的产生目的，就要先理解匿名内部类。" class="headerlink" title="Lamda表达式，读作λ表达式，它实质属于函数式编程的概念，要理解函数式编程的产生目的，就要先理解匿名内部类。"></a>Lamda表达式，读作λ表达式，它实质属于函数式编程的概念，要理解函数式编程的产生目的，就要先理解匿名内部类。</h2><ul><li><p>先来看看传统的匿名内部类调用方式:</p><pre><code>interface MyInterface{    void lMethod();}public class Main {    public static void test(MyInterface myInterface){        myInterface.lMethod();    }    public static void main(String[] args) {        test(new MyInterface() {            @Override            public void lMethod() {                System.out.println(&quot;Hello World!&quot;);            }        });    }}</code></pre><p>　在主类中的这么几行代码，嵌套几层就为了输出一个Hello World！是不是很麻烦？但是由于java结构的完整性，我们还不得不那么做，现在JDK1.8来了。</p></li><li><p>再来看看使用Lamda表达式改写上面的代码：</p><pre><code> interface Myinterface{    void IMethod(); }public class Main {    public static void test(Myinterface myinterface){        myinterface.IMethod();    }    public static void main(String[] args) {        test(()-&gt; System.out.println(&quot;666&quot;));    }}</code></pre><p>这就是Lamda表达式语言，为了解决匿名内部类繁杂的操作而出现。</p></li><li><p>Lamda语法有三种形式：</p><ol><li>(参数) -&gt;单行语句；</li><li>(参数) -&gt;{多行语句}；</li><li><p>(参数) -&gt;表达式；<br>括号（）可以大致理解为就是方法，里面是参数变量，在上面的例子中()-&gt;System.out.println(“Hello World!”) 前面的()代表void lMethod()方法，它没有入参，所以为空，-&gt;后面是一个单行语句；<br>如果-&gt;后面是多行语句，需要用{ }装起来，每条语句后需要有分号;<br>-&gt;后面也可以是一个表达式，如：a+b等。</p><ul><li><p>(参数) -&gt;单行语句；</p><pre><code> interface MyInterface{    void lMethod(String str);}public class Main {    public static void test(MyInterface myInterface){        myInterface.lMethod(&quot;Hello World!&quot;);//设置参数内容    }    public static void main(String[] args) {        //首先在()中定义此表达式里面需要接收变量s，后面的单行语句中就可以使用该变量了        test((s)-&gt;System.out.println(s));    }}</code></pre></li><li><p>(参数) -&gt;多行语句；</p><pre><code> interface Myinterface{    void IMethod(String str); }public class Main {    public static void test(Myinterface myinterface){        myinterface.IMethod(&quot;hello word&quot;);    }    public static void main(String[] args) {        test((s)-&gt; {            s=s+s;            System.out.println(s);        });    }}</code></pre><p>　这样，Lamda表达式就看起来很简单了，有不有！</p></li></ul></li></ol></li></ul><p>　　匿名内部类，我们比较常用的地方在哪儿？线程类Thread，以前我们可能这样写：</p><h2 id="总结：利用Lamda表达式是为了避免匿名内部类定义过多无用的操作。"><a href="#总结：利用Lamda表达式是为了避免匿名内部类定义过多无用的操作。" class="headerlink" title="总结：利用Lamda表达式是为了避免匿名内部类定义过多无用的操作。"></a>总结：利用Lamda表达式是为了避免匿名内部类定义过多无用的操作。</h2>]]></content>
     
@@ -33,6 +33,8 @@
       
     
     </summary>
+    
+      <category term="java" scheme="https://jzygaga.github.io/categories/java/"/>
     
     
       <category term="lamda" scheme="https://jzygaga.github.io/tags/lamda/"/>
@@ -158,6 +160,22 @@
   
   <entry>
     <title>数据结构--数组</title>
+    <link href="https://jzygaga.github.io/2018/12/14/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%95%B0%E7%BB%84/"/>
+    <id>https://jzygaga.github.io/2018/12/14/数据结构-数组/</id>
+    <published>2018-12-14T15:16:31.000Z</published>
+    <updated>2018-12-14T15:17:28.698Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="数据结构" scheme="https://jzygaga.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据结构--数组</title>
     <link href="https://jzygaga.github.io/2018/12/14/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-BST/"/>
     <id>https://jzygaga.github.io/2018/12/14/数据结构-BST/</id>
     <published>2018-12-14T15:16:31.000Z</published>
@@ -171,22 +189,6 @@
       
         &lt;h1 id=&quot;二叉搜索树&quot;&gt;&lt;a href=&quot;#二叉搜索树&quot; class=&quot;headerlink&quot; title=&quot;二叉搜索树&quot;&gt;&lt;/a&gt;二叉搜索树&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;    public class BST&amp;lt;E extends Comparable&amp;lt;E&amp;
       
-    
-    </summary>
-    
-    
-      <category term="数据结构" scheme="https://jzygaga.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据结构--数组</title>
-    <link href="https://jzygaga.github.io/2018/12/14/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%95%B0%E7%BB%84/"/>
-    <id>https://jzygaga.github.io/2018/12/14/数据结构-数组/</id>
-    <published>2018-12-14T15:16:31.000Z</published>
-    <updated>2018-12-14T15:17:28.698Z</updated>
-    
-    <summary type="html">
     
     </summary>
     
