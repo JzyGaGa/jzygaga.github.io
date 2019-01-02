@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <title>Tag: 代理模式 | 飞翔的傻瓜</title>
+  <title>哈希表 | 飞翔的傻瓜</title>
   
   <meta name="keywords" content="编程">
   
@@ -126,55 +126,262 @@
     <div class="l_body">
     <div class='container clearfix'>
         <div class='l_main'>
-            
-    <script>
-        window.subData= { title:'标签 : 代理模式'}
-    </script>
-
-
-<section class="post-list">
-    
-        <div class="post-wrapper">
-            <article class="post reveal ">
+            <article id="post-数据结构-哈希表" class="post white-box article-type-post" itemscope="" itemprop="blogPost">
     <section class="meta">
-        <h2 class="title">
-            <a href="/2019/01/01/设计模式-代理模式/">
-                
-                    工厂模式
-                
-            </a>
-        </h2>
+        
+            <h1 class="title">哈希表</h1>
+        
         <time class="time">
-            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2019-01-01
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+            2018-12-30
         </time>
+        
+          <div class="browse busuanzi"><i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+            <span id="busuanzi_value_page_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+          </div>
+        
+
         
     
     <div class="cats">
         <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-        <a class="categories" href="/categories/设计模式/">设计模式</a>
+        <a class="categories" href="/categories/数据结构/">数据结构</a>
     </div>
 
 
     </section>
 
     <section class="article typo">
-        
-        
+
+        <div class="article-entry" itemprop="articleBody">
+            <h1 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h1><h2 id="导学"><a href="#导学" class="headerlink" title="导学"></a>导学</h2><h3 id="例子：387-First-Unique-Character-in-a-String"><a href="#例子：387-First-Unique-Character-in-a-String" class="headerlink" title="例子：387. First Unique Character in a String"></a>例子：387. First Unique Character in a String</h3><p><strong><br>Given a string, find the first non-repeating character in it and return it’s index. If it doesn’t exist, return -1.</strong></p>
+<pre><code>Examples:
+
+s = &quot;leetcode&quot;
+return 0.
+
+s = &quot;loveleetcode&quot;,
+return 2.
+</code></pre><p><strong>代码</strong></p>
+<pre><code>class Solution {
+public int firstUniqChar(String s) {
+
+    int[] arr=new int[26];
+    for(int i=0;i&lt;s.length();i++){
+        arr[s.charAt(i)-&apos;a&apos;]++;
+    }
+    for(int i=0;i&lt;s.length();i++){
+        if(arr[s.charAt(i)-&apos;a&apos;]==1)
+            return i;
+    }
+    return -1;
+}
+}
+</code></pre><h2 id="什么是哈希表"><a href="#什么是哈希表" class="headerlink" title="什么是哈希表"></a>什么是哈希表</h2><ul>
+<li>对于我们所关注的内容，比如例子中的字符串，我们建立字符串与我们想要得到值之间的索引的数据结构，我们称之为哈希表。</li>
+<li>对于转换的过程我们称之为哈希函数。f(ch)=ch-‘a’;<ul>
+<li>哈希函数就是把’键’转换成’索引’，如果不同的健对应相同值称之为哈希冲突。</li>
+</ul>
+</li>
+<li>学习哈希表主要解决的问题：<ul>
+<li>把键转换成索引</li>
+<li>解决哈希冲突</li>
+</ul>
+</li>
+<li>哈希表充分体现了算法设计思想：空间换时间。</li>
+<li>通过健得到索引分越均匀越好。</li>
+</ul>
+<h2 id="哈希函数的设计"><a href="#哈希函数的设计" class="headerlink" title="哈希函数的设计"></a>哈希函数的设计</h2><ul>
+<li>对于整型<ul>
+<li>小范围的正整数正常使用</li>
+<li>小范围的负整数进行偏移 -100~100-0~200</li>
+<li>大整数 比如身份证号码<br><code>110108198512166666</code> 选择模一个素数。</li>
+</ul>
+</li>
+<li>浮点型转换成整型<br>  <img src="https://i.imgur.com/yEOX2mI.png" alt=""></li>
+<li>字符串 转成整型处理<ul>
+<li>166 1<em>100+6</em>10+6*1</li>
+<li>code c<em>26^3+o</em>26^2+d<em>26^1+e</em>26^0;</li>
+<li>hash(code)=(c<em>B^3+o</em>B^2+d<em>B^1+e</em>B^0)%M;<br><img src="https://i.imgur.com/8fAdQtg.png" alt=""></li>
+</ul>
+</li>
+<li>设计哈希函数的原则：<ul>
+<li>一致性：如果a==b,则hash(a)==hash(b)</li>
+<li>高效性：计算高校便捷</li>
+<li>均匀性：哈希值均匀分布</li>
+</ul>
+</li>
+</ul>
+<h2 id="java中的hashcode"><a href="#java中的hashcode" class="headerlink" title="java中的hashcode"></a>java中的hashcode</h2><pre><code>package Hashtable;
+
+public class Student {
+    private int grade;
+    private int cls;
+    private String firstName;
+    private String lastName;
+
+    public Student(int grade, int cls, String firstName, String lastName) {
+        this.grade = grade;
+        this.cls = cls;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    @Override
+    public int hashCode() {
+        int B=31;
+        int hash=0;
+        hash=hash*B+grade;
+        hash=hash*B+cls;
+        //不区分大小写。。
+        hash=hash*B+firstName.hashCode();
+        hash=hash*B+lastName.hashCode();
+        return hash;
+    }
+
+}
+</code></pre><h2 id="java中解决hashcode的方法-Seperate-Chaining"><a href="#java中解决hashcode的方法-Seperate-Chaining" class="headerlink" title="java中解决hashcode的方法 Seperate    Chaining"></a>java中解决hashcode的方法 Seperate    Chaining</h2><ul>
+<li>(hashCode(k1)&amp;0x7fffffff)%M 根据hash值就算出索引</li>
+<li><p>如果产生冲突了，就在后面添加一个，就相当于每个索引后面接一个链表，但是我们为了优化访问的速度，可以接一个红黑树。<br><img src="https://i.imgur.com/WKkYGA6.png" alt=""></p>
+<ul>
+<li>k2-&gt;k3相当于一个查找表。所以hashMap就相当于treemap的数组，HashSet相当于treeSet数组。</li>
+</ul>
+</li>
+<li><p><strong>在java8之前每一个位置对应一个链表，java8之后一开始一个位置对应一个链表，当哈希冲突达到一定程度每一个位置从链表变成红黑树，在数量小的时候红黑树会进行反转等操作。</strong></p>
+</li>
+</ul>
+
+        </div>
+
+        <section class="meta">
+            <time class="time" itemprop="dateUpdated" datetime="2019-01-02T15:48:35+08:00" content="2019-01-02">
+                <i class="fas fa-pen fa-fw" aria-hidden="true"></i>
+                本文最后更新于：2019-01-02
+            </time>
+            
+                
+                <div class="tags">
+                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
+                    <a class="tag" href="/tags/哈希表/">哈希表</a>
+                </div>
+            
+        </section>
 
         
-            <div class="full-width auto-padding tags">
+            <div class="prev-next">
                 
-                    <a href="/tags/代理模式/"><i class="fas fa-tag fa-fw"></i>&nbsp;代理模式</a>
+                    <section class="prev">
+                        <span class="art-item-left">
+                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一篇</h6>
+                            <h4>
+                                <a href="/2019/01/01/计算机网络/" rel="prev" title="计算机网络基础">
+                                  
+                                      计算机网络基础
+                                  
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
+                                    <a class="tag" href="/tags/计算机网络/">计算机网络</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>下一篇&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2018/12/29/java-lamda/" rel="prev" title="lamda">
+                                    
+                                        lamda
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
+                                    <a class="tag" href="/tags/lamda/">lamda</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
                 
             </div>
         
+
     </section>
+
 </article>
 
-        </div>
-    
-</section>
+<br>
 
+<!-- 显示推荐文章和评论 -->
+
+    <article class="post white-box comments">
+        <section class="article typo">
+
+            
+                
+
+    <div class="recommended_posts">
+        <h4><i class="fas fa-bookmark fa-fw" aria-hidden="true"></i>&nbsp;你可能感兴趣的文章</h4>
+        <ul>
+            
+                <li><a href="https://jzygaga.github.io/2019/01/01/数据结构-红黑树/">红黑树</a></li>
+            
+                <li><a href="https://jzygaga.github.io/2019/01/01/计算机网络/">计算机网络基础</a></li>
+            
+                <li><a href="https://jzygaga.github.io/2018/12/29/java-lamda/">lamda</a></li>
+            
+                <li><a href="https://jzygaga.github.io/2018/12/22/数据结构-并查集/">并查集</a></li>
+            
+                <li><a href="https://jzygaga.github.io/2018/12/20/leetcode-208. Implement Trie (Prefix Tree) - 副本/">leetcode</a></li>
+            
+        </ul>
+    </div>
+
+
+            
+
+            
+
+                
+
+                
+
+                
+                    
+                        <h4><i class="fas fa-comments fa-fw" aria-hidden="true"></i>&nbsp;Valine评论</h4>
+                        <div class="subtitle">
+                          <h6><b>文明评论，请勿灌水。</b>为了便于区分和接收回复提醒，请您在留言时填写一下<b>昵称</b>和<b>邮箱</b>。
+                          不定期清理没有昵称和灌水的评论。</h6>
+                        <div>
+                        <section id="comments">
+                            <div id="valine_container" class="valine_thread">
+                                <i class="fas fa-spinner fa-spin fa-fw"></i>
+                            </div>
+                        </section>
+                        <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+                        <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+                    
+                
+            
+
+        </div></div></section>
+    </article>
+
+
+<script>
+    window.subData = {
+        title: '哈希表',
+        tools: true
+    }
+</script>
 
 
         </div>
@@ -260,6 +467,16 @@
     
     
         
+    <section class="m_widget toc-wrapper">
+        <header class="header pure">
+            <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;目录</div>
+            <div class="wrapper"><a class="s-toc rightBtn" title="固定到顶部" target="_blank" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
+        </header>
+        <div class="content pure">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#哈希表"><span class="toc-text">哈希表</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#导学"><span class="toc-text">导学</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#例子：387-First-Unique-Character-in-a-String"><span class="toc-text">例子：387. First Unique Character in a String</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是哈希表"><span class="toc-text">什么是哈希表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#哈希函数的设计"><span class="toc-text">哈希函数的设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#java中的hashcode"><span class="toc-text">java中的hashcode</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#java中解决hashcode的方法-Seperate-Chaining"><span class="toc-text">java中解决hashcode的方法 Seperate    Chaining</span></a></li></ol></li></ol>
+        </div>
+    </section>
+
 
     
     
@@ -360,6 +577,35 @@
 <script src="/js/search.js"></script>
 <script src="/js/app.js"></script>
 
+
+    
+    
+    
+        
+            <script>
+            var GUEST_INFO = ['nick','mail','link'];
+            var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+                return GUEST_INFO.indexOf(item) > -1
+            });
+            var notify = 'false' == true;
+            var verify = 'false' == true;
+            var valine = new Valine();
+            valine.init({
+                el: '#valine_container',
+                notify: notify,
+                verify: verify,
+                guest_info: guest_info,
+                appId: "i7VcgTiF1E2LyY1zYibTBq3R-gzGzoHsz",
+                appKey: "JlhogVnhG1tHjHlAnROj11Fl",
+                placeholder: "快来评论吧~",
+                pageSize:'10',
+                avatar:'mp',
+                lang:'zh-cn',
+                highlight:''
+            })
+            </script>
+        
+    
 
 
 
