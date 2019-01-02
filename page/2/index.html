@@ -134,85 +134,6 @@
             <article class="post reveal ">
     <section class="meta">
         <h2 class="title">
-            <a href="/2018/12/05/basic12/">
-                
-                    我滴妈
-                
-            </a>
-        </h2>
-        <time class="time">
-            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2018-12-05
-        </time>
-        
-
-    </section>
-
-    <section class="article typo">
-        <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>123321是一个非常特殊的数，它从左边读和从右边读是一样的。<br>　　输入一个正整数n， 编程求所有这样的五位和六位十进制数，满足各位数字之和等于n 。</p>
-<h1 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h1><p>　　输入一行，包含一个正整数n。</p>
-<h1 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h1><p>　　按从小到大的顺序输出满足条件的整数，每个整数占一行。</p>
-<p>说明：在本题中，答案是要求Fn除以10007的余数，因此我们只要能算出这个余数即可，而不需要先计算出Fn的准确值，再将计算的结果除以10007取余数，直接计算余数往往比先算出原数再取余简单。<br>    package algorithm.Lanqiao.基础练习;</p>
-<pre><code>import java.util.Scanner;
-
-public class base9 {
-public static void main(String[] args) {
-    int n;
-    Scanner in = new Scanner(System.in);
-    n = in.nextInt();
-    in.close();
-    //5位的
-    for (int i = 1; i &lt; 10; i++) {
-        for (int j = 0; j &lt; 10; j++) {
-            for (int k = 0; k &lt; 10; k++) {
-                if (i * 2 + j * 2 + k == n) {
-                    System.out.print(i);
-                    System.out.print(j);
-                    System.out.print(k);
-                    System.out.print(j);
-                    System.out.print(i);
-                    System.out.println();
-                }
-            }
-        }
-
-    }
-    //6位的
-    for (int i = 1; i &lt; 10; i++) {
-        for (int j = 0; j &lt; 10; j++) {
-            for (int k = 0; k &lt; 10; k++) {
-                if (i * 2 + j * 2 + k * 2 == n) {
-                    System.out.print(i);
-                    System.out.print(j);
-                    System.out.print(k);
-                    System.out.print(k);
-                    System.out.print(j);
-                    System.out.print(i);
-                    System.out.println();
-                }
-            }
-        }
-
-    }
-}
-</code></pre>
-        
-
-        
-            <div class="full-width auto-padding tags">
-                
-                    <a href="/tags/蓝桥杯/"><i class="fas fa-tag fa-fw"></i>&nbsp;蓝桥杯</a>
-                
-            </div>
-        
-    </section>
-</article>
-
-        </div>
-    
-        <div class="post-wrapper">
-            <article class="post reveal ">
-    <section class="meta">
-        <h2 class="title">
             <a href="/2018/12/05/蓝桥被入门题第一题/">
                 
                     我滴妈
@@ -399,8 +320,6 @@ public class Main {
         
             <ul class="entry">
                 
-                    <li><a class="flat-box" href="/categories/dataStuct/"><div class="name">dataStuct</div><div class="badge">2</div></a></li>
-                
                     <li><a class="flat-box" href="/categories/java/"><div class="name">java</div><div class="badge">1</div></a></li>
                 
                     <li><a class="flat-box" href="/categories/leetcode/"><div class="name">leetcode</div><div class="badge">1</div></a></li>
@@ -420,7 +339,7 @@ public class Main {
             <div><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;标签</div>
         </header>
         <div class="content pure">
-            <a href="/tags/AVL树/" style="font-size: 14px; color: #999">AVL树</a> <a href="/tags/Trie/" style="font-size: 14px; color: #999">Trie</a> <a href="/tags/lamda/" style="font-size: 14px; color: #999">lamda</a> <a href="/tags/leetcode-Trie/" style="font-size: 14px; color: #999">leetcode Trie</a> <a href="/tags/代理模式/" style="font-size: 14px; color: #999">代理模式</a> <a href="/tags/多线程/" style="font-size: 14px; color: #999">多线程</a> <a href="/tags/工厂模式/" style="font-size: 14px; color: #999">工厂模式</a> <a href="/tags/红黑树/" style="font-size: 14px; color: #999">红黑树</a> <a href="/tags/蓝桥杯/" style="font-size: 24px; color: #555">蓝桥杯</a> <a href="/tags/项目/" style="font-size: 14px; color: #999">项目</a>
+            <a href="/tags/Trie/" style="font-size: 14px; color: #999">Trie</a> <a href="/tags/lamda/" style="font-size: 14px; color: #999">lamda</a> <a href="/tags/leetcode-Trie/" style="font-size: 14px; color: #999">leetcode Trie</a> <a href="/tags/代理模式/" style="font-size: 14px; color: #999">代理模式</a> <a href="/tags/多线程/" style="font-size: 14px; color: #999">多线程</a> <a href="/tags/工厂模式/" style="font-size: 14px; color: #999">工厂模式</a> <a href="/tags/蓝桥杯/" style="font-size: 24px; color: #555">蓝桥杯</a> <a href="/tags/项目/" style="font-size: 14px; color: #999">项目</a>
         </div>
     </section>
 
