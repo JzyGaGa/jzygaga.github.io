@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <title>Archives: 2018/12 | 飞翔的傻瓜</title>
+  <title>Tag: 工厂模式 | 飞翔的傻瓜</title>
   
   <meta name="keywords" content="编程">
   
@@ -127,9 +127,8 @@
     <div class='container clearfix'>
         <div class='l_main'>
             
-	
     <script>
-        window.subData= { title:'year : 2018.12'}
+        window.subData= { title:'标签 : 工厂模式'}
     </script>
 
 
@@ -139,230 +138,35 @@
             <article class="post reveal ">
     <section class="meta">
         <h2 class="title">
-            <a href="/2018/12/05/capon/">
+            <a href="/2019/01/01/设计模式-工产模式/">
                 
-                    capon
+                    工厂模式
                 
             </a>
         </h2>
         <time class="time">
-            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2018-12-05
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2019-01-01
         </time>
         
+    
+    <div class="cats">
+        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+        <a class="categories" href="/categories/设计模式/">设计模式</a>
+    </div>
+
 
     </section>
 
     <section class="article typo">
-        <p>哒哒哒哒哒哒所多fdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa哒哒哒哒哒哒所多fdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa哒哒哒哒哒哒所多fdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa哒哒哒哒哒哒所多fdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa哒哒哒哒哒哒所多fdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa哒哒哒哒哒哒所多fdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa哒哒哒哒哒哒所多fdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa哒哒哒哒哒哒所多fdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa哒哒哒哒哒哒所多fdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa哒哒哒哒哒哒所多fdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa哒哒哒哒哒哒所多fdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa哒哒哒哒哒哒所多fdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa哒哒哒哒哒哒所多fdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa哒哒哒哒哒哒所多fdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa哒哒哒哒哒哒所多fdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa哒哒哒哒哒哒所多fdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa哒哒哒哒哒哒所多fdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa哒哒哒哒哒哒所多fdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa哒哒哒哒哒哒所多fdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa哒哒哒哒哒哒所多fdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
-
+        
         
 
         
             <div class="full-width auto-padding tags">
                 
-                    <a href="/tags/项目/"><i class="fas fa-tag fa-fw"></i>&nbsp;项目</a>
+                    <a href="/tags/工厂模式/"><i class="fas fa-tag fa-fw"></i>&nbsp;工厂模式</a>
                 
             </div>
-        
-    </section>
-</article>
-
-        </div>
-    
-        <div class="post-wrapper">
-            <article class="post reveal ">
-    <section class="meta">
-        <h2 class="title">
-            <a href="/2018/12/05/basic12/">
-                
-                    我滴妈
-                
-            </a>
-        </h2>
-        <time class="time">
-            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2018-12-05
-        </time>
-        
-
-    </section>
-
-    <section class="article typo">
-        <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>123321是一个非常特殊的数，它从左边读和从右边读是一样的。<br>　　输入一个正整数n， 编程求所有这样的五位和六位十进制数，满足各位数字之和等于n 。</p>
-<h1 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h1><p>　　输入一行，包含一个正整数n。</p>
-<h1 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h1><p>　　按从小到大的顺序输出满足条件的整数，每个整数占一行。</p>
-<p>说明：在本题中，答案是要求Fn除以10007的余数，因此我们只要能算出这个余数即可，而不需要先计算出Fn的准确值，再将计算的结果除以10007取余数，直接计算余数往往比先算出原数再取余简单。<br>    package algorithm.Lanqiao.基础练习;</p>
-<pre><code>import java.util.Scanner;
-
-public class base9 {
-public static void main(String[] args) {
-    int n;
-    Scanner in = new Scanner(System.in);
-    n = in.nextInt();
-    in.close();
-    //5位的
-    for (int i = 1; i &lt; 10; i++) {
-        for (int j = 0; j &lt; 10; j++) {
-            for (int k = 0; k &lt; 10; k++) {
-                if (i * 2 + j * 2 + k == n) {
-                    System.out.print(i);
-                    System.out.print(j);
-                    System.out.print(k);
-                    System.out.print(j);
-                    System.out.print(i);
-                    System.out.println();
-                }
-            }
-        }
-
-    }
-    //6位的
-    for (int i = 1; i &lt; 10; i++) {
-        for (int j = 0; j &lt; 10; j++) {
-            for (int k = 0; k &lt; 10; k++) {
-                if (i * 2 + j * 2 + k * 2 == n) {
-                    System.out.print(i);
-                    System.out.print(j);
-                    System.out.print(k);
-                    System.out.print(k);
-                    System.out.print(j);
-                    System.out.print(i);
-                    System.out.println();
-                }
-            }
-        }
-
-    }
-}
-</code></pre>
-        
-
-        
-            <div class="full-width auto-padding tags">
-                
-                    <a href="/tags/蓝桥杯/"><i class="fas fa-tag fa-fw"></i>&nbsp;蓝桥杯</a>
-                
-            </div>
-        
-    </section>
-</article>
-
-        </div>
-    
-        <div class="post-wrapper">
-            <article class="post reveal ">
-    <section class="meta">
-        <h2 class="title">
-            <a href="/2018/12/05/蓝桥被入门题第一题/">
-                
-                    我滴妈
-                
-            </a>
-        </h2>
-        <time class="time">
-            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2018-12-05
-        </time>
-        
-
-    </section>
-
-    <section class="article typo">
-        <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>Fibonacci数列的递推公式为：Fn=Fn-1+Fn-2，其中F1=F2=1。</p>
-<p>当n比较大时，Fn也非常大，现在我们想知道，Fn除以10007的余数是多少。</p>
-<h1 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h1><p>输入包含一个整数n。</p>
-<h1 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h1><p>输出一行，包含一个整数，表示Fn除以10007的余数。</p>
-<p>说明：在本题中，答案是要求Fn除以10007的余数，因此我们只要能算出这个余数即可，而不需要先计算出Fn的准确值，再将计算的结果除以10007取余数，直接计算余数往往比先算出原数再取余简单。</p>
-<pre><code>package begin4;
-
-import java.util.Scanner;
-
-public class Main {
-
-    public static void main(String[] args) {
-
-        int[] f= new int[1000001];
-        f[1] = f[2] = 1;
-        for (int i = 3; i &lt;= 1000000; i++) {
-            f[i] = (f[i-1] + f[i-2]) % 10007;
-        }
-
-        Scanner in = new Scanner(System.in);
-        System.out.println(f[in.nextInt()]);
-        in.close();
-    }
-
-}
-</code></pre>
-        
-
-        
-            <div class="full-width auto-padding tags">
-                
-                    <a href="/tags/蓝桥杯/"><i class="fas fa-tag fa-fw"></i>&nbsp;蓝桥杯</a>
-                
-            </div>
-        
-    </section>
-</article>
-
-        </div>
-    
-        <div class="post-wrapper">
-            <article class="post reveal ">
-    <section class="meta">
-        <h2 class="title">
-            <a href="/2018/12/05/nihao-exo/">
-                
-                    nihao,exo
-                
-            </a>
-        </h2>
-        <time class="time">
-            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2018-12-05
-        </time>
-        
-
-    </section>
-
-    <section class="article typo">
-        
-        
-
-        
-    </section>
-</article>
-
-        </div>
-    
-        <div class="post-wrapper">
-            <article class="post reveal ">
-    <section class="meta">
-        <h2 class="title">
-            <a href="/2018/12/05/hello-world/">
-                
-                    Hello World
-                
-            </a>
-        </h2>
-        <time class="time">
-            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2018-12-05
-        </time>
-        
-
-    </section>
-
-    <section class="article typo">
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-        
-
         
     </section>
 </article>
@@ -370,27 +174,6 @@ public class Main {
         </div>
     
 </section>
-
-
-    <br>
-    <div class="prev-next">
-        <div class="prev-next">
-            
-                <a class="prev" rel="prev" href="/archives/2018/12/">
-                    <section class="post prev">
-                        <i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页&nbsp;
-                    </section>
-                </a>
-            
-            <p class="current">
-                2 / 2
-            </p>
-            
-
-        </div>
-    </div>
-
-
 
 
 
