@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <title>我滴妈 | 飞翔的傻瓜</title>
+  <title>计算机网络基础 | 飞翔的傻瓜</title>
   
   <meta name="keywords" content="编程">
   
@@ -126,14 +126,14 @@
     <div class="l_body">
     <div class='container clearfix'>
         <div class='l_main'>
-            <article id="post-basic12" class="post white-box article-type-post" itemscope="" itemprop="blogPost">
+            <article id="post-计算机网络" class="post white-box article-type-post" itemscope="" itemprop="blogPost">
     <section class="meta">
         
-            <h1 class="title">我滴妈</h1>
+            <h1 class="title">计算机网络基础</h1>
         
         <time class="time">
             <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-            2018-12-05
+            2019-01-01
         </time>
         
           <div class="browse busuanzi"><i class="fas fa-eye fa-fw" aria-hidden="true"></i>
@@ -142,71 +142,55 @@
         
 
         
+    
+    <div class="cats">
+        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+        <a class="categories" href="/categories/计算机网络/">计算机网络</a>
+    </div>
+
 
     </section>
 
     <section class="article typo">
 
         <div class="article-entry" itemprop="articleBody">
-            <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>123321是一个非常特殊的数，它从左边读和从右边读是一样的。<br>　　输入一个正整数n， 编程求所有这样的五位和六位十进制数，满足各位数字之和等于n 。</p>
-<h1 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h1><p>　　输入一行，包含一个正整数n。</p>
-<h1 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h1><p>　　按从小到大的顺序输出满足条件的整数，每个整数占一行。</p>
-<p>说明：在本题中，答案是要求Fn除以10007的余数，因此我们只要能算出这个余数即可，而不需要先计算出Fn的准确值，再将计算的结果除以10007取余数，直接计算余数往往比先算出原数再取余简单。<br>    package algorithm.Lanqiao.基础练习;</p>
-<pre><code>import java.util.Scanner;
+            <h2 id="计算机网络的分层"><a href="#计算机网络的分层" class="headerlink" title="计算机网络的分层"></a>计算机网络的分层</h2><ul>
+<li>应用层：数据服务那个协议。</li>
+<li>传输层：解决出错重传机制，</li>
+<li>网络层：</li>
+<li>数据链路层：</li>
+<li>物理层：不可靠，不安全。<br><strong><br>发展时代：物理层-&gt;数据链路层-&gt;网络层-&gt;传输层-&gt;应用层，<br>  不可靠，不安全。对数据的检验，数据服务那个协议，出错重传，应用协议。
+</strong><h2 id="网络传输的不可靠"><a href="#网络传输的不可靠" class="headerlink" title="网络传输的不可靠"></a>网络传输的不可靠</h2></li>
+<li>丢包，重复包</li>
+<li>出错</li>
+<li>乱序<h2 id="滑动窗口"><a href="#滑动窗口" class="headerlink" title="滑动窗口"></a>滑动窗口</h2></li>
+<li>问题提出<br><img src="https://i.imgur.com/lxcwUo2.png" alt=""></li>
+<li>改进方案<br><img src="https://i.imgur.com/myI3wuL.png" alt=""></li>
+<li>功能<ul>
+<li>增加吞吐量，提高效率。</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://i.imgur.com/ldNfkuL.png" alt=""></p>
+<p><img src="https://i.imgur.com/oIyB5gf.png" alt=""><br><strong>一直等5的ack接受信号，整个接受5ack信号，接受到5返回整个接受ack信息。比如，未接受到5的ack信息，即使接收到6，7，8，9，10，11也不会发送ack信息</strong><br><img src="https://i.imgur.com/Ev0hBwa.png" alt=""></p>
+<h2 id="wireshark"><a href="#wireshark" class="headerlink" title="wireshark"></a>wireshark</h2><p><img src="https://i.imgur.com/IjZ2S3X.png" alt=""></p>
+<ul>
+<li>Src：IntelCor电脑 Dst:到路由器  链路层</li>
+<li>Src:本机的ip地址 Dst:DNS服务器</li>
+</ul>
 
-public class base9 {
-public static void main(String[] args) {
-    int n;
-    Scanner in = new Scanner(System.in);
-    n = in.nextInt();
-    in.close();
-    //5位的
-    for (int i = 1; i &lt; 10; i++) {
-        for (int j = 0; j &lt; 10; j++) {
-            for (int k = 0; k &lt; 10; k++) {
-                if (i * 2 + j * 2 + k == n) {
-                    System.out.print(i);
-                    System.out.print(j);
-                    System.out.print(k);
-                    System.out.print(j);
-                    System.out.print(i);
-                    System.out.println();
-                }
-            }
-        }
-
-    }
-    //6位的
-    for (int i = 1; i &lt; 10; i++) {
-        for (int j = 0; j &lt; 10; j++) {
-            for (int k = 0; k &lt; 10; k++) {
-                if (i * 2 + j * 2 + k * 2 == n) {
-                    System.out.print(i);
-                    System.out.print(j);
-                    System.out.print(k);
-                    System.out.print(k);
-                    System.out.print(j);
-                    System.out.print(i);
-                    System.out.println();
-                }
-            }
-        }
-
-    }
-}
-</code></pre>
         </div>
 
         <section class="meta">
-            <time class="time" itemprop="dateUpdated" datetime="2018-12-09T02:28:23+08:00" content="2018-12-09">
+            <time class="time" itemprop="dateUpdated" datetime="2019-01-02T14:24:02+08:00" content="2019-01-02">
                 <i class="fas fa-pen fa-fw" aria-hidden="true"></i>
-                本文最后更新于：2018-12-09
+                本文最后更新于：2019-01-02
             </time>
             
                 
                 <div class="tags">
                     <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
-                    <a class="tag" href="/tags/蓝桥杯/">蓝桥杯</a>
+                    <a class="tag" href="/tags/计算机网络/">计算机网络</a>
                 </div>
             
         </section>
@@ -218,9 +202,9 @@ public static void main(String[] args) {
                         <span class="art-item-left">
                             <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一篇</h6>
                             <h4>
-                                <a href="/2018/12/05/capon/" rel="prev" title="capon">
+                                <a href="/2019/01/01/设计模式-工产模式/" rel="prev" title="工厂模式">
                                   
-                                      capon
+                                      工厂模式
                                   
                                 </a>
                             </h4>
@@ -228,7 +212,7 @@ public static void main(String[] args) {
                                 
                                 <h6 class="tags">
                                     <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
-                                    <a class="tag" href="/tags/项目/">项目</a>
+                                    <a class="tag" href="/tags/工厂模式/">工厂模式</a>
                                 </h6>
                             
                         </span>
@@ -239,9 +223,9 @@ public static void main(String[] args) {
                         <span class="art-item-right" aria-hidden="true">
                             <h6>下一篇&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
                             <h4>
-                                <a href="/2018/12/05/蓝桥被入门题第一题/" rel="prev" title="我滴妈">
+                                <a href="/2018/12/29/java-lamda/" rel="prev" title="lamda">
                                     
-                                        我滴妈
+                                        lamda
                                     
                                 </a>
                             </h4>
@@ -249,7 +233,7 @@ public static void main(String[] args) {
                                 
                                 <h6 class="tags">
                                     <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
-                                    <a class="tag" href="/tags/蓝桥杯/">蓝桥杯</a>
+                                    <a class="tag" href="/tags/lamda/">lamda</a>
                                 </h6>
                             
                         </span>
@@ -276,15 +260,15 @@ public static void main(String[] args) {
         <h4><i class="fas fa-bookmark fa-fw" aria-hidden="true"></i>&nbsp;你可能感兴趣的文章</h4>
         <ul>
             
-                <li><a href="https://jzygaga.github.io/2018/12/14/多线程/">多线程</a></li>
+                <li><a href="https://jzygaga.github.io/2019/01/01/数据结构-红黑树/">红黑树</a></li>
             
-                <li><a href="https://jzygaga.github.io/2018/12/05/capon/">capon</a></li>
+                <li><a href="https://jzygaga.github.io/2019/01/01/设计模式-工产模式/">工厂模式</a></li>
             
-                <li><a href="https://jzygaga.github.io/2018/12/05/蓝桥被入门题第一题/">我滴妈</a></li>
+                <li><a href="https://jzygaga.github.io/2018/12/29/java-lamda/">lamda</a></li>
             
-                <li><a href="https://jzygaga.github.io/2018/12/05/nihao-exo/">nihao,exo</a></li>
+                <li><a href="https://jzygaga.github.io/2018/12/20/leetcode-208. Implement Trie (Prefix Tree) - 副本/">leetcode</a></li>
             
-                <li><a href="https://jzygaga.github.io/2018/12/05/hello-world/">Hello World</a></li>
+                <li><a href="https://jzygaga.github.io/2018/12/20/leetcode-211. Add and Search Word - Data structure design/">leetcode</a></li>
             
         </ul>
     </div>
@@ -322,7 +306,7 @@ public static void main(String[] args) {
 
 <script>
     window.subData = {
-        title: '我滴妈',
+        title: '计算机网络基础',
         tools: true
     }
 </script>
@@ -376,11 +360,15 @@ public static void main(String[] args) {
                 
                     <li><a class="flat-box" href="/categories/dataStuct/"><div class="name">dataStuct</div><div class="badge">2</div></a></li>
                 
-                    <li><a class="flat-box" href="/categories/java/"><div class="name">java</div><div class="badge">2</div></a></li>
+                    <li><a class="flat-box" href="/categories/java/"><div class="name">java</div><div class="badge">3</div></a></li>
                 
                     <li><a class="flat-box" href="/categories/leetcode/"><div class="name">leetcode</div><div class="badge">2</div></a></li>
                 
                     <li><a class="flat-box" href="/categories/剑指offer/"><div class="name">剑指offer</div><div class="badge">1</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/蓝桥杯/"><div class="name">蓝桥杯</div><div class="badge">1</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/计算机网络/"><div class="name">计算机网络</div><div class="badge">1</div></a></li>
                 
                     <li><a class="flat-box" href="/categories/设计模式/"><div class="name">设计模式</div><div class="badge">2</div></a></li>
                 
@@ -397,7 +385,7 @@ public static void main(String[] args) {
             <div><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;标签</div>
         </header>
         <div class="content pure">
-            <a href="/tags/AVL树/" style="font-size: 14px; color: #999">AVL树</a> <a href="/tags/Trie/" style="font-size: 24px; color: #555">Trie</a> <a href="/tags/lamda/" style="font-size: 14px; color: #999">lamda</a> <a href="/tags/代理模式/" style="font-size: 14px; color: #999">代理模式</a> <a href="/tags/反射/" style="font-size: 14px; color: #999">反射</a> <a href="/tags/多线程/" style="font-size: 14px; color: #999">多线程</a> <a href="/tags/工厂模式/" style="font-size: 14px; color: #999">工厂模式</a> <a href="/tags/红黑树/" style="font-size: 14px; color: #999">红黑树</a> <a href="/tags/蓝桥杯/" style="font-size: 24px; color: #555">蓝桥杯</a> <a href="/tags/项目/" style="font-size: 14px; color: #999">项目</a>
+            <a href="/tags/AVL树/" style="font-size: 14px; color: #999">AVL树</a> <a href="/tags/Trie/" style="font-size: 24px; color: #555">Trie</a> <a href="/tags/lamda/" style="font-size: 14px; color: #999">lamda</a> <a href="/tags/代理模式/" style="font-size: 14px; color: #999">代理模式</a> <a href="/tags/反射/" style="font-size: 14px; color: #999">反射</a> <a href="/tags/多线程/" style="font-size: 14px; color: #999">多线程</a> <a href="/tags/工厂模式/" style="font-size: 14px; color: #999">工厂模式</a> <a href="/tags/红黑树/" style="font-size: 14px; color: #999">红黑树</a> <a href="/tags/蓝桥杯/" style="font-size: 24px; color: #555">蓝桥杯</a> <a href="/tags/计算机网络/" style="font-size: 14px; color: #999">计算机网络</a>
         </div>
     </section>
 
@@ -411,7 +399,7 @@ public static void main(String[] args) {
             <div class="wrapper"><a class="s-toc rightBtn" title="固定到顶部" target="_blank" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
         </header>
         <div class="content pure">
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#问题描述"><span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#输入格式"><span class="toc-text">输入格式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#输出格式"><span class="toc-text">输出格式</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#计算机网络的分层"><span class="toc-text">计算机网络的分层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络传输的不可靠"><span class="toc-text">网络传输的不可靠</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#滑动窗口"><span class="toc-text">滑动窗口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#wireshark"><span class="toc-text">wireshark</span></a></li></ol>
         </div>
     </section>
 

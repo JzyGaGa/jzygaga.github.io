@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <title>lamda | 飞翔的傻瓜</title>
+  <title>反射 | 飞翔的傻瓜</title>
   
   <meta name="keywords" content="编程">
   
@@ -126,14 +126,14 @@
     <div class="l_body">
     <div class='container clearfix'>
         <div class='l_main'>
-            <article id="post-lamda" class="post white-box article-type-post" itemscope="" itemprop="blogPost">
+            <article id="post-java-反射" class="post white-box article-type-post" itemscope="" itemprop="blogPost">
     <section class="meta">
         
-            <h1 class="title">lamda</h1>
+            <h1 class="title">反射</h1>
         
         <time class="time">
             <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-            2018-12-29
+            2019-01-02
         </time>
         
           <div class="browse busuanzi"><i class="fas fa-eye fa-fw" aria-hidden="true"></i>
@@ -154,103 +154,19 @@
     <section class="article typo">
 
         <div class="article-entry" itemprop="articleBody">
-            <h1 id="JAVA8新特性——Lamda表达式"><a href="#JAVA8新特性——Lamda表达式" class="headerlink" title="JAVA8新特性——Lamda表达式"></a>JAVA8新特性——Lamda表达式</h1><h2 id="Lamda表达式，读作λ表达式，它实质属于函数式编程的概念，要理解函数式编程的产生目的，就要先理解匿名内部类。"><a href="#Lamda表达式，读作λ表达式，它实质属于函数式编程的概念，要理解函数式编程的产生目的，就要先理解匿名内部类。" class="headerlink" title="Lamda表达式，读作λ表达式，它实质属于函数式编程的概念，要理解函数式编程的产生目的，就要先理解匿名内部类。"></a>Lamda表达式，读作λ表达式，它实质属于函数式编程的概念，要理解函数式编程的产生目的，就要先理解匿名内部类。</h2><ul>
-<li><p>先来看看传统的匿名内部类调用方式:</p>
-<pre><code>interface MyInterface{
-
-    void lMethod();
-}
-public class Main {
-
-    public static void test(MyInterface myInterface){
-        myInterface.lMethod();
-    }
-
-    public static void main(String[] args) {
-        test(new MyInterface() {
-            @Override
-            public void lMethod() {
-                System.out.println(&quot;Hello World!&quot;);
-            }
-        });
-    }
-}
-</code></pre><p>　在主类中的这么几行代码，嵌套几层就为了输出一个Hello World！是不是很麻烦？但是由于java结构的完整性，我们还不得不那么做，现在JDK1.8来了。</p>
-</li>
-<li><p>再来看看使用Lamda表达式改写上面的代码：</p>
-<pre><code> interface Myinterface{
-    void IMethod();
- }
-
-public class Main {
-    public static void test(Myinterface myinterface){
-        myinterface.IMethod();
-    }
-    public static void main(String[] args) {
-        test(()-&gt; System.out.println(&quot;666&quot;));
-    }
-}
-</code></pre><p>这就是Lamda表达式语言，为了解决匿名内部类繁杂的操作而出现。</p>
-</li>
-<li><p>Lamda语法有三种形式：</p>
-<ol>
-<li>(参数) -&gt;单行语句；</li>
-<li>(参数) -&gt;{多行语句}；</li>
-<li><p>(参数) -&gt;表达式；<br>括号（）可以大致理解为就是方法，里面是参数变量，在上面的例子中()-&gt;System.out.println(“Hello World!”) 前面的()代表void lMethod()方法，它没有入参，所以为空，-&gt;后面是一个单行语句；<br>如果-&gt;后面是多行语句，需要用{ }装起来，每条语句后需要有分号;<br>-&gt;后面也可以是一个表达式，如：a+b等。</p>
-<ul>
-<li><p>(参数) -&gt;单行语句；</p>
-<pre><code> interface MyInterface{
-
-    void lMethod(String str);
-}
-public class Main {
-
-    public static void test(MyInterface myInterface){
-        myInterface.lMethod(&quot;Hello World!&quot;);//设置参数内容
-    }
-
-    public static void main(String[] args) {
-        //首先在()中定义此表达式里面需要接收变量s，后面的单行语句中就可以使用该变量了
-        test((s)-&gt;System.out.println(s));
-    }
-}
-</code></pre></li>
-<li><p>(参数) -&gt;多行语句；</p>
-<pre><code> interface Myinterface{
-    void IMethod(String str);
- }
-public class Main {
-    public static void test(Myinterface myinterface){
-        myinterface.IMethod(&quot;hello word&quot;);
-    }
-    public static void main(String[] args) {
-        test((s)-&gt; {
-            s=s+s;
-            System.out.println(s);
-        });
-    }
-}
-</code></pre><p>　这样，Lamda表达式就看起来很简单了，有不有！</p>
-</li>
-</ul>
-</li>
-</ol>
-</li>
-</ul>
-<p>　　匿名内部类，我们比较常用的地方在哪儿？线程类Thread，以前我们可能这样写：</p>
-<h2 id="总结：利用Lamda表达式是为了避免匿名内部类定义过多无用的操作。"><a href="#总结：利用Lamda表达式是为了避免匿名内部类定义过多无用的操作。" class="headerlink" title="总结：利用Lamda表达式是为了避免匿名内部类定义过多无用的操作。"></a>总结：利用Lamda表达式是为了避免匿名内部类定义过多无用的操作。</h2>
+            <h2 id="对方的付费"><a href="#对方的付费" class="headerlink" title="对方的付费"></a>对方的付费</h2>
         </div>
 
         <section class="meta">
-            <time class="time" itemprop="dateUpdated" datetime="2019-01-01T20:33:44+08:00" content="2019-01-01">
+            <time class="time" itemprop="dateUpdated" datetime="2019-01-02T14:16:14+08:00" content="2019-01-02">
                 <i class="fas fa-pen fa-fw" aria-hidden="true"></i>
-                本文最后更新于：2019-01-01
+                本文最后更新于：2019-01-02
             </time>
             
                 
                 <div class="tags">
                     <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
-                    <a class="tag" href="/tags/lamda/">lamda</a>
+                    <a class="tag" href="/tags/反射/">反射</a>
                 </div>
             
         </section>
@@ -262,18 +178,12 @@ public class Main {
                         <span class="art-item-left">
                             <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一篇</h6>
                             <h4>
-                                <a href="/2019/01/01/数据结构-红黑树/" rel="prev" title="红黑树">
+                                <a href="/2019/01/02/准备编辑的博客/" rel="prev" title="">
                                   
-                                      红黑树
+                                      2019-01-02
                                   
                                 </a>
                             </h4>
-                            
-                                
-                                <h6 class="tags">
-                                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
-                                    <a class="tag" href="/tags/红黑树/">红黑树</a>
-                                </h6>
                             
                         </span>
                     </section>
@@ -283,9 +193,9 @@ public class Main {
                         <span class="art-item-right" aria-hidden="true">
                             <h6>下一篇&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
                             <h4>
-                                <a href="/2018/12/20/211. Add and Search Word - Data structure design/" rel="prev" title="leetcode">
+                                <a href="/2019/01/01/设计模式-代理模式/" rel="prev" title="工厂模式">
                                     
-                                        leetcode
+                                        工厂模式
                                     
                                 </a>
                             </h4>
@@ -293,7 +203,7 @@ public class Main {
                                 
                                 <h6 class="tags">
                                     <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
-                                    <a class="tag" href="/tags/Trie/">Trie</a>
+                                    <a class="tag" href="/tags/代理模式/">代理模式</a>
                                 </h6>
                             
                         </span>
@@ -320,15 +230,15 @@ public class Main {
         <h4><i class="fas fa-bookmark fa-fw" aria-hidden="true"></i>&nbsp;你可能感兴趣的文章</h4>
         <ul>
             
+                <li><a href="https://jzygaga.github.io/2019/01/02/准备编辑的博客/"></a></li>
+            
+                <li><a href="https://jzygaga.github.io/2019/01/01/设计模式-代理模式/">工厂模式</a></li>
+            
                 <li><a href="https://jzygaga.github.io/2019/01/01/数据结构-AVL树/">AVL树</a></li>
             
                 <li><a href="https://jzygaga.github.io/2019/01/01/数据结构-红黑树/">红黑树</a></li>
             
-                <li><a href="https://jzygaga.github.io/2018/12/20/211. Add and Search Word - Data structure design/">leetcode</a></li>
-            
-                <li><a href="https://jzygaga.github.io/2018/12/20/leetcode-208. Implement Trie (Prefix Tree) - 副本/">leetcode</a></li>
-            
-                <li><a href="https://jzygaga.github.io/2018/12/16/递归入门/">递归入门</a></li>
+                <li><a href="https://jzygaga.github.io/2019/01/01/设计模式-工产模式/">工厂模式</a></li>
             
         </ul>
     </div>
@@ -366,7 +276,7 @@ public class Main {
 
 <script>
     window.subData = {
-        title: 'lamda',
+        title: '反射',
         tools: true
     }
 </script>
@@ -420,11 +330,15 @@ public class Main {
                 
                     <li><a class="flat-box" href="/categories/dataStuct/"><div class="name">dataStuct</div><div class="badge">2</div></a></li>
                 
-                    <li><a class="flat-box" href="/categories/java/"><div class="name">java</div><div class="badge">2</div></a></li>
+                    <li><a class="flat-box" href="/categories/java/"><div class="name">java</div><div class="badge">3</div></a></li>
                 
                     <li><a class="flat-box" href="/categories/leetcode/"><div class="name">leetcode</div><div class="badge">2</div></a></li>
                 
                     <li><a class="flat-box" href="/categories/剑指offer/"><div class="name">剑指offer</div><div class="badge">1</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/蓝桥杯/"><div class="name">蓝桥杯</div><div class="badge">1</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/计算机网络/"><div class="name">计算机网络</div><div class="badge">1</div></a></li>
                 
                     <li><a class="flat-box" href="/categories/设计模式/"><div class="name">设计模式</div><div class="badge">2</div></a></li>
                 
@@ -441,7 +355,7 @@ public class Main {
             <div><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;标签</div>
         </header>
         <div class="content pure">
-            <a href="/tags/AVL树/" style="font-size: 14px; color: #999">AVL树</a> <a href="/tags/Trie/" style="font-size: 24px; color: #555">Trie</a> <a href="/tags/lamda/" style="font-size: 14px; color: #999">lamda</a> <a href="/tags/代理模式/" style="font-size: 14px; color: #999">代理模式</a> <a href="/tags/反射/" style="font-size: 14px; color: #999">反射</a> <a href="/tags/多线程/" style="font-size: 14px; color: #999">多线程</a> <a href="/tags/工厂模式/" style="font-size: 14px; color: #999">工厂模式</a> <a href="/tags/红黑树/" style="font-size: 14px; color: #999">红黑树</a> <a href="/tags/蓝桥杯/" style="font-size: 24px; color: #555">蓝桥杯</a> <a href="/tags/项目/" style="font-size: 14px; color: #999">项目</a>
+            <a href="/tags/AVL树/" style="font-size: 14px; color: #999">AVL树</a> <a href="/tags/Trie/" style="font-size: 24px; color: #555">Trie</a> <a href="/tags/lamda/" style="font-size: 14px; color: #999">lamda</a> <a href="/tags/代理模式/" style="font-size: 14px; color: #999">代理模式</a> <a href="/tags/反射/" style="font-size: 14px; color: #999">反射</a> <a href="/tags/多线程/" style="font-size: 14px; color: #999">多线程</a> <a href="/tags/工厂模式/" style="font-size: 14px; color: #999">工厂模式</a> <a href="/tags/红黑树/" style="font-size: 14px; color: #999">红黑树</a> <a href="/tags/蓝桥杯/" style="font-size: 24px; color: #555">蓝桥杯</a> <a href="/tags/计算机网络/" style="font-size: 14px; color: #999">计算机网络</a>
         </div>
     </section>
 
@@ -455,7 +369,7 @@ public class Main {
             <div class="wrapper"><a class="s-toc rightBtn" title="固定到顶部" target="_blank" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
         </header>
         <div class="content pure">
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JAVA8新特性——Lamda表达式"><span class="toc-text">JAVA8新特性——Lamda表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Lamda表达式，读作λ表达式，它实质属于函数式编程的概念，要理解函数式编程的产生目的，就要先理解匿名内部类。"><span class="toc-text">Lamda表达式，读作λ表达式，它实质属于函数式编程的概念，要理解函数式编程的产生目的，就要先理解匿名内部类。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结：利用Lamda表达式是为了避免匿名内部类定义过多无用的操作。"><span class="toc-text">总结：利用Lamda表达式是为了避免匿名内部类定义过多无用的操作。</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#对方的付费"><span class="toc-text">对方的付费</span></a></li></ol>
         </div>
     </section>
 
