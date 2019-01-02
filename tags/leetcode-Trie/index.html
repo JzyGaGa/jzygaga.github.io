@@ -250,127 +250,6 @@ private boolean recurtionSearch(int i,String str,Node cur) {
 
         </div>
     
-        <div class="post-wrapper">
-            <article class="post reveal ">
-    <section class="meta">
-        <h2 class="title">
-            <a href="/2018/12/20/leetcode-208. Implement Trie (Prefix Tree) - 副本/">
-                
-                    leetcode
-                
-            </a>
-        </h2>
-        <time class="time">
-            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2018-12-20
-        </time>
-        
-
-    </section>
-
-    <section class="article typo">
-        <h1 id="208-Implement-Trie-Prefix-Tree"><a href="#208-Implement-Trie-Prefix-Tree" class="headerlink" title="208. Implement Trie (Prefix Tree)"></a>208. Implement Trie (Prefix Tree)</h1><p><strong> Implement a trie with insert, search, and startsWith methods. 
-</strong> </p>
-<h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>Trie trie = new Trie();<br>trie.insert(“apple”);<br>trie.search(“apple”);   // returns true<br>trie.search(“app”);     // returns false<br>trie.startsWith(“app”); // returns true<br>trie.insert(“app”);<br>trie.search(“app”);     // returns true *</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre><code>class Trie {
-private class Node {
-    public boolean isWord;
-    public TreeMap&lt;Character, Node&gt; next;
-
-    public Node(boolean isWord) {
-        next = new TreeMap&lt;&gt;();
-        this.isWord = isWord;
-    }
-
-    public Node() {
-        this(false);
-    }
-}
-
-private Node root;
-private int size;
-
-/** Initialize your data structure here. */
-public Trie() {
-    root=new Node();
-    size=0;
-}
-
-/** Inserts a word into the trie. */
-public void insert(String word) {
-    Node cur=root;
-        for(int i=0;i&lt;word.length();i++) {
-            char c = word.charAt(i);
-            Node node = cur.next.get(c);
-            if(node==null)
-                cur.next.put(c, new Node());
-            cur=cur.next.get(c);
-        }
-        cur.isWord=true;
-}
-
-/** Returns if the word is in the trie. */
-public boolean search(String word) {
-    Node cur=root;
-        for(int i=0;i&lt;word.length();i++) {
-            char c = word.charAt(i);
-            if(cur.next.get(c)==null) {
-                return false;
-            }
-            cur=cur.next.get(c);
-        }
-    return cur.isWord;
-}
-
-/**
- * Returns if there is any word in the trie that starts with the given prefix.
- */
-public boolean startsWith(String prefix) {
-    Node cur=root;
-    for(int i=0;i&lt;prefix.length();i++) {
-        char c = prefix.charAt(i);
-        if(cur.next.get(c)==null) {
-            return false;
-        }
-        cur=cur.next.get(c);
-    }
-    return true;
-}
-//    public static void main(String[] args) {
-//        String[] arr= {&quot;Trie&quot;,&quot;insert&quot;,&quot;search&quot;,&quot;startWith&quot;,&quot;insert&quot;,&quot;search&quot;};
-//        Trie trie = new Trie();
-//        for(int i=0;i&lt;arr.length;i++)
-//            trie.insert(arr[i]);
-//        System.out.println(trie.startsWith(&quot;tr&quot;));
-//        System.out.println(trie.startsWith(&quot;in&quot;));
-//        System.out.println(trie.startsWith(&quot;sea&quot;));
-//        System.out.println(trie.search(&quot;Trie&quot;));
-//        System.out.println(trie.search(&quot;insert&quot;));
-//        System.out.println(trie.search(&quot;word&quot;));
-//    }
-}
-
-/**
-* Your Trie object will be instantiated and called as such:
-* Trie obj = new Trie();
-* obj.insert(word);
-* boolean param_2 = obj.search(word);
-* boolean param_3 = obj.startsWith(prefix);
-*/
-</code></pre>
-        
-
-        
-            <div class="full-width auto-padding tags">
-                
-                    <a href="/tags/leetcode-Trie/"><i class="fas fa-tag fa-fw"></i>&nbsp;leetcode Trie</a>
-                
-            </div>
-        
-    </section>
-</article>
-
-        </div>
-    
 </section>
 
 
@@ -425,6 +304,8 @@ public boolean startsWith(String prefix) {
                 
                     <li><a class="flat-box" href="/categories/java/"><div class="name">java</div><div class="badge">1</div></a></li>
                 
+                    <li><a class="flat-box" href="/categories/leetcode/"><div class="name">leetcode</div><div class="badge">1</div></a></li>
+                
                     <li><a class="flat-box" href="/categories/设计模式/"><div class="name">设计模式</div><div class="badge">2</div></a></li>
                 
             </ul>
@@ -440,7 +321,7 @@ public boolean startsWith(String prefix) {
             <div><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;标签</div>
         </header>
         <div class="content pure">
-            <a href="/tags/AVL树/" style="font-size: 14px; color: #999">AVL树</a> <a href="/tags/lamda/" style="font-size: 14px; color: #999">lamda</a> <a href="/tags/leetcode-Trie/" style="font-size: 24px; color: #555">leetcode Trie</a> <a href="/tags/代理模式/" style="font-size: 14px; color: #999">代理模式</a> <a href="/tags/多线程/" style="font-size: 14px; color: #999">多线程</a> <a href="/tags/工厂模式/" style="font-size: 14px; color: #999">工厂模式</a> <a href="/tags/红黑树/" style="font-size: 14px; color: #999">红黑树</a> <a href="/tags/蓝桥杯/" style="font-size: 24px; color: #555">蓝桥杯</a> <a href="/tags/项目/" style="font-size: 14px; color: #999">项目</a>
+            <a href="/tags/AVL树/" style="font-size: 14px; color: #999">AVL树</a> <a href="/tags/Trie/" style="font-size: 14px; color: #999">Trie</a> <a href="/tags/lamda/" style="font-size: 14px; color: #999">lamda</a> <a href="/tags/leetcode-Trie/" style="font-size: 14px; color: #999">leetcode Trie</a> <a href="/tags/代理模式/" style="font-size: 14px; color: #999">代理模式</a> <a href="/tags/多线程/" style="font-size: 14px; color: #999">多线程</a> <a href="/tags/工厂模式/" style="font-size: 14px; color: #999">工厂模式</a> <a href="/tags/红黑树/" style="font-size: 14px; color: #999">红黑树</a> <a href="/tags/蓝桥杯/" style="font-size: 24px; color: #555">蓝桥杯</a> <a href="/tags/项目/" style="font-size: 14px; color: #999">项目</a>
         </div>
     </section>
 
