@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jzygaga.github.io/"/>
-  <updated>2019-01-02T05:10:24.762Z</updated>
+  <updated>2019-01-02T05:12:57.705Z</updated>
   <id>https://jzygaga.github.io/</id>
   
   <author>
@@ -18,10 +18,28 @@
   
   <entry>
     <title>工厂模式</title>
-    <link href="https://jzygaga.github.io/2019/01/01/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%B7%A5%E4%BA%A7%E6%A8%A1%E5%BC%8F/"/>
-    <id>https://jzygaga.github.io/2019/01/01/设计模式-工产模式/</id>
+    <link href="https://jzygaga.github.io/2019/01/01/%E5%87%86%E5%A4%87%E7%BC%96%E8%BE%91%E7%9A%84%E5%8D%9A%E5%AE%A2-1/"/>
+    <id>https://jzygaga.github.io/2019/01/01/准备编辑的博客-1/</id>
     <published>2019-01-01T12:53:48.000Z</published>
-    <updated>2019-01-02T05:10:24.762Z</updated>
+    <updated>2019-01-02T05:12:57.705Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="设计模式" scheme="https://jzygaga.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="工厂模式" scheme="https://jzygaga.github.io/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>工厂模式</title>
+    <link href="https://jzygaga.github.io/2019/01/01/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
+    <id>https://jzygaga.github.io/2019/01/01/单例模式/</id>
+    <published>2019-01-01T12:53:48.000Z</published>
+    <updated>2019-01-02T05:12:10.178Z</updated>
     
     <summary type="html">
     
@@ -62,6 +80,24 @@
     
     
       <category term="红黑树" scheme="https://jzygaga.github.io/tags/%E7%BA%A2%E9%BB%91%E6%A0%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>工厂模式</title>
+    <link href="https://jzygaga.github.io/2019/01/01/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%B7%A5%E4%BA%A7%E6%A8%A1%E5%BC%8F/"/>
+    <id>https://jzygaga.github.io/2019/01/01/设计模式-工产模式/</id>
+    <published>2019-01-01T12:53:48.000Z</published>
+    <updated>2019-01-02T05:10:24.762Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="设计模式" scheme="https://jzygaga.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="工厂模式" scheme="https://jzygaga.github.io/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   
@@ -203,8 +239,8 @@
   
   <entry>
     <title>数据结构--数组</title>
-    <link href="https://jzygaga.github.io/2018/12/14/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%95%B0%E7%BB%84/"/>
-    <id>https://jzygaga.github.io/2018/12/14/数据结构-数组/</id>
+    <link href="https://jzygaga.github.io/2018/12/14/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%88/"/>
+    <id>https://jzygaga.github.io/2018/12/14/数据结构-栈/</id>
     <published>2018-12-14T15:16:31.000Z</published>
     <updated>2018-12-14T15:17:28.698Z</updated>
     
@@ -219,8 +255,8 @@
   
   <entry>
     <title>数据结构--数组</title>
-    <link href="https://jzygaga.github.io/2018/12/14/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%88/"/>
-    <id>https://jzygaga.github.io/2018/12/14/数据结构-栈/</id>
+    <link href="https://jzygaga.github.io/2018/12/14/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%95%B0%E7%BB%84/"/>
+    <id>https://jzygaga.github.io/2018/12/14/数据结构-数组/</id>
     <published>2018-12-14T15:16:31.000Z</published>
     <updated>2018-12-14T15:17:28.698Z</updated>
     

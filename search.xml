@@ -4,8 +4,31 @@
     
     <entry>
       <title>工厂模式</title>
-      <link href="/2019/01/01/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%B7%A5%E4%BA%A7%E6%A8%A1%E5%BC%8F/"/>
-      <url>/2019/01/01/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%B7%A5%E4%BA%A7%E6%A8%A1%E5%BC%8F/</url>
+      <link href="/2019/01/01/%E5%87%86%E5%A4%87%E7%BC%96%E8%BE%91%E7%9A%84%E5%8D%9A%E5%AE%A2-1/"/>
+      <url>/2019/01/01/%E5%87%86%E5%A4%87%E7%BC%96%E8%BE%91%E7%9A%84%E5%8D%9A%E5%AE%A2-1/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> 设计模式 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 工厂模式 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>工厂模式</title>
+      <link href="/2019/01/01/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
+      <url>/2019/01/01/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -43,6 +66,29 @@
         <tags>
             
             <tag> 红黑树 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>工厂模式</title>
+      <link href="/2019/01/01/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%B7%A5%E4%BA%A7%E6%A8%A1%E5%BC%8F/"/>
+      <url>/2019/01/01/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%B7%A5%E4%BA%A7%E6%A8%A1%E5%BC%8F/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> 设计模式 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 工厂模式 </tag>
             
         </tags>
       
@@ -158,8 +204,8 @@
     
     <entry>
       <title>数据结构--数组</title>
-      <link href="/2018/12/14/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%95%B0%E7%BB%84/"/>
-      <url>/2018/12/14/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%95%B0%E7%BB%84/</url>
+      <link href="/2018/12/14/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%88/"/>
+      <url>/2018/12/14/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%88/</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -175,8 +221,8 @@
     
     <entry>
       <title>数据结构--数组</title>
-      <link href="/2018/12/14/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%88/"/>
-      <url>/2018/12/14/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%88/</url>
+      <link href="/2018/12/14/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%95%B0%E7%BB%84/"/>
+      <url>/2018/12/14/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%95%B0%E7%BB%84/</url>
       
         <content type="html"><![CDATA[]]></content>
       

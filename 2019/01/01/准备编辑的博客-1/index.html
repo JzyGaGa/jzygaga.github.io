@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <title>Tag: leetcode Trie | 飞翔的傻瓜</title>
+  <title>工厂模式 | 飞翔的傻瓜</title>
   
   <meta name="keywords" content="编程">
   
@@ -126,253 +126,146 @@
     <div class="l_body">
     <div class='container clearfix'>
         <div class='l_main'>
+            <article id="post-准备编辑的博客-1" class="post white-box article-type-post" itemscope="" itemprop="blogPost">
+    <section class="meta">
+        
+            <h1 class="title">工厂模式</h1>
+        
+        <time class="time">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+            2019-01-01
+        </time>
+        
+          <div class="browse busuanzi"><i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+            <span id="busuanzi_value_page_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+          </div>
+        
+
+        
+    
+    <div class="cats">
+        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+        <a class="categories" href="/categories/设计模式/">设计模式</a>
+    </div>
+
+
+    </section>
+
+    <section class="article typo">
+
+        <div class="article-entry" itemprop="articleBody">
             
-    <script>
-        window.subData= { title:'标签 : leetcode Trie'}
-    </script>
+        </div>
 
-
-<section class="post-list">
-    
-        <div class="post-wrapper">
-            <article class="post reveal ">
-    <section class="meta">
-        <h2 class="title">
-            <a href="/2018/12/20/211. Add and Search Word - Data structure design/">
+        <section class="meta">
+            <time class="time" itemprop="dateUpdated" datetime="2019-01-02T13:12:57+08:00" content="2019-01-02">
+                <i class="fas fa-pen fa-fw" aria-hidden="true"></i>
+                本文最后更新于：2019-01-02
+            </time>
+            
                 
-                    leetcode
-                
-            </a>
-        </h2>
-        <time class="time">
-            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2018-12-20
-        </time>
-        
-
-    </section>
-
-    <section class="article typo">
-        <h1 id="211-Add-and-Search-Word-Data-structure-design"><a href="#211-Add-and-Search-Word-Data-structure-design" class="headerlink" title="211. Add and Search Word - Data structure design"></a>211. Add and Search Word - Data structure design</h1><p><strong> Design a data structure that supports the following two operations:
-</strong> </p>
-<h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><pre><code>addWord(&quot;bad&quot;)
-addWord(&quot;dad&quot;)
-addWord(&quot;mad&quot;)
-search(&quot;pad&quot;) -&gt; false
-search(&quot;bad&quot;) -&gt; true
-search(&quot;.ad&quot;) -&gt; true
-search(&quot;b..&quot;) -&gt; true
-</code></pre><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre><code>class WordDictionary {
-
-private class Node{
-    public boolean isWord;
-    public TreeMap&lt;Character,Node&gt; next;
-public Node(boolean isWord) {
-    this.isWord=isWord;
-    next=new TreeMap&lt;&gt;();
-}
-public Node() {
-    this(false);
-}
-}
-
-private Node root;
-private int size;
-
-/** Initialize your data structure here. */
-public WordDictionary() {
-    root=new Node();
-    size=0;
-}
-
-/** Adds a word into the data structure. */
-public void addWord(String word) {
-    Node cur=root;
-    for(int i=0;i&lt;word.length();i++) {
-        char c = word.charAt(i);
-        if(cur.next.get(c)==null) {
-            cur.next.put(c, new Node());
-        }
-        cur=cur.next.get(c);
-    }
-    cur.isWord=true;
-    size++;
-}
-
-/** Returns if the word is in the data structure. A word could contain the dot character &apos;.&apos; to represent any one letter. */
-public boolean search(String word) {
-    int i=0;
-    Node cur=root;
-    return recurtionSearch(i,word,cur);
-}
-
-private boolean recurtionSearch(int i,String str,Node cur) {
-    if(i==str.length())
-        return cur.isWord;
-    char m=str.charAt(i);
-    if(m!=&apos;.&apos;) {
-        if(cur.next.get(m)==null)
-            return false;
-        return recurtionSearch(++i, str,cur.next.get(m));
-    }else {
-        //这个逻辑，就跳过点.这个位置
-        for(char c:cur.next.keySet())
-            if(recurtionSearch(++i, str,cur.next.get(c)))
-                return true;
-        return false;
-    }
-}
-//    public static void main(String[] args) {
-//        WordDictionary wordDictionary = new WordDictionary();
-//        wordDictionary.addWord(&quot;123&quot;);
-//        ;
-//        System.out.println(wordDictionary.search(&quot;.3&quot;));
-//    }
-}
-
-/**
- * Your WordDictionary object will be instantiated and called as such:
- * WordDictionary obj = new WordDictionary();
- * obj.addWord(word);
- * boolean param_2 = obj.search(word);
- */
-</code></pre>
-        
+                <div class="tags">
+                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
+                    <a class="tag" href="/tags/工厂模式/">工厂模式</a>
+                </div>
+            
+        </section>
 
         
-            <div class="full-width auto-padding tags">
+            <div class="prev-next">
                 
-                    <a href="/tags/leetcode-Trie/"><i class="fas fa-tag fa-fw"></i>&nbsp;leetcode Trie</a>
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>下一篇&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2019/01/01/单例模式/" rel="prev" title="工厂模式">
+                                    
+                                        工厂模式
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
+                                    <a class="tag" href="/tags/工厂模式/">工厂模式</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
                 
             </div>
         
+
     </section>
+
 </article>
 
-        </div>
-    
-        <div class="post-wrapper">
-            <article class="post reveal ">
-    <section class="meta">
-        <h2 class="title">
-            <a href="/2018/12/20/leetcode-208. Implement Trie (Prefix Tree) - 副本/">
+<br>
+
+<!-- 显示推荐文章和评论 -->
+
+    <article class="post white-box comments">
+        <section class="article typo">
+
+            
                 
-                    leetcode
+
+    <div class="recommended_posts">
+        <h4><i class="fas fa-bookmark fa-fw" aria-hidden="true"></i>&nbsp;你可能感兴趣的文章</h4>
+        <ul>
+            
+                <li><a href="https://jzygaga.github.io/2019/01/01/单例模式/">工厂模式</a></li>
+            
+                <li><a href="https://jzygaga.github.io/2019/01/01/准备编辑的博客/">准备编辑的博客</a></li>
+            
+                <li><a href="https://jzygaga.github.io/2019/01/01/设计模式-工产模式/">工厂模式</a></li>
+            
+                <li><a href="https://jzygaga.github.io/2018/12/29/lamda/">lamda</a></li>
+            
+                <li><a href="https://jzygaga.github.io/2018/12/22/数据结构-AVL树/">AVL树</a></li>
+            
+        </ul>
+    </div>
+
+
+            
+
+            
+
                 
-            </a>
-        </h2>
-        <time class="time">
-            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2018-12-20
-        </time>
-        
 
-    </section>
+                
 
-    <section class="article typo">
-        <h1 id="208-Implement-Trie-Prefix-Tree"><a href="#208-Implement-Trie-Prefix-Tree" class="headerlink" title="208. Implement Trie (Prefix Tree)"></a>208. Implement Trie (Prefix Tree)</h1><p><strong> Implement a trie with insert, search, and startsWith methods. 
-</strong> </p>
-<h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>Trie trie = new Trie();<br>trie.insert(“apple”);<br>trie.search(“apple”);   // returns true<br>trie.search(“app”);     // returns false<br>trie.startsWith(“app”); // returns true<br>trie.insert(“app”);<br>trie.search(“app”);     // returns true *</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre><code>class Trie {
-private class Node {
-    public boolean isWord;
-    public TreeMap&lt;Character, Node&gt; next;
+                
+                    
+                        <h4><i class="fas fa-comments fa-fw" aria-hidden="true"></i>&nbsp;Valine评论</h4>
+                        <div class="subtitle">
+                          <h6><b>文明评论，请勿灌水。</b>为了便于区分和接收回复提醒，请您在留言时填写一下<b>昵称</b>和<b>邮箱</b>。
+                          不定期清理没有昵称和灌水的评论。</h6>
+                        <div>
+                        <section id="comments">
+                            <div id="valine_container" class="valine_thread">
+                                <i class="fas fa-spinner fa-spin fa-fw"></i>
+                            </div>
+                        </section>
+                        <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+                        <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+                    
+                
+            
 
-    public Node(boolean isWord) {
-        next = new TreeMap&lt;&gt;();
-        this.isWord = isWord;
+        </div></div></section>
+    </article>
+
+
+<script>
+    window.subData = {
+        title: '工厂模式',
+        tools: true
     }
-
-    public Node() {
-        this(false);
-    }
-}
-
-private Node root;
-private int size;
-
-/** Initialize your data structure here. */
-public Trie() {
-    root=new Node();
-    size=0;
-}
-
-/** Inserts a word into the trie. */
-public void insert(String word) {
-    Node cur=root;
-        for(int i=0;i&lt;word.length();i++) {
-            char c = word.charAt(i);
-            Node node = cur.next.get(c);
-            if(node==null)
-                cur.next.put(c, new Node());
-            cur=cur.next.get(c);
-        }
-        cur.isWord=true;
-}
-
-/** Returns if the word is in the trie. */
-public boolean search(String word) {
-    Node cur=root;
-        for(int i=0;i&lt;word.length();i++) {
-            char c = word.charAt(i);
-            if(cur.next.get(c)==null) {
-                return false;
-            }
-            cur=cur.next.get(c);
-        }
-    return cur.isWord;
-}
-
-/**
- * Returns if there is any word in the trie that starts with the given prefix.
- */
-public boolean startsWith(String prefix) {
-    Node cur=root;
-    for(int i=0;i&lt;prefix.length();i++) {
-        char c = prefix.charAt(i);
-        if(cur.next.get(c)==null) {
-            return false;
-        }
-        cur=cur.next.get(c);
-    }
-    return true;
-}
-//    public static void main(String[] args) {
-//        String[] arr= {&quot;Trie&quot;,&quot;insert&quot;,&quot;search&quot;,&quot;startWith&quot;,&quot;insert&quot;,&quot;search&quot;};
-//        Trie trie = new Trie();
-//        for(int i=0;i&lt;arr.length;i++)
-//            trie.insert(arr[i]);
-//        System.out.println(trie.startsWith(&quot;tr&quot;));
-//        System.out.println(trie.startsWith(&quot;in&quot;));
-//        System.out.println(trie.startsWith(&quot;sea&quot;));
-//        System.out.println(trie.search(&quot;Trie&quot;));
-//        System.out.println(trie.search(&quot;insert&quot;));
-//        System.out.println(trie.search(&quot;word&quot;));
-//    }
-}
-
-/**
-* Your Trie object will be instantiated and called as such:
-* Trie obj = new Trie();
-* obj.insert(word);
-* boolean param_2 = obj.search(word);
-* boolean param_3 = obj.startsWith(prefix);
-*/
-</code></pre>
-        
-
-        
-            <div class="full-width auto-padding tags">
-                
-                    <a href="/tags/leetcode-Trie/"><i class="fas fa-tag fa-fw"></i>&nbsp;leetcode Trie</a>
-                
-            </div>
-        
-    </section>
-</article>
-
-        </div>
-    
-</section>
-
+</script>
 
 
         </div>
@@ -548,6 +441,35 @@ public boolean startsWith(String prefix) {
 <script src="/js/search.js"></script>
 <script src="/js/app.js"></script>
 
+
+    
+    
+    
+        
+            <script>
+            var GUEST_INFO = ['nick','mail','link'];
+            var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+                return GUEST_INFO.indexOf(item) > -1
+            });
+            var notify = 'false' == true;
+            var verify = 'false' == true;
+            var valine = new Valine();
+            valine.init({
+                el: '#valine_container',
+                notify: notify,
+                verify: verify,
+                guest_info: guest_info,
+                appId: "i7VcgTiF1E2LyY1zYibTBq3R-gzGzoHsz",
+                appKey: "JlhogVnhG1tHjHlAnROj11Fl",
+                placeholder: "快来评论吧~",
+                pageSize:'10',
+                avatar:'mp',
+                lang:'zh-cn',
+                highlight:''
+            })
+            </script>
+        
+    
 
 
 
