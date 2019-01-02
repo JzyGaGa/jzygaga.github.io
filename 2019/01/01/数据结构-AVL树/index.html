@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <title>红黑树 | 飞翔的傻瓜</title>
+  <title>AVL树 | 飞翔的傻瓜</title>
   
   <meta name="keywords" content="编程">
   
@@ -126,10 +126,10 @@
     <div class="l_body">
     <div class='container clearfix'>
         <div class='l_main'>
-            <article id="post-准备编辑的博客" class="post white-box article-type-post" itemscope="" itemprop="blogPost">
+            <article id="post-数据结构-AVL树" class="post white-box article-type-post" itemscope="" itemprop="blogPost">
     <section class="meta">
         
-            <h1 class="title">红黑树</h1>
+            <h1 class="title">AVL树</h1>
         
         <time class="time">
             <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
@@ -145,7 +145,7 @@
     
     <div class="cats">
         <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-        <a class="categories" href="/categories/数据结构/">数据结构</a>
+        <a class="categories" href="/categories/dataStuct/">dataStuct</a>
     </div>
 
 
@@ -154,14 +154,13 @@
     <section class="article typo">
 
         <div class="article-entry" itemprop="articleBody">
-            <h1 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h1><ul>
-<li><p>红黑树定义</p>
-<ul>
-<li>算法导论的定义</li>
+            <h1 id="AVL树"><a href="#AVL树" class="headerlink" title="AVL树"></a>AVL树</h1><ul>
+<li>平衡二叉树的定义<ul>
+<li>对于任意一个节点，左子树和右子树的高度差不能超过1</li>
+<li>AVL树有着自己的平衡性，所以在自己的增加和删除，不会退化成一个链表</li>
 </ul>
 </li>
-<li><p>满二叉树</p>
-<ul>
+<li>满二叉树<br>   <img src="https://i.imgur.com/vpxDXic.png" width="100" height="100" div="" align="right"><ul>
 <li>除最后一层无任何子节点外，每一层上的所有结点都有两个子结点二叉树，会存在一个非叶子节点右子树为空</li>
 </ul>
 </li>
@@ -530,7 +529,7 @@ public class AVLTree&lt;K extends Comparable&lt;K&gt;, V&gt; {
         </div>
 
         <section class="meta">
-            <time class="time" itemprop="dateUpdated" datetime="2019-01-02T13:21:48+08:00" content="2019-01-02">
+            <time class="time" itemprop="dateUpdated" datetime="2019-01-02T13:23:58+08:00" content="2019-01-02">
                 <i class="fas fa-pen fa-fw" aria-hidden="true"></i>
                 本文最后更新于：2019-01-02
             </time>
@@ -538,7 +537,7 @@ public class AVLTree&lt;K extends Comparable&lt;K&gt;, V&gt; {
                 
                 <div class="tags">
                     <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
-                    <a class="tag" href="/tags/红黑树/">红黑树</a>
+                    <a class="tag" href="/tags/AVL树/">AVL树</a>
                 </div>
             
         </section>
@@ -550,9 +549,9 @@ public class AVLTree&lt;K extends Comparable&lt;K&gt;, V&gt; {
                         <span class="art-item-left">
                             <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一篇</h6>
                             <h4>
-                                <a href="/2019/01/01/准备编辑的博客-1/" rel="prev" title="AVL树">
+                                <a href="/2019/01/01/设计模式-代理模式/" rel="prev" title="工厂模式">
                                   
-                                      AVL树
+                                      工厂模式
                                   
                                 </a>
                             </h4>
@@ -560,7 +559,7 @@ public class AVLTree&lt;K extends Comparable&lt;K&gt;, V&gt; {
                                 
                                 <h6 class="tags">
                                     <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
-                                    <a class="tag" href="/tags/AVL树/">AVL树</a>
+                                    <a class="tag" href="/tags/代理模式/">代理模式</a>
                                 </h6>
                             
                         </span>
@@ -571,9 +570,9 @@ public class AVLTree&lt;K extends Comparable&lt;K&gt;, V&gt; {
                         <span class="art-item-right" aria-hidden="true">
                             <h6>下一篇&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
                             <h4>
-                                <a href="/2018/12/29/lamda/" rel="prev" title="lamda">
+                                <a href="/2019/01/01/数据结构-红黑树/" rel="prev" title="红黑树">
                                     
-                                        lamda
+                                        红黑树
                                     
                                 </a>
                             </h4>
@@ -581,7 +580,7 @@ public class AVLTree&lt;K extends Comparable&lt;K&gt;, V&gt; {
                                 
                                 <h6 class="tags">
                                     <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
-                                    <a class="tag" href="/tags/lamda/">lamda</a>
+                                    <a class="tag" href="/tags/红黑树/">红黑树</a>
                                 </h6>
                             
                         </span>
@@ -608,15 +607,15 @@ public class AVLTree&lt;K extends Comparable&lt;K&gt;, V&gt; {
         <h4><i class="fas fa-bookmark fa-fw" aria-hidden="true"></i>&nbsp;你可能感兴趣的文章</h4>
         <ul>
             
-                <li><a href="https://jzygaga.github.io/2019/01/01/设计模式-工产模式/">工厂模式</a></li>
+                <li><a href="https://jzygaga.github.io/2019/01/01/设计模式-代理模式/">工厂模式</a></li>
             
-                <li><a href="https://jzygaga.github.io/2019/01/01/准备编辑的博客-1/">AVL树</a></li>
+                <li><a href="https://jzygaga.github.io/2019/01/01/数据结构-红黑树/">红黑树</a></li>
+            
+                <li><a href="https://jzygaga.github.io/2019/01/01/设计模式-工产模式/">工厂模式</a></li>
             
                 <li><a href="https://jzygaga.github.io/2018/12/29/lamda/">lamda</a></li>
             
                 <li><a href="https://jzygaga.github.io/2018/12/20/211. Add and Search Word - Data structure design/">leetcode</a></li>
-            
-                <li><a href="https://jzygaga.github.io/2018/12/20/leetcode-208. Implement Trie (Prefix Tree) - 副本/">leetcode</a></li>
             
         </ul>
     </div>
@@ -654,7 +653,7 @@ public class AVLTree&lt;K extends Comparable&lt;K&gt;, V&gt; {
 
 <script>
     window.subData = {
-        title: '红黑树',
+        title: 'AVL树',
         tools: true
     }
 </script>
@@ -706,9 +705,9 @@ public class AVLTree&lt;K extends Comparable&lt;K&gt;, V&gt; {
         
             <ul class="entry">
                 
-                    <li><a class="flat-box" href="/categories/java/"><div class="name">java</div><div class="badge">1</div></a></li>
+                    <li><a class="flat-box" href="/categories/dataStuct/"><div class="name">dataStuct</div><div class="badge">2</div></a></li>
                 
-                    <li><a class="flat-box" href="/categories/数据结构/"><div class="name">数据结构</div><div class="badge">2</div></a></li>
+                    <li><a class="flat-box" href="/categories/java/"><div class="name">java</div><div class="badge">1</div></a></li>
                 
                     <li><a class="flat-box" href="/categories/设计模式/"><div class="name">设计模式</div><div class="badge">2</div></a></li>
                 
@@ -725,7 +724,7 @@ public class AVLTree&lt;K extends Comparable&lt;K&gt;, V&gt; {
             <div><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;标签</div>
         </header>
         <div class="content pure">
-            <a href="/tags/AVL树/" style="font-size: 14px; color: #999">AVL树</a> <a href="/tags/lamda/" style="font-size: 14px; color: #999">lamda</a> <a href="/tags/leetcode-Trie/" style="font-size: 19px; color: #777">leetcode Trie</a> <a href="/tags/代理模式/" style="font-size: 14px; color: #999">代理模式</a> <a href="/tags/多线程/" style="font-size: 14px; color: #999">多线程</a> <a href="/tags/工厂模式/" style="font-size: 14px; color: #999">工厂模式</a> <a href="/tags/数据结构/" style="font-size: 24px; color: #555">数据结构</a> <a href="/tags/红黑树/" style="font-size: 14px; color: #999">红黑树</a> <a href="/tags/蓝桥杯/" style="font-size: 19px; color: #777">蓝桥杯</a> <a href="/tags/项目/" style="font-size: 14px; color: #999">项目</a>
+            <a href="/tags/AVL树/" style="font-size: 14px; color: #999">AVL树</a> <a href="/tags/lamda/" style="font-size: 14px; color: #999">lamda</a> <a href="/tags/leetcode-Trie/" style="font-size: 24px; color: #555">leetcode Trie</a> <a href="/tags/代理模式/" style="font-size: 14px; color: #999">代理模式</a> <a href="/tags/多线程/" style="font-size: 14px; color: #999">多线程</a> <a href="/tags/工厂模式/" style="font-size: 14px; color: #999">工厂模式</a> <a href="/tags/红黑树/" style="font-size: 14px; color: #999">红黑树</a> <a href="/tags/蓝桥杯/" style="font-size: 24px; color: #555">蓝桥杯</a> <a href="/tags/项目/" style="font-size: 14px; color: #999">项目</a>
         </div>
     </section>
 
@@ -739,7 +738,7 @@ public class AVLTree&lt;K extends Comparable&lt;K&gt;, V&gt; {
             <div class="wrapper"><a class="s-toc rightBtn" title="固定到顶部" target="_blank" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
         </header>
         <div class="content pure">
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#红黑树"><span class="toc-text">红黑树</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#AVL树"><span class="toc-text">AVL树</span></a></li></ol>
         </div>
     </section>
 
