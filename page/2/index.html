@@ -134,116 +134,156 @@
             <article class="post reveal ">
     <section class="meta">
         <h2 class="title">
-            <a href="/2018/12/20/leetcode-211. Add and Search Word - Data structure design/">
+            <a href="/2018/12/29/java-lamda/">
                 
-                    leetcode
+                    lamda
                 
             </a>
         </h2>
         <time class="time">
-            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2018-12-20
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2018-12-29
         </time>
         
     
     <div class="cats">
         <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-        <a class="categories" href="/categories/leetcode/">leetcode</a>
+        <a class="categories" href="/categories/java/">java</a>
     </div>
 
 
     </section>
 
     <section class="article typo">
-        <h1 id="211-Add-and-Search-Word-Data-structure-design"><a href="#211-Add-and-Search-Word-Data-structure-design" class="headerlink" title="211. Add and Search Word - Data structure design"></a>211. Add and Search Word - Data structure design</h1><p><strong> Design a data structure that supports the following two operations:
-</strong> </p>
-<h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><pre><code>addWord(&quot;bad&quot;)
-addWord(&quot;dad&quot;)
-addWord(&quot;mad&quot;)
-search(&quot;pad&quot;) -&gt; false
-search(&quot;bad&quot;) -&gt; true
-search(&quot;.ad&quot;) -&gt; true
-search(&quot;b..&quot;) -&gt; true
-</code></pre><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre><code>class WordDictionary {
+        <h1 id="JAVA8新特性——Lamda表达式"><a href="#JAVA8新特性——Lamda表达式" class="headerlink" title="JAVA8新特性——Lamda表达式"></a>JAVA8新特性——Lamda表达式</h1><h2 id="Lamda表达式，读作λ表达式，它实质属于函数式编程的概念，要理解函数式编程的产生目的，就要先理解匿名内部类。"><a href="#Lamda表达式，读作λ表达式，它实质属于函数式编程的概念，要理解函数式编程的产生目的，就要先理解匿名内部类。" class="headerlink" title="Lamda表达式，读作λ表达式，它实质属于函数式编程的概念，要理解函数式编程的产生目的，就要先理解匿名内部类。"></a>Lamda表达式，读作λ表达式，它实质属于函数式编程的概念，要理解函数式编程的产生目的，就要先理解匿名内部类。</h2><ul>
+<li><p>先来看看传统的匿名内部类调用方式:</p>
+<pre><code>interface MyInterface{
 
-private class Node{
-    public boolean isWord;
-    public TreeMap&lt;Character,Node&gt; next;
-public Node(boolean isWord) {
-    this.isWord=isWord;
-    next=new TreeMap&lt;&gt;();
+    void lMethod();
 }
-public Node() {
-    this(false);
-}
-}
+public class Main {
 
-private Node root;
-private int size;
-
-/** Initialize your data structure here. */
-public WordDictionary() {
-    root=new Node();
-    size=0;
-}
-
-/** Adds a word into the data structure. */
-public void addWord(String word) {
-    Node cur=root;
-    for(int i=0;i&lt;word.length();i++) {
-        char c = word.charAt(i);
-        if(cur.next.get(c)==null) {
-            cur.next.put(c, new Node());
-        }
-        cur=cur.next.get(c);
+    public static void test(MyInterface myInterface){
+        myInterface.lMethod();
     }
-    cur.isWord=true;
-    size++;
-}
 
-/** Returns if the word is in the data structure. A word could contain the dot character &apos;.&apos; to represent any one letter. */
-public boolean search(String word) {
-    int i=0;
-    Node cur=root;
-    return recurtionSearch(i,word,cur);
-}
-
-private boolean recurtionSearch(int i,String str,Node cur) {
-    if(i==str.length())
-        return cur.isWord;
-    char m=str.charAt(i);
-    if(m!=&apos;.&apos;) {
-        if(cur.next.get(m)==null)
-            return false;
-        return recurtionSearch(++i, str,cur.next.get(m));
-    }else {
-        //这个逻辑，就跳过点.这个位置
-        for(char c:cur.next.keySet())
-            if(recurtionSearch(++i, str,cur.next.get(c)))
-                return true;
-        return false;
+    public static void main(String[] args) {
+        test(new MyInterface() {
+            @Override
+            public void lMethod() {
+                System.out.println(&quot;Hello World!&quot;);
+            }
+        });
     }
 }
-//    public static void main(String[] args) {
-//        WordDictionary wordDictionary = new WordDictionary();
-//        wordDictionary.addWord(&quot;123&quot;);
-//        ;
-//        System.out.println(wordDictionary.search(&quot;.3&quot;));
-//    }
-}
+</code></pre><p>　在主类中的这么几行代码，嵌套几层就为了输出一个Hello World！是不是很麻烦？但是由于java结构的完整性，我们还不得不那么做，现在JDK1.8来了。</p>
+</li>
+<li><p>再来看看使用Lamda表达式改写上面的代码：</p>
+<pre><code> interface Myinterface{
+    void IMethod();
+ }
 
-/**
- * Your WordDictionary object will be instantiated and called as such:
- * WordDictionary obj = new WordDictionary();
- * obj.addWord(word);
- * boolean param_2 = obj.search(word);
- */
-</code></pre>
+public class Main {
+    public static void test(Myinterface myinterface){
+        myinterface.IMethod();
+    }
+    public static void main(String[] args) {
+        test(()-&gt; System.out.println(&quot;666&quot;));
+    }
+}
+</code></pre><p>这就是Lamda表达式语言，为了解决匿名内部类繁杂的操作而出现。</p>
+</li>
+<li><p>Lamda语法有三种形式：</p>
+<ol>
+<li>(参数) -&gt;单行语句；</li>
+<li>(参数) -&gt;{多行语句}；</li>
+<li><p>(参数) -&gt;表达式；<br>括号（）可以大致理解为就是方法，里面是参数变量，在上面的例子中()-&gt;System.out.println(“Hello World!”) 前面的()代表void lMethod()方法，它没有入参，所以为空，-&gt;后面是一个单行语句；<br>如果-&gt;后面是多行语句，需要用{ }装起来，每条语句后需要有分号;<br>-&gt;后面也可以是一个表达式，如：a+b等。</p>
+<ul>
+<li><p>(参数) -&gt;单行语句；</p>
+<pre><code> interface MyInterface{
+
+    void lMethod(String str);
+}
+public class Main {
+
+    public static void test(MyInterface myInterface){
+        myInterface.lMethod(&quot;Hello World!&quot;);//设置参数内容
+    }
+
+    public static void main(String[] args) {
+        //首先在()中定义此表达式里面需要接收变量s，后面的单行语句中就可以使用该变量了
+        test((s)-&gt;System.out.println(s));
+    }
+}
+</code></pre></li>
+<li><p>(参数) -&gt;多行语句；</p>
+<pre><code> interface Myinterface{
+    void IMethod(String str);
+ }
+public class Main {
+    public static void test(Myinterface myinterface){
+        myinterface.IMethod(&quot;hello word&quot;);
+    }
+    public static void main(String[] args) {
+        test((s)-&gt; {
+            s=s+s;
+            System.out.println(s);
+        });
+    }
+}
+</code></pre><p>　这样，Lamda表达式就看起来很简单了，有不有！</p>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<p>　　匿名内部类，我们比较常用的地方在哪儿？线程类Thread，以前我们可能这样写：</p>
+<h2 id="总结：利用Lamda表达式是为了避免匿名内部类定义过多无用的操作。"><a href="#总结：利用Lamda表达式是为了避免匿名内部类定义过多无用的操作。" class="headerlink" title="总结：利用Lamda表达式是为了避免匿名内部类定义过多无用的操作。"></a>总结：利用Lamda表达式是为了避免匿名内部类定义过多无用的操作。</h2>
         
 
         
             <div class="full-width auto-padding tags">
                 
-                    <a href="/tags/Trie/"><i class="fas fa-tag fa-fw"></i>&nbsp;Trie</a>
+                    <a href="/tags/lamda/"><i class="fas fa-tag fa-fw"></i>&nbsp;lamda</a>
+                
+            </div>
+        
+    </section>
+</article>
+
+        </div>
+    
+        <div class="post-wrapper">
+            <article class="post reveal ">
+    <section class="meta">
+        <h2 class="title">
+            <a href="/2018/12/22/数据结构-并查集/">
+                
+                    并查集
+                
+            </a>
+        </h2>
+        <time class="time">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2018-12-22
+        </time>
+        
+    
+    <div class="cats">
+        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+        <a class="categories" href="/categories/数据结构/">数据结构</a>
+    </div>
+
+
+    </section>
+
+    <section class="article typo">
+        
+        
+
+        
+            <div class="full-width auto-padding tags">
+                
+                    <a href="/tags/并查集/"><i class="fas fa-tag fa-fw"></i>&nbsp;并查集</a>
                 
             </div>
         
@@ -383,6 +423,161 @@ public boolean startsWith(String prefix) {
             <article class="post reveal ">
     <section class="meta">
         <h2 class="title">
+            <a href="/2018/12/20/leetcode-211. Add and Search Word - Data structure design/">
+                
+                    leetcode
+                
+            </a>
+        </h2>
+        <time class="time">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2018-12-20
+        </time>
+        
+    
+    <div class="cats">
+        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+        <a class="categories" href="/categories/leetcode/">leetcode</a>
+    </div>
+
+
+    </section>
+
+    <section class="article typo">
+        <h1 id="211-Add-and-Search-Word-Data-structure-design"><a href="#211-Add-and-Search-Word-Data-structure-design" class="headerlink" title="211. Add and Search Word - Data structure design"></a>211. Add and Search Word - Data structure design</h1><p><strong> Design a data structure that supports the following two operations:
+</strong> </p>
+<h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><pre><code>addWord(&quot;bad&quot;)
+addWord(&quot;dad&quot;)
+addWord(&quot;mad&quot;)
+search(&quot;pad&quot;) -&gt; false
+search(&quot;bad&quot;) -&gt; true
+search(&quot;.ad&quot;) -&gt; true
+search(&quot;b..&quot;) -&gt; true
+</code></pre><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre><code>class WordDictionary {
+
+private class Node{
+    public boolean isWord;
+    public TreeMap&lt;Character,Node&gt; next;
+public Node(boolean isWord) {
+    this.isWord=isWord;
+    next=new TreeMap&lt;&gt;();
+}
+public Node() {
+    this(false);
+}
+}
+
+private Node root;
+private int size;
+
+/** Initialize your data structure here. */
+public WordDictionary() {
+    root=new Node();
+    size=0;
+}
+
+/** Adds a word into the data structure. */
+public void addWord(String word) {
+    Node cur=root;
+    for(int i=0;i&lt;word.length();i++) {
+        char c = word.charAt(i);
+        if(cur.next.get(c)==null) {
+            cur.next.put(c, new Node());
+        }
+        cur=cur.next.get(c);
+    }
+    cur.isWord=true;
+    size++;
+}
+
+/** Returns if the word is in the data structure. A word could contain the dot character &apos;.&apos; to represent any one letter. */
+public boolean search(String word) {
+    int i=0;
+    Node cur=root;
+    return recurtionSearch(i,word,cur);
+}
+
+private boolean recurtionSearch(int i,String str,Node cur) {
+    if(i==str.length())
+        return cur.isWord;
+    char m=str.charAt(i);
+    if(m!=&apos;.&apos;) {
+        if(cur.next.get(m)==null)
+            return false;
+        return recurtionSearch(++i, str,cur.next.get(m));
+    }else {
+        //这个逻辑，就跳过点.这个位置
+        for(char c:cur.next.keySet())
+            if(recurtionSearch(++i, str,cur.next.get(c)))
+                return true;
+        return false;
+    }
+}
+//    public static void main(String[] args) {
+//        WordDictionary wordDictionary = new WordDictionary();
+//        wordDictionary.addWord(&quot;123&quot;);
+//        ;
+//        System.out.println(wordDictionary.search(&quot;.3&quot;));
+//    }
+}
+
+/**
+ * Your WordDictionary object will be instantiated and called as such:
+ * WordDictionary obj = new WordDictionary();
+ * obj.addWord(word);
+ * boolean param_2 = obj.search(word);
+ */
+</code></pre>
+        
+
+        
+            <div class="full-width auto-padding tags">
+                
+                    <a href="/tags/Trie/"><i class="fas fa-tag fa-fw"></i>&nbsp;Trie</a>
+                
+            </div>
+        
+    </section>
+</article>
+
+        </div>
+    
+        <div class="post-wrapper">
+            <article class="post reveal ">
+    <section class="meta">
+        <h2 class="title">
+            <a href="/2018/12/14/数据结构-栈/">
+                
+                    数据结构--数组
+                
+            </a>
+        </h2>
+        <time class="time">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2018-12-14
+        </time>
+        
+
+    </section>
+
+    <section class="article typo">
+        
+        
+
+        
+            <div class="full-width auto-padding tags">
+                
+                    <a href="/tags/数据结构/"><i class="fas fa-tag fa-fw"></i>&nbsp;数据结构</a>
+                
+            </div>
+        
+    </section>
+</article>
+
+        </div>
+    
+        <div class="post-wrapper">
+            <article class="post reveal ">
+    <section class="meta">
+        <h2 class="title">
             <a href="/2018/12/14/数据结构-BST/">
                 
                     数据结构--数组
@@ -477,39 +672,6 @@ public boolean startsWith(String prefix) {
             <article class="post reveal ">
     <section class="meta">
         <h2 class="title">
-            <a href="/2018/12/14/数据结构-栈/">
-                
-                    数据结构--数组
-                
-            </a>
-        </h2>
-        <time class="time">
-            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2018-12-14
-        </time>
-        
-
-    </section>
-
-    <section class="article typo">
-        
-        
-
-        
-            <div class="full-width auto-padding tags">
-                
-                    <a href="/tags/数据结构/"><i class="fas fa-tag fa-fw"></i>&nbsp;数据结构</a>
-                
-            </div>
-        
-    </section>
-</article>
-
-        </div>
-    
-        <div class="post-wrapper">
-            <article class="post reveal ">
-    <section class="meta">
-        <h2 class="title">
             <a href="/2018/12/14/java-多线程/">
                 
                     多线程
@@ -538,6 +700,64 @@ public boolean startsWith(String prefix) {
             <div class="full-width auto-padding tags">
                 
                     <a href="/tags/多线程/"><i class="fas fa-tag fa-fw"></i>&nbsp;多线程</a>
+                
+            </div>
+        
+    </section>
+</article>
+
+        </div>
+    
+        <div class="post-wrapper">
+            <article class="post reveal ">
+    <section class="meta">
+        <h2 class="title">
+            <a href="/2018/12/05/蓝桥被入门题第一题/">
+                
+                    我滴妈
+                
+            </a>
+        </h2>
+        <time class="time">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2018-12-05
+        </time>
+        
+
+    </section>
+
+    <section class="article typo">
+        <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>Fibonacci数列的递推公式为：Fn=Fn-1+Fn-2，其中F1=F2=1。</p>
+<p>当n比较大时，Fn也非常大，现在我们想知道，Fn除以10007的余数是多少。</p>
+<h1 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h1><p>输入包含一个整数n。</p>
+<h1 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h1><p>输出一行，包含一个整数，表示Fn除以10007的余数。</p>
+<p>说明：在本题中，答案是要求Fn除以10007的余数，因此我们只要能算出这个余数即可，而不需要先计算出Fn的准确值，再将计算的结果除以10007取余数，直接计算余数往往比先算出原数再取余简单。</p>
+<pre><code>package begin4;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        int[] f= new int[1000001];
+        f[1] = f[2] = 1;
+        for (int i = 3; i &lt;= 1000000; i++) {
+            f[i] = (f[i-1] + f[i-2]) % 10007;
+        }
+
+        Scanner in = new Scanner(System.in);
+        System.out.println(f[in.nextInt()]);
+        in.close();
+    }
+
+}
+</code></pre>
+        
+
+        
+            <div class="full-width auto-padding tags">
+                
+                    <a href="/tags/蓝桥杯/"><i class="fas fa-tag fa-fw"></i>&nbsp;蓝桥杯</a>
                 
             </div>
         
@@ -631,64 +851,6 @@ public static void main(String[] args) {
 
         </div>
     
-        <div class="post-wrapper">
-            <article class="post reveal ">
-    <section class="meta">
-        <h2 class="title">
-            <a href="/2018/12/05/蓝桥被入门题第一题/">
-                
-                    我滴妈
-                
-            </a>
-        </h2>
-        <time class="time">
-            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2018-12-05
-        </time>
-        
-
-    </section>
-
-    <section class="article typo">
-        <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>Fibonacci数列的递推公式为：Fn=Fn-1+Fn-2，其中F1=F2=1。</p>
-<p>当n比较大时，Fn也非常大，现在我们想知道，Fn除以10007的余数是多少。</p>
-<h1 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h1><p>输入包含一个整数n。</p>
-<h1 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h1><p>输出一行，包含一个整数，表示Fn除以10007的余数。</p>
-<p>说明：在本题中，答案是要求Fn除以10007的余数，因此我们只要能算出这个余数即可，而不需要先计算出Fn的准确值，再将计算的结果除以10007取余数，直接计算余数往往比先算出原数再取余简单。</p>
-<pre><code>package begin4;
-
-import java.util.Scanner;
-
-public class Main {
-
-    public static void main(String[] args) {
-
-        int[] f= new int[1000001];
-        f[1] = f[2] = 1;
-        for (int i = 3; i &lt;= 1000000; i++) {
-            f[i] = (f[i-1] + f[i-2]) % 10007;
-        }
-
-        Scanner in = new Scanner(System.in);
-        System.out.println(f[in.nextInt()]);
-        in.close();
-    }
-
-}
-</code></pre>
-        
-
-        
-            <div class="full-width auto-padding tags">
-                
-                    <a href="/tags/蓝桥杯/"><i class="fas fa-tag fa-fw"></i>&nbsp;蓝桥杯</a>
-                
-            </div>
-        
-    </section>
-</article>
-
-        </div>
-    
 </section>
 
 
@@ -760,7 +922,7 @@ public class Main {
                 
                     <li><a class="flat-box" href="/categories/java/"><div class="name">java</div><div class="badge">3</div></a></li>
                 
-                    <li><a class="flat-box" href="/categories/leetcode/"><div class="name">leetcode</div><div class="badge">2</div></a></li>
+                    <li><a class="flat-box" href="/categories/leetcode/"><div class="name">leetcode</div><div class="badge">4</div></a></li>
                 
                     <li><a class="flat-box" href="/categories/剑指offer/"><div class="name">剑指offer</div><div class="badge">1</div></a></li>
                 
@@ -785,7 +947,7 @@ public class Main {
             <div><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;标签</div>
         </header>
         <div class="content pure">
-            <a href="/tags/AVL树/" style="font-size: 14px; color: #999">AVL树</a> <a href="/tags/Trie/" style="font-size: 24px; color: #555">Trie</a> <a href="/tags/lamda/" style="font-size: 14px; color: #999">lamda</a> <a href="/tags/代理模式/" style="font-size: 14px; color: #999">代理模式</a> <a href="/tags/反射/" style="font-size: 14px; color: #999">反射</a> <a href="/tags/哈希表/" style="font-size: 14px; color: #999">哈希表</a> <a href="/tags/多线程/" style="font-size: 14px; color: #999">多线程</a> <a href="/tags/工厂模式/" style="font-size: 14px; color: #999">工厂模式</a> <a href="/tags/并查集/" style="font-size: 14px; color: #999">并查集</a> <a href="/tags/数据结构/" style="font-size: 24px; color: #555">数据结构</a> <a href="/tags/红黑树/" style="font-size: 14px; color: #999">红黑树</a> <a href="/tags/蓝桥杯/" style="font-size: 24px; color: #555">蓝桥杯</a> <a href="/tags/计算机网络/" style="font-size: 14px; color: #999">计算机网络</a>
+            <a href="/tags/AVL树/" style="font-size: 14px; color: #999">AVL树</a> <a href="/tags/Trie/" style="font-size: 24px; color: #555">Trie</a> <a href="/tags/lamda/" style="font-size: 14px; color: #999">lamda</a> <a href="/tags/代理模式/" style="font-size: 14px; color: #999">代理模式</a> <a href="/tags/反射/" style="font-size: 14px; color: #999">反射</a> <a href="/tags/哈希表/" style="font-size: 14px; color: #999">哈希表</a> <a href="/tags/多线程/" style="font-size: 14px; color: #999">多线程</a> <a href="/tags/工厂模式/" style="font-size: 14px; color: #999">工厂模式</a> <a href="/tags/并查集/" style="font-size: 14px; color: #999">并查集</a> <a href="/tags/数据结构/" style="font-size: 24px; color: #555">数据结构</a> <a href="/tags/红黑树/" style="font-size: 14px; color: #999">红黑树</a> <a href="/tags/蓝桥杯/" style="font-size: 24px; color: #555">蓝桥杯</a> <a href="/tags/计算机网络/" style="font-size: 14px; color: #999">计算机网络</a> <a href="/tags/链表/" style="font-size: 24px; color: #555">链表</a>
         </div>
     </section>
 
