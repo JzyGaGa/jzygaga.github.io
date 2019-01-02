@@ -26,29 +26,6 @@
     </entry>
     
     <entry>
-      <title>工厂模式</title>
-      <link href="/2019/01/01/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
-      <url>/2019/01/01/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 设计模式 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 工厂模式 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
       <title>准备编辑的博客</title>
       <link href="/2019/01/01/%E5%87%86%E5%A4%87%E7%BC%96%E8%BE%91%E7%9A%84%E5%8D%9A%E5%AE%A2/"/>
       <url>/2019/01/01/%E5%87%86%E5%A4%87%E7%BC%96%E8%BE%91%E7%9A%84%E5%8D%9A%E5%AE%A2/</url>
@@ -89,6 +66,29 @@
         <tags>
             
             <tag> 工厂模式 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>工厂模式</title>
+      <link href="/2019/01/01/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/"/>
+      <url>/2019/01/01/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> 设计模式 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 代理模式 </tag>
             
         </tags>
       

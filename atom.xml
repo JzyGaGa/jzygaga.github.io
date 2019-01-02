@@ -35,24 +35,6 @@
   </entry>
   
   <entry>
-    <title>工厂模式</title>
-    <link href="https://jzygaga.github.io/2019/01/01/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
-    <id>https://jzygaga.github.io/2019/01/01/单例模式/</id>
-    <published>2019-01-01T12:53:48.000Z</published>
-    <updated>2019-01-02T05:12:10.178Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-      <category term="设计模式" scheme="https://jzygaga.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-    
-      <category term="工厂模式" scheme="https://jzygaga.github.io/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
     <title>准备编辑的博客</title>
     <link href="https://jzygaga.github.io/2019/01/01/%E5%87%86%E5%A4%87%E7%BC%96%E8%BE%91%E7%9A%84%E5%8D%9A%E5%AE%A2/"/>
     <id>https://jzygaga.github.io/2019/01/01/准备编辑的博客/</id>
@@ -98,6 +80,24 @@
     
     
       <category term="工厂模式" scheme="https://jzygaga.github.io/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>工厂模式</title>
+    <link href="https://jzygaga.github.io/2019/01/01/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/"/>
+    <id>https://jzygaga.github.io/2019/01/01/设计模式-代理模式/</id>
+    <published>2019-01-01T12:53:48.000Z</published>
+    <updated>2019-01-02T05:15:53.836Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="设计模式" scheme="https://jzygaga.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="代理模式" scheme="https://jzygaga.github.io/tags/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   
