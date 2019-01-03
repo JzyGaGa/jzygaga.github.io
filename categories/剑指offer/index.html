@@ -135,12 +135,12 @@
 <section class="post-list">
     
         <div class="post-wrapper">
-            <article class="post reveal no-title">
+            <article class="post reveal ">
     <section class="meta">
         <h2 class="title">
             <a href="/2019/01/02/剑指offer/">
                 
-                    2019-01-02
+                    二维数组中的查找
                 
             </a>
         </h2>
@@ -158,9 +158,42 @@
     </section>
 
     <section class="article typo">
-        <h2 id="呵呵"><a href="#呵呵" class="headerlink" title="呵呵"></a>呵呵</h2>
+        <h2 id="二维数组中的查找"><a href="#二维数组中的查找" class="headerlink" title="二维数组中的查找"></a>二维数组中的查找</h2><p><strong>描述：</strong></p>
+<ul>
+<li><p>在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。<br><strong>代码</strong></p>
+<pre><code>public class Solution {
+    public boolean Find(int target, int [][] array) {
+        int y=0;
+        int x=array.length-1;
+        int row=array.length-1;
+        int col=array[0].length-1;
+        while((0&lt;=x&amp;&amp;x&lt;=col)&amp;&amp;(0&lt;=y&amp;&amp;y&lt;=row)){
+
+            if(array[x][y]==target)
+                return true;
+            if(array[x][y]&lt;target){
+                y++;
+               continue;
+             }
+            if(array[x][y]&gt;target){
+                x--;
+               continue;
+            }
+        }
+        return false;
+    }
+}
+</code></pre><h2 id="注意数组根据先后赋值，排列是从上到下来的"><a href="#注意数组根据先后赋值，排列是从上到下来的" class="headerlink" title="注意数组根据先后赋值，排列是从上到下来的"></a>注意数组根据先后赋值，排列是从上到下来的</h2></li>
+</ul>
+
         
 
+        
+            <div class="full-width auto-padding tags">
+                
+                    <a href="/tags/数组/"><i class="fas fa-tag fa-fw"></i>&nbsp;数组</a>
+                
+            </div>
         
     </section>
 </article>
@@ -244,7 +277,7 @@
             <div><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;标签</div>
         </header>
         <div class="content pure">
-            <a href="/tags/AVL树/" style="font-size: 14px; color: #999">AVL树</a> <a href="/tags/Trie/" style="font-size: 19px; color: #777">Trie</a> <a href="/tags/lamda/" style="font-size: 14px; color: #999">lamda</a> <a href="/tags/代理模式/" style="font-size: 14px; color: #999">代理模式</a> <a href="/tags/反射/" style="font-size: 14px; color: #999">反射</a> <a href="/tags/哈希表/" style="font-size: 14px; color: #999">哈希表</a> <a href="/tags/多线程/" style="font-size: 14px; color: #999">多线程</a> <a href="/tags/工厂模式/" style="font-size: 14px; color: #999">工厂模式</a> <a href="/tags/并查集/" style="font-size: 14px; color: #999">并查集</a> <a href="/tags/数据结构/" style="font-size: 19px; color: #777">数据结构</a> <a href="/tags/红黑树/" style="font-size: 14px; color: #999">红黑树</a> <a href="/tags/蓝桥杯/" style="font-size: 19px; color: #777">蓝桥杯</a> <a href="/tags/计算机网络/" style="font-size: 14px; color: #999">计算机网络</a> <a href="/tags/链表/" style="font-size: 24px; color: #555">链表</a>
+            <a href="/tags/AVL树/" style="font-size: 14px; color: #999">AVL树</a> <a href="/tags/Trie/" style="font-size: 24px; color: #555">Trie</a> <a href="/tags/lamda/" style="font-size: 14px; color: #999">lamda</a> <a href="/tags/代理模式/" style="font-size: 14px; color: #999">代理模式</a> <a href="/tags/单链表/" style="font-size: 14px; color: #999">单链表</a> <a href="/tags/反射/" style="font-size: 14px; color: #999">反射</a> <a href="/tags/哈希表/" style="font-size: 14px; color: #999">哈希表</a> <a href="/tags/多线程/" style="font-size: 14px; color: #999">多线程</a> <a href="/tags/工厂模式/" style="font-size: 14px; color: #999">工厂模式</a> <a href="/tags/并查集/" style="font-size: 14px; color: #999">并查集</a> <a href="/tags/数据结构/" style="font-size: 24px; color: #555">数据结构</a> <a href="/tags/数组/" style="font-size: 14px; color: #999">数组</a> <a href="/tags/红黑树/" style="font-size: 14px; color: #999">红黑树</a> <a href="/tags/蓝桥杯/" style="font-size: 24px; color: #555">蓝桥杯</a> <a href="/tags/计算机网络/" style="font-size: 14px; color: #999">计算机网络</a> <a href="/tags/链表/" style="font-size: 24px; color: #555">链表</a>
         </div>
     </section>
 
