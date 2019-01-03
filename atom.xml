@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jzygaga.github.io/"/>
-  <updated>2019-01-02T22:54:08.431Z</updated>
+  <updated>2019-01-03T05:51:01.841Z</updated>
   <id>https://jzygaga.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>206. Reverse Linked List</title>
+    <link href="https://jzygaga.github.io/2019/01/03/leetcode-206.%20Reverse%20Linked%20List/"/>
+    <id>https://jzygaga.github.io/2019/01/03/leetcode-206. Reverse Linked List/</id>
+    <published>2019-01-03T04:18:55.000Z</published>
+    <updated>2019-01-03T05:51:01.841Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Reverse-Linked-List"><a href="#Reverse-Linked-List" class="headerlink" title="Reverse Linked List"></a>Reverse Linked List</h2><p><strong>Reverse a singly linked list.</strong><br><strong> Example:</strong></p><pre><code>Input: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULLOutput: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL</code></pre><p><strong>代码</strong></p><ul><li><p>迭代的代码</p><pre><code>class Solution {     public ListNode reverseList(ListNode head) {        ListNode reverseNode=null;        ListNode cur=head;        ListNode toDeal=null;        while(cur!=null) {            //拿到待处理的节点            toDeal =cur;            cur=cur.next;            //拿到一边进行连接            toDeal.next=reverseNode;            reverseNode=toDeal;        }        return reverseNode;    }}</code></pre></li></ul><ul><li><p>递归的代码<br><strong>代码一</strong></p><pre><code>class Solution {     public ListNode reverseList(ListNode head) {        if(head==null||head.next==null)            return head;        return toReverse(head,null);    }    private ListNode toReverse(ListNode head, ListNode reverse) {        if(head==null) {            return reverse;        }        ListNode cur=head.next;        //与另一个链表相连接        head.next=reverse;        //        reverse=head;        return toReverse(cur,reverse);    }}</code></pre></li></ul><p><strong>代码二</strong></p><pre><code>public ListNode reverseList(ListNode head) {    if(head==null||head.next==null)        return head;    ListNode newHead= reverseList(head.next);    //两个借点之间的链接进行翻转    head.next.next=head;    head.next=null;    return newHead;}</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Reverse-Linked-List&quot;&gt;&lt;a href=&quot;#Reverse-Linked-List&quot; class=&quot;headerlink&quot; title=&quot;Reverse Linked List&quot;&gt;&lt;/a&gt;Reverse Linked List&lt;/h2&gt;&lt;p&gt;&lt;s
+      
+    
+    </summary>
+    
+      <category term="leetcode" scheme="https://jzygaga.github.io/categories/leetcode/"/>
+    
+    
+      <category term="链表" scheme="https://jzygaga.github.io/tags/%E9%93%BE%E8%A1%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>Middle of the Linked List</title>
@@ -133,6 +158,24 @@
   </entry>
   
   <entry>
+    <title>工厂模式</title>
+    <link href="https://jzygaga.github.io/2019/01/01/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%B7%A5%E4%BA%A7%E6%A8%A1%E5%BC%8F/"/>
+    <id>https://jzygaga.github.io/2019/01/01/设计模式-工产模式/</id>
+    <published>2019-01-01T12:53:48.000Z</published>
+    <updated>2019-01-02T05:10:24.762Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="设计模式" scheme="https://jzygaga.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="工厂模式" scheme="https://jzygaga.github.io/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>红黑树</title>
     <link href="https://jzygaga.github.io/2019/01/01/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%BA%A2%E9%BB%91%E6%A0%91/"/>
     <id>https://jzygaga.github.io/2019/01/01/数据结构-红黑树/</id>
@@ -160,24 +203,6 @@
     
     
       <category term="红黑树" scheme="https://jzygaga.github.io/tags/%E7%BA%A2%E9%BB%91%E6%A0%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>工厂模式</title>
-    <link href="https://jzygaga.github.io/2019/01/01/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%B7%A5%E4%BA%A7%E6%A8%A1%E5%BC%8F/"/>
-    <id>https://jzygaga.github.io/2019/01/01/设计模式-工产模式/</id>
-    <published>2019-01-01T12:53:48.000Z</published>
-    <updated>2019-01-02T05:10:24.762Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-      <category term="设计模式" scheme="https://jzygaga.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-    
-      <category term="工厂模式" scheme="https://jzygaga.github.io/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   

@@ -139,6 +139,101 @@
             <article class="post reveal ">
     <section class="meta">
         <h2 class="title">
+            <a href="/2019/01/03/leetcode-206. Reverse Linked List/">
+                
+                    206. Reverse Linked List
+                
+            </a>
+        </h2>
+        <time class="time">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2019-01-03
+        </time>
+        
+    
+    <div class="cats">
+        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+        <a class="categories" href="/categories/leetcode/">leetcode</a>
+    </div>
+
+
+    </section>
+
+    <section class="article typo">
+        <h2 id="Reverse-Linked-List"><a href="#Reverse-Linked-List" class="headerlink" title="Reverse Linked List"></a>Reverse Linked List</h2><p><strong>Reverse a singly linked list.</strong><br><strong> Example:</strong></p>
+<pre><code>Input: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL
+Output: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL
+</code></pre><p><strong>代码</strong></p>
+<ul>
+<li><p>迭代的代码</p>
+<pre><code>class Solution {
+     public ListNode reverseList(ListNode head) {
+        ListNode reverseNode=null;
+        ListNode cur=head;
+        ListNode toDeal=null;
+        while(cur!=null) {
+            //拿到待处理的节点
+            toDeal =cur;
+            cur=cur.next;
+            //拿到一边进行连接
+            toDeal.next=reverseNode;
+            reverseNode=toDeal;
+        }
+        return reverseNode;
+    }
+}
+</code></pre></li>
+</ul>
+<ul>
+<li><p>递归的代码<br><strong>代码一</strong></p>
+<pre><code>class Solution {
+     public ListNode reverseList(ListNode head) {
+        if(head==null||head.next==null)
+            return head;
+        return toReverse(head,null);
+    }
+    private ListNode toReverse(ListNode head, ListNode reverse) {
+        if(head==null) {
+            return reverse;
+        }
+        ListNode cur=head.next;
+        //与另一个链表相连接
+        head.next=reverse;
+        //
+        reverse=head;
+        return toReverse(cur,reverse);
+    }
+}
+</code></pre></li>
+</ul>
+<p><strong>代码二</strong></p>
+<pre><code>public ListNode reverseList(ListNode head) {
+    if(head==null||head.next==null)
+        return head;
+    ListNode newHead= reverseList(head.next);
+    //两个借点之间的链接进行翻转
+    head.next.next=head;
+    head.next=null;
+    return newHead;
+}
+</code></pre>
+        
+
+        
+            <div class="full-width auto-padding tags">
+                
+                    <a href="/tags/链表/"><i class="fas fa-tag fa-fw"></i>&nbsp;链表</a>
+                
+            </div>
+        
+    </section>
+</article>
+
+        </div>
+    
+        <div class="post-wrapper">
+            <article class="post reveal ">
+    <section class="meta">
+        <h2 class="title">
             <a href="/2019/01/03/leetcode-876. Middle of the Linked List/">
                 
                     Middle of the Linked List
@@ -430,6 +525,45 @@
             <div class="full-width auto-padding tags">
                 
                     <a href="/tags/代理模式/"><i class="fas fa-tag fa-fw"></i>&nbsp;代理模式</a>
+                
+            </div>
+        
+    </section>
+</article>
+
+        </div>
+    
+        <div class="post-wrapper">
+            <article class="post reveal ">
+    <section class="meta">
+        <h2 class="title">
+            <a href="/2019/01/01/设计模式-工产模式/">
+                
+                    工厂模式
+                
+            </a>
+        </h2>
+        <time class="time">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2019-01-01
+        </time>
+        
+    
+    <div class="cats">
+        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+        <a class="categories" href="/categories/设计模式/">设计模式</a>
+    </div>
+
+
+    </section>
+
+    <section class="article typo">
+        
+        
+
+        
+            <div class="full-width auto-padding tags">
+                
+                    <a href="/tags/工厂模式/"><i class="fas fa-tag fa-fw"></i>&nbsp;工厂模式</a>
                 
             </div>
         
@@ -841,45 +975,6 @@ public class AVLTree&lt;K extends Comparable&lt;K&gt;, V&gt; {
             <div class="full-width auto-padding tags">
                 
                     <a href="/tags/红黑树/"><i class="fas fa-tag fa-fw"></i>&nbsp;红黑树</a>
-                
-            </div>
-        
-    </section>
-</article>
-
-        </div>
-    
-        <div class="post-wrapper">
-            <article class="post reveal ">
-    <section class="meta">
-        <h2 class="title">
-            <a href="/2019/01/01/设计模式-工产模式/">
-                
-                    工厂模式
-                
-            </a>
-        </h2>
-        <time class="time">
-            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2019-01-01
-        </time>
-        
-    
-    <div class="cats">
-        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-        <a class="categories" href="/categories/设计模式/">设计模式</a>
-    </div>
-
-
-    </section>
-
-    <section class="article typo">
-        
-        
-
-        
-            <div class="full-width auto-padding tags">
-                
-                    <a href="/tags/工厂模式/"><i class="fas fa-tag fa-fw"></i>&nbsp;工厂模式</a>
                 
             </div>
         
@@ -1415,7 +1510,7 @@ public class AVLTree&lt;K extends Comparable&lt;K&gt;, V&gt; {
                 
                     <li><a class="flat-box" href="/categories/java/"><div class="name">java</div><div class="badge">3</div></a></li>
                 
-                    <li><a class="flat-box" href="/categories/leetcode/"><div class="name">leetcode</div><div class="badge">4</div></a></li>
+                    <li><a class="flat-box" href="/categories/leetcode/"><div class="name">leetcode</div><div class="badge">5</div></a></li>
                 
                     <li><a class="flat-box" href="/categories/剑指offer/"><div class="name">剑指offer</div><div class="badge">1</div></a></li>
                 
@@ -1440,7 +1535,7 @@ public class AVLTree&lt;K extends Comparable&lt;K&gt;, V&gt; {
             <div><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;标签</div>
         </header>
         <div class="content pure">
-            <a href="/tags/AVL树/" style="font-size: 14px; color: #999">AVL树</a> <a href="/tags/Trie/" style="font-size: 24px; color: #555">Trie</a> <a href="/tags/lamda/" style="font-size: 14px; color: #999">lamda</a> <a href="/tags/代理模式/" style="font-size: 14px; color: #999">代理模式</a> <a href="/tags/反射/" style="font-size: 14px; color: #999">反射</a> <a href="/tags/哈希表/" style="font-size: 14px; color: #999">哈希表</a> <a href="/tags/多线程/" style="font-size: 14px; color: #999">多线程</a> <a href="/tags/工厂模式/" style="font-size: 14px; color: #999">工厂模式</a> <a href="/tags/并查集/" style="font-size: 14px; color: #999">并查集</a> <a href="/tags/数据结构/" style="font-size: 24px; color: #555">数据结构</a> <a href="/tags/红黑树/" style="font-size: 14px; color: #999">红黑树</a> <a href="/tags/蓝桥杯/" style="font-size: 24px; color: #555">蓝桥杯</a> <a href="/tags/计算机网络/" style="font-size: 14px; color: #999">计算机网络</a> <a href="/tags/链表/" style="font-size: 24px; color: #555">链表</a>
+            <a href="/tags/AVL树/" style="font-size: 14px; color: #999">AVL树</a> <a href="/tags/Trie/" style="font-size: 19px; color: #777">Trie</a> <a href="/tags/lamda/" style="font-size: 14px; color: #999">lamda</a> <a href="/tags/代理模式/" style="font-size: 14px; color: #999">代理模式</a> <a href="/tags/反射/" style="font-size: 14px; color: #999">反射</a> <a href="/tags/哈希表/" style="font-size: 14px; color: #999">哈希表</a> <a href="/tags/多线程/" style="font-size: 14px; color: #999">多线程</a> <a href="/tags/工厂模式/" style="font-size: 14px; color: #999">工厂模式</a> <a href="/tags/并查集/" style="font-size: 14px; color: #999">并查集</a> <a href="/tags/数据结构/" style="font-size: 19px; color: #777">数据结构</a> <a href="/tags/红黑树/" style="font-size: 14px; color: #999">红黑树</a> <a href="/tags/蓝桥杯/" style="font-size: 19px; color: #777">蓝桥杯</a> <a href="/tags/计算机网络/" style="font-size: 14px; color: #999">计算机网络</a> <a href="/tags/链表/" style="font-size: 24px; color: #555">链表</a>
         </div>
     </section>
 
