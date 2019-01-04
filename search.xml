@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title>重建二叉树</title>
+      <link href="/2019/01/04/%E5%87%86%E5%A4%87%E7%BC%96%E8%BE%91%E7%9A%84%E5%8D%9A%E5%AE%A2/"/>
+      <url>/2019/01/04/%E5%87%86%E5%A4%87%E7%BC%96%E8%BE%91%E7%9A%84%E5%8D%9A%E5%AE%A2/</url>
+      
+        <content type="html"><![CDATA[<h2 id="重建二叉树"><a href="#重建二叉树" class="headerlink" title="重建二叉树"></a>重建二叉树</h2><p><strong>题目描述</strong></p><ul><li><p>输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。</p><pre><code>/** * Definition for binary tree * public class TreeNode { *     int val; *     TreeNode left; *     TreeNode right; *     TreeNode(int x) { val = x; } * } */public class Solution {     public TreeNode reConstructBinaryTree(int [] pre,int [] in) {        if(pre==null||in==null||pre.length!=in.length)            return null;       return reConstructBinaryTree(pre,0,pre.length-1,in,0,in.length-1);    }    private TreeNode reConstructBinaryTree(int[] pre,int pStart,int pEnd,int[] in,int iStart,int iEnd){        //一般性问题        if(pStart&gt;pEnd)            return null;        //创建根节点        TreeNode root=new TreeNode(pre[pStart]);        //找到中序遍历中的位置        int loc;        for(loc=0;loc&lt;in.length;loc++){            if(in[loc]==pre[pStart]){                break;            }        }        //计算左右子树节点的个数。        int len=loc-iStart;        root.left=reConstructBinaryTree(pre,pStart+1,pStart+len,in,iStart,iStart+len-1);        root.right=reConstructBinaryTree(pre,pStart+len+1,pEnd,in,iStart+len+1,iEnd);        return root;    }}</code></pre></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 剑指offer </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 二叉树 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>234. Palindrome Linked List</title>
       <link href="/2019/01/03/leetcode-%E5%8D%95%E9%93%BE%E8%A1%A8-234.%20Palindrome%20Linked%20List/"/>
       <url>/2019/01/03/leetcode-%E5%8D%95%E9%93%BE%E8%A1%A8-234.%20Palindrome%20Linked%20List/</url>
@@ -405,6 +428,23 @@
     </entry>
     
     <entry>
+      <title>我滴妈</title>
+      <link href="/2018/12/05/%E8%93%9D%E6%A1%A5%E8%A2%AB%E5%85%A5%E9%97%A8%E9%A2%98%E7%AC%AC%E4%B8%80%E9%A2%98/"/>
+      <url>/2018/12/05/%E8%93%9D%E6%A1%A5%E8%A2%AB%E5%85%A5%E9%97%A8%E9%A2%98%E7%AC%AC%E4%B8%80%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>Fibonacci数列的递推公式为：Fn=Fn-1+Fn-2，其中F1=F2=1。</p><p>当n比较大时，Fn也非常大，现在我们想知道，Fn除以10007的余数是多少。</p><h1 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h1><p>输入包含一个整数n。</p><h1 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h1><p>输出一行，包含一个整数，表示Fn除以10007的余数。</p><p>说明：在本题中，答案是要求Fn除以10007的余数，因此我们只要能算出这个余数即可，而不需要先计算出Fn的准确值，再将计算的结果除以10007取余数，直接计算余数往往比先算出原数再取余简单。</p><pre><code>package begin4;import java.util.Scanner;public class Main {    public static void main(String[] args) {        int[] f= new int[1000001];        f[1] = f[2] = 1;        for (int i = 3; i &lt;= 1000000; i++) {            f[i] = (f[i-1] + f[i-2]) % 10007;        }        Scanner in = new Scanner(System.in);        System.out.println(f[in.nextInt()]);        in.close();    }}</code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 蓝桥杯 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>basic12</title>
       <link href="/2018/12/05/%E8%93%9D%E6%A1%A5%E6%9D%AF-basic12/"/>
       <url>/2018/12/05/%E8%93%9D%E6%A1%A5%E6%9D%AF-basic12/</url>
@@ -417,23 +457,6 @@
           <category> 蓝桥杯 </category>
           
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 蓝桥杯 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>我滴妈</title>
-      <link href="/2018/12/05/%E8%93%9D%E6%A1%A5%E8%A2%AB%E5%85%A5%E9%97%A8%E9%A2%98%E7%AC%AC%E4%B8%80%E9%A2%98/"/>
-      <url>/2018/12/05/%E8%93%9D%E6%A1%A5%E8%A2%AB%E5%85%A5%E9%97%A8%E9%A2%98%E7%AC%AC%E4%B8%80%E9%A2%98/</url>
-      
-        <content type="html"><![CDATA[<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>Fibonacci数列的递推公式为：Fn=Fn-1+Fn-2，其中F1=F2=1。</p><p>当n比较大时，Fn也非常大，现在我们想知道，Fn除以10007的余数是多少。</p><h1 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h1><p>输入包含一个整数n。</p><h1 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h1><p>输出一行，包含一个整数，表示Fn除以10007的余数。</p><p>说明：在本题中，答案是要求Fn除以10007的余数，因此我们只要能算出这个余数即可，而不需要先计算出Fn的准确值，再将计算的结果除以10007取余数，直接计算余数往往比先算出原数再取余简单。</p><pre><code>package begin4;import java.util.Scanner;public class Main {    public static void main(String[] args) {        int[] f= new int[1000001];        f[1] = f[2] = 1;        for (int i = 3; i &lt;= 1000000; i++) {            f[i] = (f[i-1] + f[i-2]) % 10007;        }        Scanner in = new Scanner(System.in);        System.out.println(f[in.nextInt()]);        in.close();    }}</code></pre>]]></content>
-      
       
       
         <tags>

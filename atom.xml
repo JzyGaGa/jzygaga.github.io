@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jzygaga.github.io/"/>
-  <updated>2019-01-03T06:38:51.711Z</updated>
+  <updated>2019-01-04T02:52:54.124Z</updated>
   <id>https://jzygaga.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>重建二叉树</title>
+    <link href="https://jzygaga.github.io/2019/01/04/%E5%87%86%E5%A4%87%E7%BC%96%E8%BE%91%E7%9A%84%E5%8D%9A%E5%AE%A2/"/>
+    <id>https://jzygaga.github.io/2019/01/04/准备编辑的博客/</id>
+    <published>2019-01-04T02:47:53.000Z</published>
+    <updated>2019-01-04T02:52:54.124Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="重建二叉树"><a href="#重建二叉树" class="headerlink" title="重建二叉树"></a>重建二叉树</h2><p><strong>题目描述</strong></p><ul><li><p>输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。</p><pre><code>/** * Definition for binary tree * public class TreeNode { *     int val; *     TreeNode left; *     TreeNode right; *     TreeNode(int x) { val = x; } * } */public class Solution {     public TreeNode reConstructBinaryTree(int [] pre,int [] in) {        if(pre==null||in==null||pre.length!=in.length)            return null;       return reConstructBinaryTree(pre,0,pre.length-1,in,0,in.length-1);    }    private TreeNode reConstructBinaryTree(int[] pre,int pStart,int pEnd,int[] in,int iStart,int iEnd){        //一般性问题        if(pStart&gt;pEnd)            return null;        //创建根节点        TreeNode root=new TreeNode(pre[pStart]);        //找到中序遍历中的位置        int loc;        for(loc=0;loc&lt;in.length;loc++){            if(in[loc]==pre[pStart]){                break;            }        }        //计算左右子树节点的个数。        int len=loc-iStart;        root.left=reConstructBinaryTree(pre,pStart+1,pStart+len,in,iStart,iStart+len-1);        root.right=reConstructBinaryTree(pre,pStart+len+1,pEnd,in,iStart+len+1,iEnd);        return root;    }}</code></pre></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;重建二叉树&quot;&gt;&lt;a href=&quot;#重建二叉树&quot; class=&quot;headerlink&quot; title=&quot;重建二叉树&quot;&gt;&lt;/a&gt;重建二叉树&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;输入某二叉树的前序遍历和中序遍历的结果，
+      
+    
+    </summary>
+    
+      <category term="剑指offer" scheme="https://jzygaga.github.io/categories/%E5%89%91%E6%8C%87offer/"/>
+    
+    
+      <category term="二叉树" scheme="https://jzygaga.github.io/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
+    
+  </entry>
   
   <entry>
     <title>234. Palindrome Linked List</title>
@@ -445,31 +472,6 @@
     
     
       <category term="多线程" scheme="https://jzygaga.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>basic12</title>
-    <link href="https://jzygaga.github.io/2018/12/05/%E8%93%9D%E6%A1%A5%E6%9D%AF-basic12/"/>
-    <id>https://jzygaga.github.io/2018/12/05/蓝桥杯-basic12/</id>
-    <published>2018-12-05T06:01:18.000Z</published>
-    <updated>2019-01-02T06:28:58.388Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>123321是一个非常特殊的数，它从左边读和从右边读是一样的。<br>　　输入一个正整数n， 编程求所有这样的五位和六位十进制数，满足各位数字之和等于n 。</p><h1 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h1><p>　　输入一行，包含一个正整数n。</p><h1 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h1><p>　　按从小到大的顺序输出满足条件的整数，每个整数占一行。</p><p>说明：在本题中，答案是要求Fn除以10007的余数，因此我们只要能算出这个余数即可，而不需要先计算出Fn的准确值，再将计算的结果除以10007取余数，直接计算余数往往比先算出原数再取余简单。<br>    package algorithm.Lanqiao.基础练习;</p><pre><code>import java.util.Scanner;public class base9 {public static void main(String[] args) {    int n;    Scanner in = new Scanner(System.in);    n = in.nextInt();    in.close();    //5位的    for (int i = 1; i &lt; 10; i++) {        for (int j = 0; j &lt; 10; j++) {            for (int k = 0; k &lt; 10; k++) {                if (i * 2 + j * 2 + k == n) {                    System.out.print(i);                    System.out.print(j);                    System.out.print(k);                    System.out.print(j);                    System.out.print(i);                    System.out.println();                }            }        }    }    //6位的    for (int i = 1; i &lt; 10; i++) {        for (int j = 0; j &lt; 10; j++) {            for (int k = 0; k &lt; 10; k++) {                if (i * 2 + j * 2 + k * 2 == n) {                    System.out.print(i);                    System.out.print(j);                    System.out.print(k);                    System.out.print(k);                    System.out.print(j);                    System.out.print(i);                    System.out.println();                }            }        }    }}</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h1&gt;&lt;p&gt;123321是一个非常特殊的数，它从左边读和从右边读是一样的。&lt;br&gt;　　输入一个正整数n， 编程求所有这样的五位和六位十进
-      
-    
-    </summary>
-    
-      <category term="蓝桥杯" scheme="https://jzygaga.github.io/categories/%E8%93%9D%E6%A1%A5%E6%9D%AF/"/>
-    
-    
-      <category term="蓝桥杯" scheme="https://jzygaga.github.io/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/"/>
     
   </entry>
   

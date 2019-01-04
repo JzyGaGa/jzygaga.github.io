@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <title>并查集 | 飞翔的傻瓜</title>
+  <title>Tag: 二叉树 | 飞翔的傻瓜</title>
   
   <meta name="keywords" content="编程">
   
@@ -126,166 +126,97 @@
     <div class="l_body">
     <div class='container clearfix'>
         <div class='l_main'>
-            <article id="post-数据结构-并查集" class="post white-box article-type-post" itemscope="" itemprop="blogPost">
-    <section class="meta">
-        
-            <h1 class="title">并查集</h1>
-        
-        <time class="time">
-            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-            2018-12-22
-        </time>
-        
-          <div class="browse busuanzi"><i class="fas fa-eye fa-fw" aria-hidden="true"></i>
-            <span id="busuanzi_value_page_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
-          </div>
-        
+            
+    <script>
+        window.subData= { title:'标签 : 二叉树'}
+    </script>
 
+
+<section class="post-list">
+    
+        <div class="post-wrapper">
+            <article class="post reveal ">
+    <section class="meta">
+        <h2 class="title">
+            <a href="/2019/01/04/准备编辑的博客/">
+                
+                    重建二叉树
+                
+            </a>
+        </h2>
+        <time class="time">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2019-01-04
+        </time>
         
     
     <div class="cats">
         <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-        <a class="categories" href="/categories/数据结构/">数据结构</a>
+        <a class="categories" href="/categories/剑指offer/">剑指offer</a>
     </div>
 
 
     </section>
 
     <section class="article typo">
+        <h2 id="重建二叉树"><a href="#重建二叉树" class="headerlink" title="重建二叉树"></a>重建二叉树</h2><p><strong>题目描述</strong></p>
+<ul>
+<li><p>输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。</p>
+<pre><code>/**
+ * Definition for binary tree
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+     public TreeNode reConstructBinaryTree(int [] pre,int [] in) {
+        if(pre==null||in==null||pre.length!=in.length)
+            return null;
+       return reConstructBinaryTree(pre,0,pre.length-1,in,0,in.length-1);
+    }
 
-        <div class="article-entry" itemprop="articleBody">
-            
-        </div>
+    private TreeNode reConstructBinaryTree(int[] pre,int pStart,int pEnd,int[] in,int iStart,int iEnd){
+        //一般性问题
+        if(pStart&gt;pEnd)
+            return null;
 
-        <section class="meta">
-            <time class="time" itemprop="dateUpdated" datetime="2019-01-02T15:44:40+08:00" content="2019-01-02">
-                <i class="fas fa-pen fa-fw" aria-hidden="true"></i>
-                本文最后更新于：2019-01-02
-            </time>
-            
-                
-                <div class="tags">
-                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
-                    <a class="tag" href="/tags/并查集/">并查集</a>
-                </div>
-            
-        </section>
+        //创建根节点
+        TreeNode root=new TreeNode(pre[pStart]);
+        //找到中序遍历中的位置
+        int loc;
+        for(loc=0;loc&lt;in.length;loc++){
+            if(in[loc]==pre[pStart]){
+                break;
+            }
+        }
+        //计算左右子树节点的个数。
+        int len=loc-iStart;
+        root.left=reConstructBinaryTree(pre,pStart+1,pStart+len,in,iStart,iStart+len-1);
+        root.right=reConstructBinaryTree(pre,pStart+len+1,pEnd,in,iStart+len+1,iEnd);
+        return root;
+    }
+}
+</code></pre></li>
+</ul>
 
         
-            <div class="prev-next">
+
+        
+            <div class="full-width auto-padding tags">
                 
-                    <section class="prev">
-                        <span class="art-item-left">
-                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一篇</h6>
-                            <h4>
-                                <a href="/2018/12/29/java-lamda/" rel="prev" title="lamda">
-                                  
-                                      lamda
-                                  
-                                </a>
-                            </h4>
-                            
-                                
-                                <h6 class="tags">
-                                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
-                                    <a class="tag" href="/tags/lamda/">lamda</a>
-                                </h6>
-                            
-                        </span>
-                    </section>
-                
-                
-                    <section class="next">
-                        <span class="art-item-right" aria-hidden="true">
-                            <h6>下一篇&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
-                            <h4>
-                                <a href="/2018/12/20/leetcode-211. Add and Search Word - Data structure design/" rel="prev" title="leetcode">
-                                    
-                                        leetcode
-                                    
-                                </a>
-                            </h4>
-                            
-                                
-                                <h6 class="tags">
-                                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
-                                    <a class="tag" href="/tags/Trie/">Trie</a>
-                                </h6>
-                            
-                        </span>
-                    </section>
+                    <a href="/tags/二叉树/"><i class="fas fa-tag fa-fw"></i>&nbsp;二叉树</a>
                 
             </div>
         
-
     </section>
-
 </article>
 
-<br>
+        </div>
+    
+</section>
 
-<!-- 显示推荐文章和评论 -->
-
-    <article class="post white-box comments">
-        <section class="article typo">
-
-            
-                
-
-    <div class="recommended_posts">
-        <h4><i class="fas fa-bookmark fa-fw" aria-hidden="true"></i>&nbsp;你可能感兴趣的文章</h4>
-        <ul>
-            
-                <li><a href="https://jzygaga.github.io/2018/12/30/数据结构-哈希表/">哈希表</a></li>
-            
-                <li><a href="https://jzygaga.github.io/2018/12/29/java-lamda/">lamda</a></li>
-            
-                <li><a href="https://jzygaga.github.io/2018/12/20/leetcode-211. Add and Search Word - Data structure design/">leetcode</a></li>
-            
-                <li><a href="https://jzygaga.github.io/2018/12/20/leetcode-208. Implement Trie (Prefix Tree) - 副本/">leetcode</a></li>
-            
-                <li><a href="https://jzygaga.github.io/2018/12/14/数据结构-栈/">数据结构--数组</a></li>
-            
-        </ul>
-    </div>
-
-
-            
-
-            
-
-                
-
-                
-
-                
-                    
-                        <h4><i class="fas fa-comments fa-fw" aria-hidden="true"></i>&nbsp;Valine评论</h4>
-                        <div class="subtitle">
-                          <h6><b>文明评论，请勿灌水。</b>为了便于区分和接收回复提醒，请您在留言时填写一下<b>昵称</b>和<b>邮箱</b>。
-                          不定期清理没有昵称和灌水的评论。</h6>
-                        <div>
-                        <section id="comments">
-                            <div id="valine_container" class="valine_thread">
-                                <i class="fas fa-spinner fa-spin fa-fw"></i>
-                            </div>
-                        </section>
-                        <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-                        <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-                    
-                
-            
-
-        </div></div></section>
-    </article>
-
-
-<script>
-    window.subData = {
-        title: '并查集',
-        tools: true
-    }
-</script>
 
 
         </div>
@@ -469,35 +400,6 @@
 <script src="/js/search.js"></script>
 <script src="/js/app.js"></script>
 
-
-    
-    
-    
-        
-            <script>
-            var GUEST_INFO = ['nick','mail','link'];
-            var guest_info = 'nick,mail,link'.split(',').filter(function(item){
-                return GUEST_INFO.indexOf(item) > -1
-            });
-            var notify = 'false' == true;
-            var verify = 'false' == true;
-            var valine = new Valine();
-            valine.init({
-                el: '#valine_container',
-                notify: notify,
-                verify: verify,
-                guest_info: guest_info,
-                appId: "i7VcgTiF1E2LyY1zYibTBq3R-gzGzoHsz",
-                appKey: "JlhogVnhG1tHjHlAnROj11Fl",
-                placeholder: "快来评论吧~",
-                pageSize:'10',
-                avatar:'mp',
-                lang:'zh-cn',
-                highlight:''
-            })
-            </script>
-        
-    
 
 
 
