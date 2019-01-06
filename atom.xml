@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jzygaga.github.io/"/>
-  <updated>2019-01-06T06:34:09.700Z</updated>
+  <updated>2019-01-06T09:37:25.042Z</updated>
   <id>https://jzygaga.github.io/</id>
   
   <author>
@@ -17,16 +17,28 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>准备编辑的博客</title>
-    <link href="https://jzygaga.github.io/2019/01/06/%E5%87%86%E5%A4%87%E7%BC%96%E8%BE%91%E7%9A%84%E5%8D%9A%E5%AE%A2/"/>
-    <id>https://jzygaga.github.io/2019/01/06/准备编辑的博客/</id>
+    <title>斐波那契数列</title>
+    <link href="https://jzygaga.github.io/2019/01/06/%E5%89%91%E6%8C%87offer-%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/"/>
+    <id>https://jzygaga.github.io/2019/01/06/剑指offer-斐波那契数列/</id>
     <published>2019-01-06T06:34:09.000Z</published>
-    <updated>2019-01-06T06:34:09.700Z</updated>
+    <updated>2019-01-06T09:37:25.042Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="斐波那契数列"><a href="#斐波那契数列" class="headerlink" title="斐波那契数列"></a>斐波那契数列</h2><ul><li>描述<br><strong>大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项（从0开始，第0项为0）。n&lt;=39 </strong></li><li>代码<pre><code>public int Fibonacci1(int n) {      if(n==1)          return 1;      if(n==2)          return 1;        int[] arr=new int[n];        arr[0]=1;        arr[1]=1;        for(int i=2;i&lt;n;i++) {            arr[i]=arr[i-1]+arr[i-2];        }        return arr[n-1];    }</code></pre></li><li><p>代码</p><pre><code>import java.util.HashMap;import java.util.Map;public class Solution {    private Map&lt;Integer,Integer&gt; map=new HashMap&lt;&gt;();    public int Fibonacci(int n) {         if(n==1)           return 1;         if(n==2)          return 1;         if(map.get(n)!=null)             return map.get(n);        map.put(n, Fibonacci(n-1)+Fibonacci(n-2));        return map.get(n);    }}</code></pre></li></ul>]]></content>
     
     <summary type="html">
     
+      
+      
+        &lt;h2 id=&quot;斐波那契数列&quot;&gt;&lt;a href=&quot;#斐波那契数列&quot; class=&quot;headerlink&quot; title=&quot;斐波那契数列&quot;&gt;&lt;/a&gt;斐波那契数列&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;描述&lt;br&gt;&lt;strong&gt;大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列
+      
+    
     </summary>
     
+      <category term="剑指offer" scheme="https://jzygaga.github.io/categories/%E5%89%91%E6%8C%87offer/"/>
+    
+    
+      <category term="数组" scheme="https://jzygaga.github.io/tags/%E6%95%B0%E7%BB%84/"/>
     
   </entry>
   
