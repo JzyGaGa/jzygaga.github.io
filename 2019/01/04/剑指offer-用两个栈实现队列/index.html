@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <title>basic12 | 飞翔的傻瓜</title>
+  <title>用两个栈实现队列 | 飞翔的傻瓜</title>
   
   <meta name="keywords" content="编程">
   
@@ -126,14 +126,14 @@
     <div class="l_body">
     <div class='container clearfix'>
         <div class='l_main'>
-            <article id="post-蓝桥杯-basic12" class="post white-box article-type-post" itemscope="" itemprop="blogPost">
+            <article id="post-剑指offer-用两个栈实现队列" class="post white-box article-type-post" itemscope="" itemprop="blogPost">
     <section class="meta">
         
-            <h1 class="title">basic12</h1>
+            <h1 class="title">用两个栈实现队列</h1>
         
         <time class="time">
             <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-            2018-12-05
+            2019-01-04
         </time>
         
           <div class="browse busuanzi"><i class="fas fa-eye fa-fw" aria-hidden="true"></i>
@@ -145,7 +145,7 @@
     
     <div class="cats">
         <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-        <a class="categories" href="/categories/蓝桥杯/">蓝桥杯</a>
+        <a class="categories" href="/categories/剑指offer/">剑指offer</a>
     </div>
 
 
@@ -154,65 +154,49 @@
     <section class="article typo">
 
         <div class="article-entry" itemprop="articleBody">
-            <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>123321是一个非常特殊的数，它从左边读和从右边读是一样的。<br>　　输入一个正整数n， 编程求所有这样的五位和六位十进制数，满足各位数字之和等于n 。</p>
-<h1 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h1><p>　　输入一行，包含一个正整数n。</p>
-<h1 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h1><p>　　按从小到大的顺序输出满足条件的整数，每个整数占一行。</p>
-<p>说明：在本题中，答案是要求Fn除以10007的余数，因此我们只要能算出这个余数即可，而不需要先计算出Fn的准确值，再将计算的结果除以10007取余数，直接计算余数往往比先算出原数再取余简单。<br>    package algorithm.Lanqiao.基础练习;</p>
-<pre><code>import java.util.Scanner;
+            <p><strong>题目描述</strong></p>
+<ul>
+<li><p>用两个栈来实现一个队列，完成队列的Push和Pop操作。 队列中的元素为int类型。</p>
+<ul>
+<li><p>自己解</p>
+<pre><code>import java.util.Stack;
 
-public class base9 {
-public static void main(String[] args) {
-    int n;
-    Scanner in = new Scanner(System.in);
-    n = in.nextInt();
-    in.close();
-    //5位的
-    for (int i = 1; i &lt; 10; i++) {
-        for (int j = 0; j &lt; 10; j++) {
-            for (int k = 0; k &lt; 10; k++) {
-                if (i * 2 + j * 2 + k == n) {
-                    System.out.print(i);
-                    System.out.print(j);
-                    System.out.print(k);
-                    System.out.print(j);
-                    System.out.print(i);
-                    System.out.println();
-                }
-            }
-        }
-
+public class Solution {
+    Stack&lt;Integer&gt; stack1 = new Stack&lt;Integer&gt;();
+    Stack&lt;Integer&gt; stack2 = new Stack&lt;Integer&gt;();
+     public void push(int node) {
+           stack1.push(node);
     }
-    //6位的
-    for (int i = 1; i &lt; 10; i++) {
-        for (int j = 0; j &lt; 10; j++) {
-            for (int k = 0; k &lt; 10; k++) {
-                if (i * 2 + j * 2 + k * 2 == n) {
-                    System.out.print(i);
-                    System.out.print(j);
-                    System.out.print(k);
-                    System.out.print(k);
-                    System.out.print(j);
-                    System.out.print(i);
-                    System.out.println();
-                }
-            }
+    public int pop() {
+        while(!stack1.isEmpty()) {
+            stack2.push(stack1.pop());
         }
-
+        Integer toPop = stack2.pop();
+        while(!stack2.isEmpty()) {
+            stack1.push(stack2.pop());
+        }
+        return toPop;
     }
 }
-</code></pre>
+</code></pre></li>
+<li><p>渐优解</p>
+</li>
+</ul>
+</li>
+</ul>
+
         </div>
 
         <section class="meta">
-            <time class="time" itemprop="dateUpdated" datetime="2019-01-02T14:28:58+08:00" content="2019-01-02">
+            <time class="time" itemprop="dateUpdated" datetime="2019-01-04T11:13:44+08:00" content="2019-01-04">
                 <i class="fas fa-pen fa-fw" aria-hidden="true"></i>
-                本文最后更新于：2019-01-02
+                本文最后更新于：2019-01-04
             </time>
             
                 
                 <div class="tags">
                     <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
-                    <a class="tag" href="/tags/蓝桥杯/">蓝桥杯</a>
+                    <a class="tag" href="/tags/栈/">栈</a>
                 </div>
             
         </section>
@@ -224,9 +208,9 @@ public static void main(String[] args) {
                         <span class="art-item-left">
                             <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一篇</h6>
                             <h4>
-                                <a href="/2018/12/14/java-多线程/" rel="prev" title="多线程">
+                                <a href="/2019/01/05/数据结构-图/" rel="prev" title="图结构">
                                   
-                                      多线程
+                                      图结构
                                   
                                 </a>
                             </h4>
@@ -234,7 +218,7 @@ public static void main(String[] args) {
                                 
                                 <h6 class="tags">
                                     <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
-                                    <a class="tag" href="/tags/多线程/">多线程</a>
+                                    <a class="tag" href="/tags/数据结构/">数据结构</a>
                                 </h6>
                             
                         </span>
@@ -245,9 +229,9 @@ public static void main(String[] args) {
                         <span class="art-item-right" aria-hidden="true">
                             <h6>下一篇&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
                             <h4>
-                                <a href="/2018/12/05/蓝桥被入门题第一题/" rel="prev" title="我滴妈">
+                                <a href="/2019/01/04/剑指offer-重建二叉树/" rel="prev" title="重建二叉树">
                                     
-                                        我滴妈
+                                        重建二叉树
                                     
                                 </a>
                             </h4>
@@ -255,7 +239,7 @@ public static void main(String[] args) {
                                 
                                 <h6 class="tags">
                                     <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
-                                    <a class="tag" href="/tags/蓝桥杯/">蓝桥杯</a>
+                                    <a class="tag" href="/tags/二叉树/">二叉树</a>
                                 </h6>
                             
                         </span>
@@ -282,15 +266,15 @@ public static void main(String[] args) {
         <h4><i class="fas fa-bookmark fa-fw" aria-hidden="true"></i>&nbsp;你可能感兴趣的文章</h4>
         <ul>
             
-                <li><a href="https://jzygaga.github.io/2018/12/20/leetcode-211. Add and Search Word - Data structure design/">leetcode</a></li>
+                <li><a href="https://jzygaga.github.io/2019/01/06/leetcode-970. Powerful Integers/">Powerful Integers</a></li>
             
-                <li><a href="https://jzygaga.github.io/2018/12/14/数据结构-BST/">数据结构--数组</a></li>
+                <li><a href="https://jzygaga.github.io/2019/01/05/数据结构-图/">图结构</a></li>
             
-                <li><a href="https://jzygaga.github.io/2018/12/14/数据结构-栈/">数据结构--数组</a></li>
+                <li><a href="https://jzygaga.github.io/2019/01/04/剑指offer-重建二叉树/">重建二叉树</a></li>
             
-                <li><a href="https://jzygaga.github.io/2018/12/14/java-多线程/">多线程</a></li>
+                <li><a href="https://jzygaga.github.io/2019/01/03/leetcode-单链表-234. Palindrome Linked List/">234. Palindrome Linked List</a></li>
             
-                <li><a href="https://jzygaga.github.io/2018/12/05/蓝桥被入门题第一题/">我滴妈</a></li>
+                <li><a href="https://jzygaga.github.io/2019/01/03/leetcode-206. Reverse Linked List/">206. Reverse Linked List</a></li>
             
         </ul>
     </div>
@@ -328,7 +312,7 @@ public static void main(String[] args) {
 
 <script>
     window.subData = {
-        title: 'basic12',
+        title: '用两个栈实现队列',
         tools: true
     }
 </script>
@@ -417,16 +401,6 @@ public static void main(String[] args) {
     
     
         
-    <section class="m_widget toc-wrapper">
-        <header class="header pure">
-            <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;目录</div>
-            <div class="wrapper"><a class="s-toc rightBtn" title="固定到顶部" target="_blank" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
-        </header>
-        <div class="content pure">
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#问题描述"><span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#输入格式"><span class="toc-text">输入格式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#输出格式"><span class="toc-text">输出格式</span></a></li></ol>
-        </div>
-    </section>
-
 
     
     

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <title>二维数组中的查找 | 飞翔的傻瓜</title>
+  <title>Powerful Integers | 飞翔的傻瓜</title>
   
   <meta name="keywords" content="编程">
   
@@ -126,14 +126,14 @@
     <div class="l_body">
     <div class='container clearfix'>
         <div class='l_main'>
-            <article id="post-剑指offer" class="post white-box article-type-post" itemscope="" itemprop="blogPost">
+            <article id="post-leetcode-970. Powerful Integers" class="post white-box article-type-post" itemscope="" itemprop="blogPost">
     <section class="meta">
         
-            <h1 class="title">二维数组中的查找</h1>
+            <h1 class="title">Powerful Integers</h1>
         
         <time class="time">
             <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-            2019-01-02
+            2019-01-06
         </time>
         
           <div class="browse busuanzi"><i class="fas fa-eye fa-fw" aria-hidden="true"></i>
@@ -145,7 +145,7 @@
     
     <div class="cats">
         <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-        <a class="categories" href="/categories/剑指offer/">剑指offer</a>
+        <a class="categories" href="/categories/leetcode/">leetcode</a>
     </div>
 
 
@@ -154,40 +154,82 @@
     <section class="article typo">
 
         <div class="article-entry" itemprop="articleBody">
-            <h2 id="二维数组中的查找"><a href="#二维数组中的查找" class="headerlink" title="二维数组中的查找"></a>二维数组中的查找</h2><p><strong>描述：</strong></p>
+            <h2 id="970-Powerful-Integers"><a href="#970-Powerful-Integers" class="headerlink" title="970. Powerful Integers"></a>970. Powerful Integers</h2><ul>
+<li><strong>描述：</strong>Given two non-negative integers x and y, an integer is powerful if it is equal to x^i + y^j for some integers i &gt;= 0 and j &gt;= 0.</li>
+<li>例子<ul>
+<li>例子1<br>   Input: x = 2, y = 3, bound = 10<pre><code>Output: [2,3,4,5,7,9,10]
+Explanation: 
+2 = 2^0 + 3^0
+3 = 2^1 + 3^0
+4 = 2^0 + 3^1
+5 = 2^1 + 3^1
+7 = 2^2 + 3^1
+9 = 2^3 + 3^0
+10 = 2^0 + 3^2
+</code></pre></li>
+</ul>
+</li>
+<li><p>代码</p>
 <ul>
-<li><p>在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。<br><strong>代码</strong></p>
-<pre><code>public class Solution {
-    public boolean Find(int target, int [][] array) {
-        int y=0;
-        int x=array.length-1;
-        int row=array.length-1;
-        int col=array[0].length-1;
-        while((0&lt;=x&amp;&amp;x&lt;=col)&amp;&amp;(0&lt;=y&amp;&amp;y&lt;=row)){
+<li><p>while</p>
+<pre><code>class Solution {
+      public List&lt;Integer&gt; powerfulIntegers(int x, int y, int bound) {
+         int maxV=Math.max(x, y);
+         int minV=Math.min(x, y);
+         int sum;
+         int sumMaxV=1;
+         int sumMinV=1;
+        Set&lt;Integer&gt; set=new HashSet&lt;&gt;();
 
-            if(array[x][y]==target)
-                return true;
-            if(array[x][y]&lt;target){
-                y++;
-               continue;
+        //3
+         while(sumMaxV&lt;=bound) {
+             sumMinV=1;
+             while(sumMinV&lt;=(bound-sumMaxV)) {
+                 sum=sumMaxV+sumMinV;
+                // if(sum&gt;bound)
+                //     break;     while()条件已经判断了
+                 set.add(sum);
+               if(minV==1)
+                     break;
+                 sumMinV*=minV;
              }
-            if(array[x][y]&gt;target){
-                x--;
-               continue;
+             sumMaxV*=maxV;
+              if(maxV==1)
+                     break;
+         }
+
+         return new ArrayList&lt;&gt;(set);
+     }
+}
+</code></pre></li>
+<li><p>for</p>
+<pre><code>    public List&lt;Integer&gt; powerfulIntegers(int x, int y, int bound) {
+        Set&lt;Integer&gt; result = new HashSet&lt;&gt;();
+        for (int a = 1; a &lt; bound; a *= x) {
+            for (int b = 1; a + b &lt;= bound; b *= y) {
+                result.add(a + b);
+                if (y == 1) {
+                    break;
+                }
+            }
+            if (x == 1) {
+                break;
             }
         }
-        return false;
+        return new ArrayList&lt;&gt;(result);
     }
 }
-</code></pre><h2 id="注意数组根据先后赋值，排列是从上到下来的"><a href="#注意数组根据先后赋值，排列是从上到下来的" class="headerlink" title="注意数组根据先后赋值，排列是从上到下来的"></a>注意数组根据先后赋值，排列是从上到下来的</h2></li>
+</code></pre></li>
+</ul>
+</li>
 </ul>
 
         </div>
 
         <section class="meta">
-            <time class="time" itemprop="dateUpdated" datetime="2019-01-03T16:21:57+08:00" content="2019-01-03">
+            <time class="time" itemprop="dateUpdated" datetime="2019-01-06T14:09:29+08:00" content="2019-01-06">
                 <i class="fas fa-pen fa-fw" aria-hidden="true"></i>
-                本文最后更新于：2019-01-03
+                本文最后更新于：2019-01-06
             </time>
             
                 
@@ -205,18 +247,12 @@
                         <span class="art-item-left">
                             <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一篇</h6>
                             <h4>
-                                <a href="/2019/01/03/leetcode-876. Middle of the Linked List/" rel="prev" title="Middle of the Linked List">
+                                <a href="/2019/01/06/准备编辑的博客/" rel="prev" title="准备编辑的博客">
                                   
-                                      Middle of the Linked List
+                                      准备编辑的博客
                                   
                                 </a>
                             </h4>
-                            
-                                
-                                <h6 class="tags">
-                                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
-                                    <a class="tag" href="/tags/链表/">链表</a>
-                                </h6>
                             
                         </span>
                     </section>
@@ -226,9 +262,9 @@
                         <span class="art-item-right" aria-hidden="true">
                             <h6>下一篇&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
                             <h4>
-                                <a href="/2019/01/02/java-反射/" rel="prev" title="反射">
+                                <a href="/2019/01/05/数据结构-图/" rel="prev" title="图结构">
                                     
-                                        反射
+                                        图结构
                                     
                                 </a>
                             </h4>
@@ -236,7 +272,7 @@
                                 
                                 <h6 class="tags">
                                     <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
-                                    <a class="tag" href="/tags/反射/">反射</a>
+                                    <a class="tag" href="/tags/数据结构/">数据结构</a>
                                 </h6>
                             
                         </span>
@@ -263,15 +299,15 @@
         <h4><i class="fas fa-bookmark fa-fw" aria-hidden="true"></i>&nbsp;你可能感兴趣的文章</h4>
         <ul>
             
-                <li><a href="https://jzygaga.github.io/2019/01/03/leetcode-206. Reverse Linked List/">206. Reverse Linked List</a></li>
+                <li><a href="https://jzygaga.github.io/2019/01/06/准备编辑的博客/">准备编辑的博客</a></li>
             
-                <li><a href="https://jzygaga.github.io/2019/01/03/leetcode-876. Middle of the Linked List/">Middle of the Linked List</a></li>
+                <li><a href="https://jzygaga.github.io/2019/01/05/数据结构-图/">图结构</a></li>
             
-                <li><a href="https://jzygaga.github.io/2019/01/02/java-反射/">反射</a></li>
+                <li><a href="https://jzygaga.github.io/2019/01/04/剑指offer-用两个栈实现队列/">用两个栈实现队列</a></li>
             
-                <li><a href="https://jzygaga.github.io/2019/01/01/设计模式-代理模式/">工厂模式</a></li>
+                <li><a href="https://jzygaga.github.io/2019/01/04/剑指offer-重建二叉树/">重建二叉树</a></li>
             
-                <li><a href="https://jzygaga.github.io/2019/01/01/设计模式-工产模式/">工厂模式</a></li>
+                <li><a href="https://jzygaga.github.io/2019/01/03/leetcode-单链表-234. Palindrome Linked List/">234. Palindrome Linked List</a></li>
             
         </ul>
     </div>
@@ -309,7 +345,7 @@
 
 <script>
     window.subData = {
-        title: '二维数组中的查找',
+        title: 'Powerful Integers',
         tools: true
     }
 </script>
@@ -363,9 +399,11 @@
                 
                     <li><a class="flat-box" href="/categories/java/"><div class="name">java</div><div class="badge">3</div></a></li>
                 
-                    <li><a class="flat-box" href="/categories/leetcode/"><div class="name">leetcode</div><div class="badge">5</div></a></li>
+                    <li><a class="flat-box" href="/categories/leetcode/"><div class="name">leetcode</div><div class="badge">6</div></a></li>
                 
-                    <li><a class="flat-box" href="/categories/剑指offer/"><div class="name">剑指offer</div><div class="badge">2</div></a></li>
+                    <li><a class="flat-box" href="/categories/剑指offer/"><div class="name">剑指offer</div><div class="badge">3</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/图结构/"><div class="name">图结构</div><div class="badge">1</div></a></li>
                 
                     <li><a class="flat-box" href="/categories/数据结构/"><div class="name">数据结构</div><div class="badge">4</div></a></li>
                 
@@ -388,7 +426,7 @@
             <div><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;标签</div>
         </header>
         <div class="content pure">
-            <a href="/tags/AVL树/" style="font-size: 14px; color: #999">AVL树</a> <a href="/tags/Trie/" style="font-size: 24px; color: #555">Trie</a> <a href="/tags/lamda/" style="font-size: 14px; color: #999">lamda</a> <a href="/tags/二叉树/" style="font-size: 14px; color: #999">二叉树</a> <a href="/tags/代理模式/" style="font-size: 14px; color: #999">代理模式</a> <a href="/tags/单链表/" style="font-size: 14px; color: #999">单链表</a> <a href="/tags/反射/" style="font-size: 14px; color: #999">反射</a> <a href="/tags/哈希表/" style="font-size: 14px; color: #999">哈希表</a> <a href="/tags/多线程/" style="font-size: 14px; color: #999">多线程</a> <a href="/tags/工厂模式/" style="font-size: 14px; color: #999">工厂模式</a> <a href="/tags/并查集/" style="font-size: 14px; color: #999">并查集</a> <a href="/tags/数据结构/" style="font-size: 24px; color: #555">数据结构</a> <a href="/tags/数组/" style="font-size: 14px; color: #999">数组</a> <a href="/tags/红黑树/" style="font-size: 14px; color: #999">红黑树</a> <a href="/tags/蓝桥杯/" style="font-size: 24px; color: #555">蓝桥杯</a> <a href="/tags/计算机网络/" style="font-size: 14px; color: #999">计算机网络</a> <a href="/tags/链表/" style="font-size: 24px; color: #555">链表</a>
+            <a href="/tags/AVL树/" style="font-size: 14px; color: #999">AVL树</a> <a href="/tags/Trie/" style="font-size: 19px; color: #777">Trie</a> <a href="/tags/lamda/" style="font-size: 14px; color: #999">lamda</a> <a href="/tags/二叉树/" style="font-size: 14px; color: #999">二叉树</a> <a href="/tags/代理模式/" style="font-size: 14px; color: #999">代理模式</a> <a href="/tags/单链表/" style="font-size: 14px; color: #999">单链表</a> <a href="/tags/反射/" style="font-size: 14px; color: #999">反射</a> <a href="/tags/哈希表/" style="font-size: 14px; color: #999">哈希表</a> <a href="/tags/多线程/" style="font-size: 14px; color: #999">多线程</a> <a href="/tags/工厂模式/" style="font-size: 14px; color: #999">工厂模式</a> <a href="/tags/并查集/" style="font-size: 14px; color: #999">并查集</a> <a href="/tags/数据结构/" style="font-size: 24px; color: #555">数据结构</a> <a href="/tags/数组/" style="font-size: 19px; color: #777">数组</a> <a href="/tags/栈/" style="font-size: 14px; color: #999">栈</a> <a href="/tags/红黑树/" style="font-size: 14px; color: #999">红黑树</a> <a href="/tags/蓝桥杯/" style="font-size: 19px; color: #777">蓝桥杯</a> <a href="/tags/计算机网络/" style="font-size: 14px; color: #999">计算机网络</a> <a href="/tags/链表/" style="font-size: 19px; color: #777">链表</a>
         </div>
     </section>
 
@@ -402,7 +440,7 @@
             <div class="wrapper"><a class="s-toc rightBtn" title="固定到顶部" target="_blank" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
         </header>
         <div class="content pure">
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#二维数组中的查找"><span class="toc-text">二维数组中的查找</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注意数组根据先后赋值，排列是从上到下来的"><span class="toc-text">注意数组根据先后赋值，排列是从上到下来的</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#970-Powerful-Integers"><span class="toc-text">970. Powerful Integers</span></a></li></ol>
         </div>
     </section>
 
