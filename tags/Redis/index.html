@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>Tag: Redis | 飞翔的傻瓜</title>
+  
+  <meta name="keywords" content="编程">
+  
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="https://xaoxuu.com/assets/img/favicon.ico">
+  <link rel="alternate" href="/atom.xml" title="飞翔的傻瓜">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <link rel="shortcut icon" href="https://xaoxuu.com/assets/img/favicon.ico">
+  <link rel="icon" href="https://xaoxuu.com/assets/img/favicon.ico">
+  
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Mono" rel="stylesheet">
+  
+  <!-- <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link href="//cdn.bootcss.com/node-waves/0.7.5/waves.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+  
+</head>
+</html>
+<body>
+    <div id="loading-bar-wrapper">
+  <div id="loading-bar" class="pure"></div>
+</div>
+
+    <script>setLoadingBarProgress(20)</script>
+    <header class="l_header pure">
+	<div class="wrapper">
+		<div class="nav-main container container--flex">
+			<a class="logo flat-box" href="/">飞翔的傻瓜</a>
+				<div class="menu">
+					<ul class="h-list">
+            
+    					
+    						<li>
+    							<a class="nav flat-box" href="/">
+    								<i class="fa fa-home fa-fw"></i>&nbsp;主页
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav flat-box" href="/">
+    								<i class="fa fa-rss fa-fw"></i>&nbsp;博客
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav flat-box" href="/archives">
+    								<i class="fa fa-archive fa-fw"></i>&nbsp;归档
+  								</a>
+  							</li>
+        			
+        		
+					</ul>
+					<div class="underline"></div>
+				</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search">
+						<span class="icon"><i class="fas fa-search fa-fw"></i></span>
+					</form>
+				</div>
+			
+			<ul class="switcher h-list">
+				
+					<li class="s-search"><a class="fas fa-search fa-fw" href="javascript:void(0)"></a></li>
+				
+				<li class="s-menu"><a class="fas fa-bars fa-fw" href="javascript:void(0)"></a></li>
+			</ul>
+		</div>
+
+		<div class="nav-sub container container--flex">
+			<a class="logo flat-box"></a>
+			<ul class="switcher h-list">
+				<li class="s-comment"><a class="fas fa-comments fa-fw" href="javascript:void(0)"></a></li>
+				<li class="s-top"><a class="fas fa-arrow-up fa-fw" href="javascript:void(0)"></a></li>
+				<li class="s-toc"><a class="fas fa-list fa-fw" href="javascript:void(0)"></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+		<nav>
+      <ul>
+          
+              
+                  <li>
+										<a class="nav  flat-box" href="/">
+											<i class="fa fa-home fa-fw"></i>&nbsp;主页
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="/">
+											<i class="fa fa-rss fa-fw"></i>&nbsp;博客
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="/archives">
+											<i class="fa fa-archive fa-fw"></i>&nbsp;归档
+										</a>
+                  </li>
+              
+       
+      </ul>
+		</nav>
+	</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+    <div class="l_body">
+    <div class='container clearfix'>
+        <div class='l_main'>
+            
+    <script>
+        window.subData= { title:'标签 : Redis'}
+    </script>
+
+
+<section class="post-list">
+    
+        <div class="post-wrapper">
+            <article class="post reveal ">
+    <section class="meta">
+        <h2 class="title">
+            <a href="/2019/01/12/Redis之（一）初识Redis/">
+                
+                    Redis之（一）初识Redis
+                
+            </a>
+        </h2>
+        <time class="time">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2019-01-12
+        </time>
+        
+    
+    <div class="cats">
+        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+        <a class="categories" href="/categories/Redis/">Redis</a>
+    </div>
+
+
+    </section>
+
+    <section class="article typo">
+        <h2 id="1、Redis概述"><a href="#1、Redis概述" class="headerlink" title="1、Redis概述"></a>1、Redis概述</h2><p>我们知道，内存是电脑主板上的存储部件，用于存储当前正在使用的数据和程序，CPU可以与内存直接沟通，所以访问速速非常高；而外存数据必须加载到内存以后程序才能使用。如果把CPU当做一个吃货，那么内存是碗，而外存是锅，这个吃货再能吃，也得先把饭从锅里盛到碗里再下嘴，而不能直接跳到锅里大快朵颐。但是很多时候CPU吃的并不爽，一是因为碗不够大，没吃两嘴就没了；二是从锅里往碗里盛饭是个比较耗时的过程，等待很痛苦。正经点说，就是内存大小、I/O速度、网络响应时间等常常成为应用系统的性能瓶颈。</p>
+<p>传统的关系型数据库如MySQL、Oracle、DB2等，数据存储在磁盘的文件系统中，增删改查需要频繁地在内存与外存之间交换数据，很费时间。试想，如果有一种小巧而功能强大的存储结构，<strong>用于在内存中管理数据量不太大但是访问量特别大的热点数据</strong>。<br>在以上背景下，Redis应运而生。</p>
+<p>Redis是Remote Dictionary Server的简称，是一个由意大利人Salvatore Sanfilippo开发的key-value存储系统，具有极高的读写性能，读的速度可达110000次/s，写的速度可达81000次/s 。</p>
+<p>与Redis类似的产品还有memcache，同样是一个基于内存的key-value存储系统，但是由于memcache数据结构单一，数据安全性低下等原因，大有被Redis取而代之的趋势。</p>
+<p>Redis 与其他 key - value 缓存产品相比，有以下特点：</p>
+<ol>
+<li><p>Redis支持数据的持久化，周期性的把更新的数据写入磁盘或者把修改操作写入追加的记录文件，重启的时候可以再次加载进行使用。</p>
+</li>
+<li><p>Redis不仅仅支持简单的key-value类型的数据，同时还提供list，set，zset，hash等数据结构的存储。</p>
+</li>
+<li><p>Redis支持数据的备份，即master-slave模式的数据备份。</p>
+</li>
+<li><p>Redis的所有操作都是原子性的，同时Redis还支持对几个操作合并后的原子性执行。</p>
+</li>
+<li><p>Redis还支持 publish/subscribe, 通知, key过期等高级特性。</p>
+</li>
+</ol>
+
+        
+
+        
+            <div class="full-width auto-padding tags">
+                
+                    <a href="/tags/Redis/"><i class="fas fa-tag fa-fw"></i>&nbsp;Redis</a>
+                
+            </div>
+        
+    </section>
+</article>
+
+        </div>
+    
+</section>
+
+
+
+        </div>
+        <aside class='l_side'>
+            
+    
+        
+  <section class="m_widget author">
+    
+      <div class="header">
+        <img class="avatar" src="https://img.vim-cn.com/e8/1aebb3b249e65ea5594272943ddaac8088a7de.jpg">
+      </div>
+    
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="mailto:598424640@qq.com" class="social flat-box" target="_blank" rel="external"><i class="social fas fa-envelope" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://github.com/JzyGaGa" class="social flat-box" target="_blank" rel="external"><i class="social fab fa-github" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://music.163.com/#/user/home?id=63035382" class="social flat-box" target="_blank" rel="external"><i class="social fas fa-music" aria-hidden="true"></i></a>
+          
+        
+      </div>
+    
+  </section>
+
+
+    
+    
+        
+
+    
+    
+        <section class="m_widget categories">
+    <header class="header pure">
+        <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;分类</div>
+    </header>
+    <div class="content pure">
+        
+            <ul class="entry">
+                
+                    <li><a class="flat-box" href="/categories/Redis/"><div class="name">Redis</div><div class="badge">1</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/java/"><div class="name">java</div><div class="badge">4</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/leetcode/"><div class="name">leetcode</div><div class="badge">7</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/python/"><div class="name">python</div><div class="badge">4</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/剑指offer/"><div class="name">剑指offer</div><div class="badge">4</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/图结构/"><div class="name">图结构</div><div class="badge">1</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/数据结构/"><div class="name">数据结构</div><div class="badge">4</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/蓝桥杯/"><div class="name">蓝桥杯</div><div class="badge">2</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/计算机网络/"><div class="name">计算机网络</div><div class="badge">1</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/设计模式/"><div class="name">设计模式</div><div class="badge">2</div></a></li>
+                
+            </ul>
+        
+    </div>
+</section>
+
+    
+    
+        
+    <section class="m_widget tagcloud">
+        <header class="header pure">
+            <div><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;标签</div>
+        </header>
+        <div class="content pure">
+            <a href="/tags/AVL树/" style="font-size: 14px; color: #999">AVL树</a> <a href="/tags/JSON/" style="font-size: 14px; color: #999">JSON</a> <a href="/tags/Redis/" style="font-size: 14px; color: #999">Redis</a> <a href="/tags/Trie/" style="font-size: 17.33px; color: #828282">Trie</a> <a href="/tags/lamda/" style="font-size: 14px; color: #999">lamda</a> <a href="/tags/python/" style="font-size: 24px; color: #555">python</a> <a href="/tags/二叉树/" style="font-size: 14px; color: #999">二叉树</a> <a href="/tags/代理模式/" style="font-size: 14px; color: #999">代理模式</a> <a href="/tags/单链表/" style="font-size: 14px; color: #999">单链表</a> <a href="/tags/反射/" style="font-size: 14px; color: #999">反射</a> <a href="/tags/哈希表/" style="font-size: 14px; color: #999">哈希表</a> <a href="/tags/多线程/" style="font-size: 14px; color: #999">多线程</a> <a href="/tags/工厂模式/" style="font-size: 14px; color: #999">工厂模式</a> <a href="/tags/并查集/" style="font-size: 14px; color: #999">并查集</a> <a href="/tags/数据结构/" style="font-size: 20.67px; color: #6c6c6c">数据结构</a> <a href="/tags/数组/" style="font-size: 24px; color: #555">数组</a> <a href="/tags/智力题/" style="font-size: 14px; color: #999">智力题</a> <a href="/tags/栈/" style="font-size: 14px; color: #999">栈</a> <a href="/tags/红黑树/" style="font-size: 14px; color: #999">红黑树</a> <a href="/tags/蓝桥杯/" style="font-size: 17.33px; color: #828282">蓝桥杯</a> <a href="/tags/计算机网络/" style="font-size: 14px; color: #999">计算机网络</a> <a href="/tags/链表/" style="font-size: 17.33px; color: #828282">链表</a>
+        </div>
+    </section>
+
+
+    
+    
+        
+
+    
+    
+        <section class="m_widget music">
+    <header class="header pure">
+        <div><i class="fas fa-headphones-alt fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;音乐</div>
+        <a class="rightBtn" title="打开博主的网易云音乐主页" target="_blank" rel="external nofollow noopener noreferrer" href="https://music.163.com/#/playlist?id=746319661"><i class="fas fa-external-link-square-alt fa-fw"></i></a>
+    </header>
+    <div class="content pure">
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="100%" height="450" src="//music.163.com/outchain/player?type=0&id=746319661&auto=0&height=450"></iframe>
+    </div>
+</section>
+
+    
+    
+        <section class="m_widget links">
+    <header class="header pure">
+        <div><i class="fas fa-handshake fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;友链</div>
+        
+            <a class="rightBtn" title="联系博主添加友链" target="_blank" rel="external nofollow noopener noreferrer" href="mailto:me@xaoxuu.com?subject=交换友链&body=你好，我想和你交换友链，我已经将【飞翔的傻瓜】添加到我的博客的友链中。我的博客链接是："><i class="fas fa-plus fa-fw"></i></a>
+        
+    </header>
+    <div class="content pure">
+        <ul class="entry" id="links">
+            
+                <li><a class="flat-box" title="https://xaoxuu.com/blog/" target="_blank" rel="external nofollow noopener noreferrer" href="https://xaoxuu.com/blog/">
+                    <div class="name">
+                        
+                            <img src="https://img.vim-cn.com/ae/e5c96b80420c77773c920f999647ddb08f2c58.png">
+                        
+                        &nbsp;&nbsp;xaoxuu&#39;s blog
+                    </div>
+                </a></li>
+            
+        </ul>
+    </div>
+</section>
+
+    
+
+
+        </aside>
+        <script>setLoadingBarProgress(60);</script>
+    </div>
+    </div>
+    <footer id="footer" class="clearfix">
+    
+        <div class="social-wrapper">
+          
+              
+                  <a href="mailto:598424640@qq.com" class="social fas fa-envelope flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://github.com/JzyGaGa" class="social fab fa-github flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://music.163.com/#/user/home?id=63035382" class="social fas fa-music flat-box" target="_blank" rel="external"></a>
+              
+          
+        </div>
+    
+    <br>
+    <div>博客内容遵循 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="licenses">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></div>
+    <div>本站使用 <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a> 作为主题，
+		总访问量为 <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span> 次。
+    </div>
+</footer>
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+    <script>setLoadingBarProgress(80);</script>
+    <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/node-waves/0.7.5/waves.min.js"></script>
+<script src="//cdn.bootcss.com/scrollReveal.js/3.3.2/scrollreveal.min.js"></script>
+<!-- 访问统计 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/jquery.fitvids.js"></script>
+
+    <script>
+        var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+        var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+        var ALGOLIA_API_KEY = "";
+        var ALGOLIA_APP_ID = "";
+        var ALGOLIA_INDEX_NAME = "";
+        var AZURE_SERVICE_NAME = "";
+        var AZURE_INDEX_NAME = "";
+        var AZURE_QUERY_KEY = "";
+        var BAIDU_API_ID = "";
+        var SEARCH_SERVICE = "hexo" || "hexo";
+        var ROOT = "/"||"/";
+        if(!ROOT.endsWith('/'))ROOT += '/';
+    </script>
+
+<script src="/js/search.js"></script>
+<script src="/js/app.js"></script>
+
+
+
+
+
+
+    <script>setLoadingBarProgress(100);</script>
+</body>

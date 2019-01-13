@@ -134,6 +134,525 @@
             <article class="post reveal ">
     <section class="meta">
         <h2 class="title">
+            <a href="/2019/01/05/数据结构-图/">
+                
+                    图结构
+                
+            </a>
+        </h2>
+        <time class="time">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2019-01-05
+        </time>
+        
+    
+    <div class="cats">
+        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+        <a class="categories" href="/categories/图结构/">图结构</a>
+    </div>
+
+
+    </section>
+
+    <section class="article typo">
+        <h2 id="图结构"><a href="#图结构" class="headerlink" title="图结构"></a>图结构</h2><ul>
+<li>图的分类<ul>
+<li>有向图，无向图<ul>
+<li>边上有方向</li>
+<li>边上无方向</li>
+</ul>
+</li>
+<li>有权图，无权图<ul>
+<li>有权图，边上有值。</li>
+<li>无权图，边上无值。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>图的连通性<ul>
+<li>判断图之间是否连通</li>
+<li>连通分量</li>
+</ul>
+</li>
+<li>边<ul>
+<li>自环边</li>
+<li>平行边<br><img src="https://i.imgur.com/MoWEPbr.png" alt=""></li>
+</ul>
+</li>
+</ul>
+<h2 id="图的表示"><a href="#图的表示" class="headerlink" title="图的表示"></a>图的表示</h2><ul>
+<li><p>邻接矩阵<br><img src="https://i.imgur.com/TcAYKKm.png" alt=""></p>
+<pre><code>package graphic;
+    /**
+     * 密集矩阵用邻接矩阵
+     * @author 59842
+     *
+     */
+    public class DenseGraph {
+        //有多少个定点
+        private int n;
+        //有多少个边
+        private int m;
+        //是否有向//true表示有向图
+        private boolean directed;
+        //存储图的有向结构
+        private boolean[][] g;
+
+        public DenseGraph(int n, boolean directed) {
+            this.n=n;
+            this.m=0;
+            this.directed=directed;
+            g=new boolean [n][n];
+        }
+        public void addEdge(int v,int w) {
+            if(0&lt;=v&amp;&amp;v&lt;n||0&lt;=w&amp;&amp;w&lt;n)
+                throw new IllegalArgumentException(&quot;边超出了范围&quot;);
+            if(hasEdge(v,w))
+                return ;
+            g[v][w]=true;
+
+            if(!directed)
+                //不是有向图
+                g[w][v]=true;
+            m++;
+        }
+
+        private boolean hasEdge(int v, int w) {
+            if(0&lt;=v&amp;&amp;v&lt;n||0&lt;=w&amp;&amp;w&lt;n)
+                throw new IllegalArgumentException(&quot;边超出了范围&quot;);
+            return g[w][v]=false;
+        }
+        public int getV() {
+            return n;
+        }
+
+        public int getE() {
+            return m;
+        }
+
+    }
+</code></pre></li>
+<li><p>邻接表<br><img src="https://i.imgur.com/IOng9e6.png" alt=""></p>
+</li>
+<li><p>完全图</p>
+<ul>
+<li>适用的场景，每个电影的相似程度。有权图<br><strong>邻接表适合表示稀疏图，邻接矩阵适合表示稠密图</strong></li>
+</ul>
+</li>
+</ul>
+
+        
+
+        
+            <div class="full-width auto-padding tags">
+                
+                    <a href="/tags/数据结构/"><i class="fas fa-tag fa-fw"></i>&nbsp;数据结构</a>
+                
+            </div>
+        
+    </section>
+</article>
+
+        </div>
+    
+        <div class="post-wrapper">
+            <article class="post reveal ">
+    <section class="meta">
+        <h2 class="title">
+            <a href="/2019/01/04/剑指offer-用两个栈实现队列/">
+                
+                    用两个栈实现队列
+                
+            </a>
+        </h2>
+        <time class="time">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2019-01-04
+        </time>
+        
+    
+    <div class="cats">
+        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+        <a class="categories" href="/categories/剑指offer/">剑指offer</a>
+    </div>
+
+
+    </section>
+
+    <section class="article typo">
+        <p><strong>题目描述</strong></p>
+<ul>
+<li><p>用两个栈来实现一个队列，完成队列的Push和Pop操作。 队列中的元素为int类型。</p>
+<ul>
+<li><p>自己解</p>
+<pre><code>import java.util.Stack;
+
+public class Solution {
+    Stack&lt;Integer&gt; stack1 = new Stack&lt;Integer&gt;();
+    Stack&lt;Integer&gt; stack2 = new Stack&lt;Integer&gt;();
+     public void push(int node) {
+           stack1.push(node);
+    }
+    public int pop() {
+        while(!stack1.isEmpty()) {
+            stack2.push(stack1.pop());
+        }
+        Integer toPop = stack2.pop();
+        while(!stack2.isEmpty()) {
+            stack1.push(stack2.pop());
+        }
+        return toPop;
+    }
+}
+</code></pre></li>
+<li><p>渐优解</p>
+</li>
+</ul>
+</li>
+</ul>
+
+        
+
+        
+            <div class="full-width auto-padding tags">
+                
+                    <a href="/tags/栈/"><i class="fas fa-tag fa-fw"></i>&nbsp;栈</a>
+                
+            </div>
+        
+    </section>
+</article>
+
+        </div>
+    
+        <div class="post-wrapper">
+            <article class="post reveal ">
+    <section class="meta">
+        <h2 class="title">
+            <a href="/2019/01/04/剑指offer-重建二叉树/">
+                
+                    重建二叉树
+                
+            </a>
+        </h2>
+        <time class="time">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2019-01-04
+        </time>
+        
+    
+    <div class="cats">
+        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+        <a class="categories" href="/categories/剑指offer/">剑指offer</a>
+    </div>
+
+
+    </section>
+
+    <section class="article typo">
+        <h2 id="重建二叉树"><a href="#重建二叉树" class="headerlink" title="重建二叉树"></a>重建二叉树</h2><p><strong>题目描述</strong></p>
+<ul>
+<li><p>输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。</p>
+<pre><code>/**
+ * Definition for binary tree
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+     public TreeNode reConstructBinaryTree(int [] pre,int [] in) {
+        if(pre==null||in==null||pre.length!=in.length)
+            return null;
+       return reConstructBinaryTree(pre,0,pre.length-1,in,0,in.length-1);
+    }
+
+    private TreeNode reConstructBinaryTree(int[] pre,int pStart,int pEnd,int[] in,int iStart,int iEnd){
+        //一般性问题
+        if(pStart&gt;pEnd)
+            return null;
+
+        //创建根节点
+        TreeNode root=new TreeNode(pre[pStart]);
+        //找到中序遍历中的位置
+        int loc;
+        for(loc=0;loc&lt;in.length;loc++){
+            if(in[loc]==pre[pStart]){
+                break;
+            }
+        }
+        //计算左右子树节点的个数。
+        int len=loc-iStart;
+        root.left=reConstructBinaryTree(pre,pStart+1,pStart+len,in,iStart,iStart+len-1);
+        root.right=reConstructBinaryTree(pre,pStart+len+1,pEnd,in,iStart+len+1,iEnd);
+        return root;
+    }
+}
+</code></pre></li>
+</ul>
+
+        
+
+        
+            <div class="full-width auto-padding tags">
+                
+                    <a href="/tags/二叉树/"><i class="fas fa-tag fa-fw"></i>&nbsp;二叉树</a>
+                
+            </div>
+        
+    </section>
+</article>
+
+        </div>
+    
+        <div class="post-wrapper">
+            <article class="post reveal ">
+    <section class="meta">
+        <h2 class="title">
+            <a href="/2019/01/03/leetcode-单链表-234. Palindrome Linked List/">
+                
+                    234. Palindrome Linked List
+                
+            </a>
+        </h2>
+        <time class="time">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2019-01-03
+        </time>
+        
+    
+    <div class="cats">
+        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+        <a class="categories" href="/categories/leetcode/">leetcode</a>
+    </div>
+
+
+    </section>
+
+    <section class="article typo">
+        <h2 id="Palindrome-Linked-List"><a href="#Palindrome-Linked-List" class="headerlink" title="Palindrome Linked List"></a>Palindrome Linked List</h2><ul>
+<li>描述：<strong>Given a singly linked list, determine if it is a palindrome.</strong></li>
+<li>例子：<ul>
+<li>Input: 1-&gt;2 ，Output: false </li>
+<li>Input: 1-&gt;2-&gt;2-&gt;1，Output: true</li>
+</ul>
+</li>
+</ul>
+<p><strong>代码1</strong></p>
+
+        
+
+        
+            <div class="full-width auto-padding tags">
+                
+                    <a href="/tags/单链表/"><i class="fas fa-tag fa-fw"></i>&nbsp;单链表</a>
+                
+            </div>
+        
+    </section>
+</article>
+
+        </div>
+    
+        <div class="post-wrapper">
+            <article class="post reveal ">
+    <section class="meta">
+        <h2 class="title">
+            <a href="/2019/01/03/leetcode-206. Reverse Linked List/">
+                
+                    206. Reverse Linked List
+                
+            </a>
+        </h2>
+        <time class="time">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2019-01-03
+        </time>
+        
+    
+    <div class="cats">
+        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+        <a class="categories" href="/categories/leetcode/">leetcode</a>
+    </div>
+
+
+    </section>
+
+    <section class="article typo">
+        <h2 id="Reverse-Linked-List"><a href="#Reverse-Linked-List" class="headerlink" title="Reverse Linked List"></a>Reverse Linked List</h2><p><strong>Reverse a singly linked list.</strong><br><strong> Example:</strong></p>
+<pre><code>Input: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL
+Output: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL
+</code></pre><p><strong>代码</strong></p>
+<ul>
+<li><p>迭代的代码</p>
+<pre><code>class Solution {
+     public ListNode reverseList(ListNode head) {
+        ListNode reverseNode=null;
+        ListNode cur=head;
+        ListNode toDeal=null;
+        while(cur!=null) {
+            //拿到待处理的节点
+            toDeal =cur;
+            cur=cur.next;
+            //拿到一边进行连接
+            toDeal.next=reverseNode;
+            reverseNode=toDeal;
+        }
+        return reverseNode;
+    }
+}
+</code></pre></li>
+</ul>
+<ul>
+<li><p>递归的代码<br><strong>代码一</strong></p>
+<pre><code>class Solution {
+     public ListNode reverseList(ListNode head) {
+        if(head==null||head.next==null)
+            return head;
+        return toReverse(head,null);
+    }
+    private ListNode toReverse(ListNode head, ListNode reverse) {
+        if(head==null) {
+            return reverse;
+        }
+        ListNode cur=head.next;
+        //与另一个链表相连接
+        head.next=reverse;
+        //
+        reverse=head;
+        return toReverse(cur,reverse);
+    }
+}
+</code></pre></li>
+</ul>
+<p><strong>代码二</strong></p>
+<pre><code>public ListNode reverseList(ListNode head) {
+    if(head==null||head.next==null)
+        return head;
+    ListNode newHead= reverseList(head.next);
+    //两个借点之间的链接进行翻转
+    head.next.next=head;
+    head.next=null;
+    return newHead;
+}
+</code></pre>
+        
+
+        
+            <div class="full-width auto-padding tags">
+                
+                    <a href="/tags/链表/"><i class="fas fa-tag fa-fw"></i>&nbsp;链表</a>
+                
+            </div>
+        
+    </section>
+</article>
+
+        </div>
+    
+        <div class="post-wrapper">
+            <article class="post reveal ">
+    <section class="meta">
+        <h2 class="title">
+            <a href="/2019/01/03/leetcode-876. Middle of the Linked List/">
+                
+                    Middle of the Linked List
+                
+            </a>
+        </h2>
+        <time class="time">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2019-01-03
+        </time>
+        
+    
+    <div class="cats">
+        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+        <a class="categories" href="/categories/leetcode/">leetcode</a>
+    </div>
+
+
+    </section>
+
+    <section class="article typo">
+        <h2 id="876-Middle-of-the-Linked-List"><a href="#876-Middle-of-the-Linked-List" class="headerlink" title="876. Middle of the Linked List"></a>876. Middle of the Linked List</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><p><strong> Given a non-empty, singly linked list with head node head, return a middle node of linked list.<br>if there are two middle nodes, return the second middle node. </strong></p>
+<ul>
+<li>Example 1:<br>  Input: [1,2,3,4,5]<br>  Output: Node 3 from this list (Serialization: [3,4,5])<br>  The returned node has value 3.  (The judge’s serialization of this node is [3,4,5]).<br>  Note that we returned a ListNode object ans, such that:<br>  ans.val = 3, ans.next.val = 4, ans.next.next.val = 5, and ans.next.next.next = NULL.</li>
+<li><p>Example 2：<br>  Input: [1,2,3,4,5]<br>  Output: Node 3 from this list (Serialization: [3,4,5])<br>  The returned node has value 3.  (The judge’s serialization of this node is [3,4,5]).<br>  Note that we returned a ListNode object ans, such that:<br>  ans.val = 3, ans.next.val = 4, ans.next.next.val = 5, and ans.next.next.next = NULL.</p>
+<h3 id="代码一"><a href="#代码一" class="headerlink" title="代码一"></a>代码一</h3><pre><code>    class Solution {
+    public ListNode middleNode(ListNode head) {
+        ListNode node=head;
+        int i=0;
+        while(node!=null) {
+             i++;
+             node=node.next;
+        }
+        int loc=i/2+1;
+        i=1;
+        ListNode node1=head;
+        while(i&lt;loc) {
+            node1=node1.next;
+            i++;
+        }
+        return node1;
+    }
+}
+</code></pre><h3 id="代码二"><a href="#代码二" class="headerlink" title="代码二"></a>代码二</h3><pre><code>public ListNode middleNode(ListNode head) {
+    ListNode listNode = new ListNode(0);
+    ListNode fast=head;
+    ListNode low=head;
+    while(fast!=null&amp;&amp;fast.next!=null) {
+        fast=fast.next.next;
+        low=low.next;
+    }
+    return low.next;
+}
+</code></pre><h3 id="代码三"><a href="#代码三" class="headerlink" title="代码三"></a>代码三</h3><pre><code>  class Solution {
+    public ListNode middleNode(ListNode head) {
+        ListNode fast=head;
+        ListNode low=head;
+        //对比2方法，假装自己先跑了两步
+         if(fast!=null&amp;&amp;fast.next!=null){
+            fast=fast.next.next;
+        }else{
+            return low;
+        }
+        while(fast!=null&amp;&amp;fast.next!=null) {
+            fast=fast.next.next;
+            low=low.next;
+        }
+        return low.next;
+    }
+}
+</code></pre><h3 id="代码四"><a href="#代码四" class="headerlink" title="代码四"></a>代码四</h3><pre><code>public ListNode middleNode(ListNode head) {
+    ListNode fast=head;
+    ListNode low=head;
+    //对比2方法，假装自己先跑了两步
+    if(head==null&amp;&amp;head.next==null)
+        return head;
+    while(fast!=null&amp;&amp;fast.next!=null) {
+        fast=fast.next.next;
+        low=low.next;
+    }
+    return low;
+}
+</code></pre></li>
+</ul>
+
+        
+
+        
+            <div class="full-width auto-padding tags">
+                
+                    <a href="/tags/链表/"><i class="fas fa-tag fa-fw"></i>&nbsp;链表</a>
+                
+            </div>
+        
+    </section>
+</article>
+
+        </div>
+    
+        <div class="post-wrapper">
+            <article class="post reveal ">
+    <section class="meta">
+        <h2 class="title">
             <a href="/2019/01/02/剑指offer-二维数组中的查找 /">
                 
                     二维数组中的查找
@@ -239,827 +758,6 @@
             <article class="post reveal ">
     <section class="meta">
         <h2 class="title">
-            <a href="/2019/01/01/数据结构-AVL树/">
-                
-                    AVL树
-                
-            </a>
-        </h2>
-        <time class="time">
-            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2019-01-01
-        </time>
-        
-    
-    <div class="cats">
-        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-        <a class="categories" href="/categories/数据结构/">数据结构</a>
-    </div>
-
-
-    </section>
-
-    <section class="article typo">
-        <h2 id="AVL树"><a href="#AVL树" class="headerlink" title="AVL树"></a>AVL树</h2><ul>
-<li>平衡二叉树的定义<ul>
-<li>对于任意一个节点，左子树和右子树的高度差不能超过1</li>
-<li>AVL树有着自己的平衡性，所以在自己的增加和删除，不会退化成一个链表</li>
-</ul>
-</li>
-<li>满二叉树<br>   <img src="https://i.imgur.com/vpxDXic.png" width="100" height="100" div="" align="right"><ul>
-<li>除最后一层无任何子节点外，每一层上的所有结点都有两个子结点二叉树，会存在一个非叶子节点右子树为空</li>
-</ul>
-</li>
-<li>AVL<ul>
-<li>定义每一个节点的高度</li>
-<li>计算平衡因子 <ul>
-<li>定义： 每个节点的平衡因子等于左子树减去右子树的差</li>
-<li>作用： 如果Math.abs(平衡因子)&gt;1，那么左右子树就是不平衡的<br><img src="https://i.imgur.com/gutLgG7.png" width="200" height="200" div="" align="right"></li>
-</ul>
-</li>
-<li>AVL的左旋转右旋转<ul>
-<li>当插入一个元素之后，就会破坏原有的平衡。如果是插入节点后，回溯到第一个不平衡的点，如果是左子树的左节点过长就叫LL.如果是左子树的右节点过长就叫LR。如果是右子树的右节点过长就叫RR。如果是右子书的左节点过长就叫LR。<br>*对于LR先进行左旋在进行右旋就可以转换成功。对于RL先进行右旋在进行左旋就可以转换成功。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<pre><code>package AVLTree;
-
-import java.util.ArrayList;
-
-public class AVLTree&lt;K extends Comparable&lt;K&gt;, V&gt; {
-
-    private class Node{
-        public K key;
-        public V value;
-        public Node left, right;
-        public int height;
-
-        public Node(K key, V value){
-            this.key = key;
-            this.value = value;
-            left = null;
-            right = null;
-            height = 1;
-        }
-    }
-
-    private Node root;
-    private int size;
-
-    public AVLTree(){
-        root = null;
-        size = 0;
-    }
-
-    public int getSize(){
-        return size;
-    }
-
-    public boolean isEmpty(){
-        return size == 0;
-    }
-
-    // 获得节点node的高度
-    private int getHeight(Node node){
-        if(node == null)
-            return 0;
-        return node.height;
-    }
-
-    // 获得节点node的平衡因子
-    private int getBalanceFactor(Node node){
-        if(node == null)
-            return 0;
-        return getHeight(node.left) - getHeight(node.right);
-    }
-
-    // 向二分搜索树中添加新的元素(key, value)
-    public void add(K key, V value){
-        root = add(root, key, value);
-    }
-
-    // 向以node为根的二分搜索树中插入元素(key, value)，递归算法
-    // 返回插入新节点后二分搜索树的根
-    private Node add(Node node, K key, V value){
-
-        if(node == null){
-            size ++;
-            return new Node(key, value);
-        }
-
-        if(key.compareTo(node.key) &lt; 0)
-            node.left = add(node.left, key, value);
-        else if(key.compareTo(node.key) &gt; 0)
-            node.right = add(node.right, key, value);
-        else // key.compareTo(node.key) == 0
-            node.value = value;
-
-        // 更新height
-        node.height = 1 + Math.max(getHeight(node.left), getHeight(node.right));
-
-                 int balanceFactor = getBalanceFactor(node);
-        if(Math.abs(balanceFactor) &gt; 1)
-            System.out.println(&quot;unbalanced : &quot; + balanceFactor);
-        //平衡维护
-        //LL
-        if(balanceFactor&gt;1&amp;&amp;getBalanceFactor(node.left)&gt;=0)
-            return rightRotate(node);
-        //RR
-        if(balanceFactor&lt;-1&amp;&amp;getBalanceFactor(node.right)&lt;=0)
-            return leftRotate(node);
-        //LR                      因为左子树的右子书过长
-        if(balanceFactor&gt;1&amp;&amp;getBalanceFactor(node.left)&lt;0) {
-            //先进行左旋
-            node.left= leftRotate(node.left);
-            return rightRotate(node);
-        }
-        //RL                       因为右子树的左子树过长
-        if(balanceFactor&lt;-1&amp;&amp;getBalanceFactor(node.right)&gt;0) {
-            node.right=rightRotate(node.right);
-            return leftRotate(node);
-        }
-        return node;
-    }
-
-    //对节点进行左旋操作，返回旋转后的新节点X
-    //            y                                             x
-    //           / \                                           /  \
-    //          T1  x   向右旋转(y),左侧过高不平衡                   y    z
-    //             / \    ----------------------&gt;               / \   / \
-    //          T2  z                                     T1 T2 T3 T4
-    //             / \
-   //                T4  T3
-    //
-    private Node leftRotate(Node y) {
-        Node x=y.right;
-        Node T2=x.right;
-
-        //向右旋转过程
-        x.left=y;
-        y.right=T2;
-
-        //更新height,只有x,y的位置移动了
-        y.height=Math.max(getHeight(y.left), getHeight(y.right));
-        x.height=Math.max(getHeight(x.left), getHeight(x.right));
-
-        return y;
-    }
-
-    //对节点进行右旋操作，返回旋转后的新节点X
-    //            y                                             x
-    //           / \                                           /  \
-    //          x   T4    向右旋转(y),左侧过高不平衡                   z    y
-    //         / \      ----------------------&gt;               / \   / \
-    //      z   T3                                        T1 T2 T3 T4
-    //     / \
-    //      T1  T2
-    // 返回以node为根节点的二分搜索树中，key所在的节点
-    private Node rightRotate(Node y) {
-        Node x=y.left;
-        Node T3=x.right;
-
-        //向右旋转过程
-        x.right=y;
-        y.left=T3;
-
-        //更新height,只有x,y的位置移动了
-        y.height=Math.max(getHeight(y.left), getHeight(y.right));
-        x.height=Math.max(getHeight(x.left), getHeight(x.right));
-
-        return y;
-    }
-
-    private Node getNode(Node node, K key){
-
-        if(node == null)
-            return null;
-
-        if(key.equals(node.key))
-            return node;
-        else if(key.compareTo(node.key) &lt; 0)
-            return getNode(node.left, key);
-        else // if(key.compareTo(node.key) &gt; 0)
-            return getNode(node.right, key);
-    }
-
-    public boolean contains(K key){
-        return getNode(root, key) != null;
-    }
-
-    public V get(K key){
-
-        Node node = getNode(root, key);
-        return node == null ? null : node.value;
-    }
-
-    public void set(K key, V newValue){
-        Node node = getNode(root, key);
-        if(node == null)
-            throw new IllegalArgumentException(key + &quot; doesn&apos;t exist!&quot;);
-
-        node.value = newValue;
-    }
-
-    // 返回以node为根的二分搜索树的最小值所在的节点
-    private Node minimum(Node node){
-        if(node.left == null)
-            return node;
-        return minimum(node.left);
-    }
-
-    // 删除掉以node为根的二分搜索树中的最小节点
-    // 返回删除节点后新的二分搜索树的根
-    private Node removeMin(Node node){
-
-        if(node.left == null){
-            Node rightNode = node.right;
-            node.right = null;
-            size --;
-            return rightNode;
-        }
-
-        node.left = removeMin(node.left);
-        return node;
-    }
-
-    // 从二分搜索树中删除键为key的节点
-    public V remove(K key){
-
-        Node node = getNode(root, key);
-        if(node != null){
-            root = remove(root, key);
-            return node.value;
-        }
-        return null;
-    }
-
-    private Node remove(Node node, K key){
-
-        if( node == null )
-            return null;
-        Node retNode;
-        if( key.compareTo(node.key) &lt; 0 ){
-            node.left = remove(node.left , key);
-            retNode= node;
-        }
-        else if(key.compareTo(node.key) &gt; 0 ){
-            node.right = remove(node.right, key);
-            retNode= node;
-        }
-        else{   // key.compareTo(node.key) == 0
-
-            // 待删除节点左子树为空的情况
-            if(node.left == null){
-                Node rightNode = node.right;
-                node.right = null;
-                size --;
-                retNode= rightNode;
-            }else if(node.right == null){ // 待删除节点右子树为空的情况
-                Node leftNode = node.left;
-                node.left = null;
-                size --;
-                retNode= leftNode;
-            }else {
-                // 待删除节点左右子树均不为空的情况
-                // 找到比待删除节点大的最小节点, 即待删除节点右子树的最小节点
-                // 用这个节点顶替待删除节点的位置
-                Node successor = minimum(node.right);
-                successor.right = remove(node.right,successor.key);
-                successor.left = node.left;
-                node.left = node.right = null;
-                retNode= successor;
-            }
-        }
-        if(retNode==null)
-            return retNode;
-       // 更新height
-        retNode.height = 1 + Math.max(getHeight(retNode.left), getHeight(retNode.right));
-
-                 int balanceFactor = getBalanceFactor(retNode);
-        if(Math.abs(balanceFactor) &gt; 1)
-            System.out.println(&quot;unbalanced : &quot; + balanceFactor);
-        //平衡维护
-        //LL
-        if(balanceFactor&gt;1&amp;&amp;getBalanceFactor(retNode.left)&gt;=0)
-            return rightRotate(retNode);
-        //RR
-        if(balanceFactor&lt;-1&amp;&amp;getBalanceFactor(retNode.right)&lt;=0)
-            return leftRotate(retNode);
-        //LR                      因为左子树的右子书过长
-        if(balanceFactor&gt;1&amp;&amp;getBalanceFactor(retNode.left)&lt;0) {
-            //先进行左旋
-            node.left= leftRotate(retNode.left);
-            return rightRotate(retNode);
-        }
-        //RL                       因为右子树的左子树过长
-        if(balanceFactor&lt;-1&amp;&amp;getBalanceFactor(retNode.right)&gt;0) {
-            retNode.right=rightRotate(retNode.right);
-            return leftRotate(retNode);
-        }
-        return retNode;
-    }
-
-    public static void main(String[] args){
-
-        System.out.println(&quot;Pride and Prejudice&quot;);
-
-        ArrayList&lt;String&gt; words = new ArrayList&lt;&gt;();
-        if(FileOperation.readFile(&quot;pride-and-prejudice.txt&quot;, words)) {
-            System.out.println(&quot;Total words: &quot; + words.size());
-
-            AVLTree&lt;String, Integer&gt; map = new AVLTree&lt;&gt;();
-            for (String word : words) {
-                if (map.contains(word))
-                    map.set(word, map.get(word) + 1);
-                else
-                    map.add(word, 1);
-            }
-
-            System.out.println(&quot;Total different words: &quot; + map.getSize());
-            System.out.println(&quot;Frequency of PRIDE: &quot; + map.get(&quot;pride&quot;));
-            System.out.println(&quot;Frequency of PREJUDICE: &quot; + map.get(&quot;prejudice&quot;));
-            System.out.println(&quot;是否是一个BSTtree：：：：&quot;+map.isBST());
-            System.out.println(&quot;是否是一个isBalanced：：：：&quot;+map.isBalanced());
-            for(String word:words) {
-                map.remove(word);
-                if(!map.isBalanced()||!map.isBST()) {
-                    throw new RuntimeException(&quot;error！&quot;);
-                }
-            }
-        }
-
-        System.out.println();
-    }
-
-    public boolean isBST() {
-        //BST在中序边遍历是从小到大来的
-        ArrayList&lt;K&gt; keys=new ArrayList&lt;&gt;();
-        inOrder(root,keys);
-        for(int i=1;i&lt;keys.size();i++) 
-            //注意i-1
-            if(keys.get(i-1).compareTo(keys.get(i))&gt;0)
-                return false;
-        return true;
-    }
-
-    private void inOrder(Node root, ArrayList&lt;K&gt; keys) {
-        if(root==null)
-            return ;
-        inOrder(root.left, keys);
-        keys.add(root.key);
-        inOrder(root.right, keys);
-    }
-
-    //判断二叉树是否是一颗平衡二叉树
-    public boolean isBalanced() {
-        return isBalanced(root);
-    }
-
-    //判断以Node为根的二叉树是平衡二叉树，递归算法
-    public boolean isBalanced(Node node) {
-        if(node==null)
-            return true;
-        int balanceFactor = getBalanceFactor(node);
-        if(Math.abs(balanceFactor)&gt;1)
-            return false;
-        return isBalanced(node.left)&amp;&amp;isBalanced(node.right);
-    }
-
-}
-</code></pre><figure class="third"><br>   <img src="https://i.imgur.com/iquZ6dV.png" width="300" height="200" div="" align="right"><br>    <img src="https://i.imgur.com/ALq9vrP.png" width="300" height="200" div="" align="right"><br>   <img src="https://i.imgur.com/UeJYdx5.png" width="300" height="200" div="" align="right"><br></figure>
-
-<p><img src="https://i.imgur.com/iquZ6dV.png" width="300" height="200" div="" align="right"><img src="https://i.imgur.com/ALq9vrP.png" width="300" height="200" div="" align="right"><br><img src="https://i.imgur.com/UeJYdx5.png" width="300" height="200" div="" align="right"><br><img src="https://i.imgur.com/DFmJgAX.png" width="300" height="200" div="" align="right"></p>
-
-        
-
-        
-            <div class="full-width auto-padding tags">
-                
-                    <a href="/tags/AVL树/"><i class="fas fa-tag fa-fw"></i>&nbsp;AVL树</a>
-                
-            </div>
-        
-    </section>
-</article>
-
-        </div>
-    
-        <div class="post-wrapper">
-            <article class="post reveal ">
-    <section class="meta">
-        <h2 class="title">
-            <a href="/2019/01/01/数据结构-红黑树/">
-                
-                    红黑树
-                
-            </a>
-        </h2>
-        <time class="time">
-            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2019-01-01
-        </time>
-        
-    
-    <div class="cats">
-        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-        <a class="categories" href="/categories/数据结构/">数据结构</a>
-    </div>
-
-
-    </section>
-
-    <section class="article typo">
-        <h2 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h2><ul>
-<li><p>红黑树定义</p>
-<ul>
-<li>算法导论的定义</li>
-</ul>
-</li>
-<li><p>满二叉树</p>
-<ul>
-<li>除最后一层无任何子节点外，每一层上的所有结点都有两个子结点二叉树，会存在一个非叶子节点右子树为空</li>
-</ul>
-</li>
-<li>AVL<ul>
-<li>定义每一个节点的高度</li>
-<li>计算平衡因子 <ul>
-<li>定义： 每个节点的平衡因子等于左子树减去右子树的差</li>
-<li>作用： 如果Math.abs(平衡因子)&gt;1，那么左右子树就是不平衡的<br><img src="https://i.imgur.com/gutLgG7.png" width="200" height="200" div="" align="right"></li>
-</ul>
-</li>
-<li>AVL的左旋转右旋转<ul>
-<li>当插入一个元素之后，就会破坏原有的平衡。如果是插入节点后，回溯到第一个不平衡的点，如果是左子树的左节点过长就叫LL.如果是左子树的右节点过长就叫LR。如果是右子树的右节点过长就叫RR。如果是右子书的左节点过长就叫LR。<br>*对于LR先进行左旋在进行右旋就可以转换成功。对于RL先进行右旋在进行左旋就可以转换成功。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<pre><code>package AVLTree;
-
-import java.util.ArrayList;
-
-public class AVLTree&lt;K extends Comparable&lt;K&gt;, V&gt; {
-
-    private class Node{
-        public K key;
-        public V value;
-        public Node left, right;
-        public int height;
-
-        public Node(K key, V value){
-            this.key = key;
-            this.value = value;
-            left = null;
-            right = null;
-            height = 1;
-        }
-    }
-
-    private Node root;
-    private int size;
-
-    public AVLTree(){
-        root = null;
-        size = 0;
-    }
-
-    public int getSize(){
-        return size;
-    }
-
-    public boolean isEmpty(){
-        return size == 0;
-    }
-
-    // 获得节点node的高度
-    private int getHeight(Node node){
-        if(node == null)
-            return 0;
-        return node.height;
-    }
-
-    // 获得节点node的平衡因子
-    private int getBalanceFactor(Node node){
-        if(node == null)
-            return 0;
-        return getHeight(node.left) - getHeight(node.right);
-    }
-
-    // 向二分搜索树中添加新的元素(key, value)
-    public void add(K key, V value){
-        root = add(root, key, value);
-    }
-
-    // 向以node为根的二分搜索树中插入元素(key, value)，递归算法
-    // 返回插入新节点后二分搜索树的根
-    private Node add(Node node, K key, V value){
-
-        if(node == null){
-            size ++;
-            return new Node(key, value);
-        }
-
-        if(key.compareTo(node.key) &lt; 0)
-            node.left = add(node.left, key, value);
-        else if(key.compareTo(node.key) &gt; 0)
-            node.right = add(node.right, key, value);
-        else // key.compareTo(node.key) == 0
-            node.value = value;
-
-        // 更新height
-        node.height = 1 + Math.max(getHeight(node.left), getHeight(node.right));
-
-                 int balanceFactor = getBalanceFactor(node);
-        if(Math.abs(balanceFactor) &gt; 1)
-            System.out.println(&quot;unbalanced : &quot; + balanceFactor);
-        //平衡维护
-        //LL
-        if(balanceFactor&gt;1&amp;&amp;getBalanceFactor(node.left)&gt;=0)
-            return rightRotate(node);
-        //RR
-        if(balanceFactor&lt;-1&amp;&amp;getBalanceFactor(node.right)&lt;=0)
-            return leftRotate(node);
-        //LR                      因为左子树的右子书过长
-        if(balanceFactor&gt;1&amp;&amp;getBalanceFactor(node.left)&lt;0) {
-            //先进行左旋
-            node.left= leftRotate(node.left);
-            return rightRotate(node);
-        }
-        //RL                       因为右子树的左子树过长
-        if(balanceFactor&lt;-1&amp;&amp;getBalanceFactor(node.right)&gt;0) {
-            node.right=rightRotate(node.right);
-            return leftRotate(node);
-        }
-        return node;
-    }
-
-    //对节点进行左旋操作，返回旋转后的新节点X
-    //            y                                             x
-    //           / \                                           /  \
-    //          T1  x   向右旋转(y),左侧过高不平衡                   y    z
-    //             / \    ----------------------&gt;               / \   / \
-    //          T2  z                                     T1 T2 T3 T4
-    //             / \
-   //                T4  T3
-    //
-    private Node leftRotate(Node y) {
-        Node x=y.right;
-        Node T2=x.right;
-
-        //向右旋转过程
-        x.left=y;
-        y.right=T2;
-
-        //更新height,只有x,y的位置移动了
-        y.height=Math.max(getHeight(y.left), getHeight(y.right));
-        x.height=Math.max(getHeight(x.left), getHeight(x.right));
-
-        return y;
-    }
-
-    //对节点进行右旋操作，返回旋转后的新节点X
-    //            y                                             x
-    //           / \                                           /  \
-    //          x   T4    向右旋转(y),左侧过高不平衡                   z    y
-    //         / \      ----------------------&gt;               / \   / \
-    //      z   T3                                        T1 T2 T3 T4
-    //     / \
-    //      T1  T2
-    // 返回以node为根节点的二分搜索树中，key所在的节点
-    private Node rightRotate(Node y) {
-        Node x=y.left;
-        Node T3=x.right;
-
-        //向右旋转过程
-        x.right=y;
-        y.left=T3;
-
-        //更新height,只有x,y的位置移动了
-        y.height=Math.max(getHeight(y.left), getHeight(y.right));
-        x.height=Math.max(getHeight(x.left), getHeight(x.right));
-
-        return y;
-    }
-
-    private Node getNode(Node node, K key){
-
-        if(node == null)
-            return null;
-
-        if(key.equals(node.key))
-            return node;
-        else if(key.compareTo(node.key) &lt; 0)
-            return getNode(node.left, key);
-        else // if(key.compareTo(node.key) &gt; 0)
-            return getNode(node.right, key);
-    }
-
-    public boolean contains(K key){
-        return getNode(root, key) != null;
-    }
-
-    public V get(K key){
-
-        Node node = getNode(root, key);
-        return node == null ? null : node.value;
-    }
-
-    public void set(K key, V newValue){
-        Node node = getNode(root, key);
-        if(node == null)
-            throw new IllegalArgumentException(key + &quot; doesn&apos;t exist!&quot;);
-
-        node.value = newValue;
-    }
-
-    // 返回以node为根的二分搜索树的最小值所在的节点
-    private Node minimum(Node node){
-        if(node.left == null)
-            return node;
-        return minimum(node.left);
-    }
-
-    // 删除掉以node为根的二分搜索树中的最小节点
-    // 返回删除节点后新的二分搜索树的根
-    private Node removeMin(Node node){
-
-        if(node.left == null){
-            Node rightNode = node.right;
-            node.right = null;
-            size --;
-            return rightNode;
-        }
-
-        node.left = removeMin(node.left);
-        return node;
-    }
-
-    // 从二分搜索树中删除键为key的节点
-    public V remove(K key){
-
-        Node node = getNode(root, key);
-        if(node != null){
-            root = remove(root, key);
-            return node.value;
-        }
-        return null;
-    }
-
-    private Node remove(Node node, K key){
-
-        if( node == null )
-            return null;
-        Node retNode;
-        if( key.compareTo(node.key) &lt; 0 ){
-            node.left = remove(node.left , key);
-            retNode= node;
-        }
-        else if(key.compareTo(node.key) &gt; 0 ){
-            node.right = remove(node.right, key);
-            retNode= node;
-        }
-        else{   // key.compareTo(node.key) == 0
-
-            // 待删除节点左子树为空的情况
-            if(node.left == null){
-                Node rightNode = node.right;
-                node.right = null;
-                size --;
-                retNode= rightNode;
-            }else if(node.right == null){ // 待删除节点右子树为空的情况
-                Node leftNode = node.left;
-                node.left = null;
-                size --;
-                retNode= leftNode;
-            }else {
-                // 待删除节点左右子树均不为空的情况
-                // 找到比待删除节点大的最小节点, 即待删除节点右子树的最小节点
-                // 用这个节点顶替待删除节点的位置
-                Node successor = minimum(node.right);
-                successor.right = remove(node.right,successor.key);
-                successor.left = node.left;
-                node.left = node.right = null;
-                retNode= successor;
-            }
-        }
-        if(retNode==null)
-            return retNode;
-       // 更新height
-        retNode.height = 1 + Math.max(getHeight(retNode.left), getHeight(retNode.right));
-
-                 int balanceFactor = getBalanceFactor(retNode);
-        if(Math.abs(balanceFactor) &gt; 1)
-            System.out.println(&quot;unbalanced : &quot; + balanceFactor);
-        //平衡维护
-        //LL
-        if(balanceFactor&gt;1&amp;&amp;getBalanceFactor(retNode.left)&gt;=0)
-            return rightRotate(retNode);
-        //RR
-        if(balanceFactor&lt;-1&amp;&amp;getBalanceFactor(retNode.right)&lt;=0)
-            return leftRotate(retNode);
-        //LR                      因为左子树的右子书过长
-        if(balanceFactor&gt;1&amp;&amp;getBalanceFactor(retNode.left)&lt;0) {
-            //先进行左旋
-            node.left= leftRotate(retNode.left);
-            return rightRotate(retNode);
-        }
-        //RL                       因为右子树的左子树过长
-        if(balanceFactor&lt;-1&amp;&amp;getBalanceFactor(retNode.right)&gt;0) {
-            retNode.right=rightRotate(retNode.right);
-            return leftRotate(retNode);
-        }
-        return retNode;
-    }
-
-    public static void main(String[] args){
-
-        System.out.println(&quot;Pride and Prejudice&quot;);
-
-        ArrayList&lt;String&gt; words = new ArrayList&lt;&gt;();
-        if(FileOperation.readFile(&quot;pride-and-prejudice.txt&quot;, words)) {
-            System.out.println(&quot;Total words: &quot; + words.size());
-
-            AVLTree&lt;String, Integer&gt; map = new AVLTree&lt;&gt;();
-            for (String word : words) {
-                if (map.contains(word))
-                    map.set(word, map.get(word) + 1);
-                else
-                    map.add(word, 1);
-            }
-
-            System.out.println(&quot;Total different words: &quot; + map.getSize());
-            System.out.println(&quot;Frequency of PRIDE: &quot; + map.get(&quot;pride&quot;));
-            System.out.println(&quot;Frequency of PREJUDICE: &quot; + map.get(&quot;prejudice&quot;));
-            System.out.println(&quot;是否是一个BSTtree：：：：&quot;+map.isBST());
-            System.out.println(&quot;是否是一个isBalanced：：：：&quot;+map.isBalanced());
-            for(String word:words) {
-                map.remove(word);
-                if(!map.isBalanced()||!map.isBST()) {
-                    throw new RuntimeException(&quot;error！&quot;);
-                }
-            }
-        }
-
-        System.out.println();
-    }
-
-    public boolean isBST() {
-        //BST在中序边遍历是从小到大来的
-        ArrayList&lt;K&gt; keys=new ArrayList&lt;&gt;();
-        inOrder(root,keys);
-        for(int i=1;i&lt;keys.size();i++) 
-            //注意i-1
-            if(keys.get(i-1).compareTo(keys.get(i))&gt;0)
-                return false;
-        return true;
-    }
-
-    private void inOrder(Node root, ArrayList&lt;K&gt; keys) {
-        if(root==null)
-            return ;
-        inOrder(root.left, keys);
-        keys.add(root.key);
-        inOrder(root.right, keys);
-    }
-
-    //判断二叉树是否是一颗平衡二叉树
-    public boolean isBalanced() {
-        return isBalanced(root);
-    }
-
-    //判断以Node为根的二叉树是平衡二叉树，递归算法
-    public boolean isBalanced(Node node) {
-        if(node==null)
-            return true;
-        int balanceFactor = getBalanceFactor(node);
-        if(Math.abs(balanceFactor)&gt;1)
-            return false;
-        return isBalanced(node.left)&amp;&amp;isBalanced(node.right);
-    }
-
-}
-</code></pre><figure class="third"><br>   <img src="https://i.imgur.com/iquZ6dV.png" width="300" height="200" div="" align="right"><br>    <img src="https://i.imgur.com/ALq9vrP.png" width="300" height="200" div="" align="right"><br>   <img src="https://i.imgur.com/UeJYdx5.png" width="300" height="200" div="" align="right"><br></figure>
-
-<p><img src="https://i.imgur.com/iquZ6dV.png" width="300" height="200" div="" align="right"><img src="https://i.imgur.com/ALq9vrP.png" width="300" height="200" div="" align="right"><br><img src="https://i.imgur.com/UeJYdx5.png" width="300" height="200" div="" align="right"><br><img src="https://i.imgur.com/DFmJgAX.png" width="300" height="200" div="" align="right"></p>
-
-        
-
-        
-            <div class="full-width auto-padding tags">
-                
-                    <a href="/tags/红黑树/"><i class="fas fa-tag fa-fw"></i>&nbsp;红黑树</a>
-                
-            </div>
-        
-    </section>
-</article>
-
-        </div>
-    
-        <div class="post-wrapper">
-            <article class="post reveal ">
-    <section class="meta">
-        <h2 class="title">
             <a href="/2019/01/01/设计模式-代理模式/">
                 
                     工厂模式
@@ -1134,366 +832,6 @@ public class AVLTree&lt;K extends Comparable&lt;K&gt;, V&gt; {
 
         </div>
     
-        <div class="post-wrapper">
-            <article class="post reveal ">
-    <section class="meta">
-        <h2 class="title">
-            <a href="/2019/01/01/计算机网络/">
-                
-                    计算机网络基础
-                
-            </a>
-        </h2>
-        <time class="time">
-            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2019-01-01
-        </time>
-        
-    
-    <div class="cats">
-        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-        <a class="categories" href="/categories/计算机网络/">计算机网络</a>
-    </div>
-
-
-    </section>
-
-    <section class="article typo">
-        <h2 id="计算机网络的分层"><a href="#计算机网络的分层" class="headerlink" title="计算机网络的分层"></a>计算机网络的分层</h2><ul>
-<li>应用层：数据服务那个协议。</li>
-<li>传输层：解决出错重传机制，</li>
-<li>网络层：</li>
-<li>数据链路层：</li>
-<li>物理层：不可靠，不安全。<br><strong><br>发展时代：物理层-&gt;数据链路层-&gt;网络层-&gt;传输层-&gt;应用层，<br>  不可靠，不安全。对数据的检验，数据服务那个协议，出错重传，应用协议。
-</strong><h2 id="网络传输的不可靠"><a href="#网络传输的不可靠" class="headerlink" title="网络传输的不可靠"></a>网络传输的不可靠</h2></li>
-<li>丢包，重复包</li>
-<li>出错</li>
-<li>乱序<h2 id="滑动窗口"><a href="#滑动窗口" class="headerlink" title="滑动窗口"></a>滑动窗口</h2></li>
-<li>问题提出<br><img src="https://i.imgur.com/lxcwUo2.png" alt=""></li>
-<li>改进方案<br><img src="https://i.imgur.com/myI3wuL.png" alt=""></li>
-<li>功能<ul>
-<li>增加吞吐量，提高效率。</li>
-</ul>
-</li>
-</ul>
-<p><img src="https://i.imgur.com/ldNfkuL.png" alt=""></p>
-<p><img src="https://i.imgur.com/oIyB5gf.png" alt=""><br><strong>一直等5的ack接受信号，整个接受5ack信号，接受到5返回整个接受ack信息。比如，未接受到5的ack信息，即使接收到6，7，8，9，10，11也不会发送ack信息</strong><br><img src="https://i.imgur.com/Ev0hBwa.png" alt=""></p>
-<h2 id="wireshark"><a href="#wireshark" class="headerlink" title="wireshark"></a>wireshark</h2><p><img src="https://i.imgur.com/IjZ2S3X.png" alt=""></p>
-<ul>
-<li>Src：IntelCor电脑 Dst:到路由器  链路层</li>
-<li>Src:本机的ip地址 Dst:DNS服务器</li>
-</ul>
-
-        
-
-        
-            <div class="full-width auto-padding tags">
-                
-                    <a href="/tags/计算机网络/"><i class="fas fa-tag fa-fw"></i>&nbsp;计算机网络</a>
-                
-            </div>
-        
-    </section>
-</article>
-
-        </div>
-    
-        <div class="post-wrapper">
-            <article class="post reveal ">
-    <section class="meta">
-        <h2 class="title">
-            <a href="/2018/12/30/数据结构-哈希表/">
-                
-                    哈希表
-                
-            </a>
-        </h2>
-        <time class="time">
-            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2018-12-30
-        </time>
-        
-    
-    <div class="cats">
-        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-        <a class="categories" href="/categories/数据结构/">数据结构</a>
-    </div>
-
-
-    </section>
-
-    <section class="article typo">
-        <h1 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h1><h2 id="导学"><a href="#导学" class="headerlink" title="导学"></a>导学</h2><h3 id="例子：387-First-Unique-Character-in-a-String"><a href="#例子：387-First-Unique-Character-in-a-String" class="headerlink" title="例子：387. First Unique Character in a String"></a>例子：387. First Unique Character in a String</h3><p><strong><br>Given a string, find the first non-repeating character in it and return it’s index. If it doesn’t exist, return -1.</strong></p>
-<pre><code>Examples:
-
-s = &quot;leetcode&quot;
-return 0.
-
-s = &quot;loveleetcode&quot;,
-return 2.
-</code></pre><p><strong>代码</strong></p>
-<pre><code>class Solution {
-public int firstUniqChar(String s) {
-
-    int[] arr=new int[26];
-    for(int i=0;i&lt;s.length();i++){
-        arr[s.charAt(i)-&apos;a&apos;]++;
-    }
-    for(int i=0;i&lt;s.length();i++){
-        if(arr[s.charAt(i)-&apos;a&apos;]==1)
-            return i;
-    }
-    return -1;
-}
-}
-</code></pre><h2 id="什么是哈希表"><a href="#什么是哈希表" class="headerlink" title="什么是哈希表"></a>什么是哈希表</h2><ul>
-<li>对于我们所关注的内容，比如例子中的字符串，我们建立字符串与我们想要得到值之间的索引的数据结构，我们称之为哈希表。</li>
-<li>对于转换的过程我们称之为哈希函数。f(ch)=ch-‘a’;<ul>
-<li>哈希函数就是把’键’转换成’索引’，如果不同的健对应相同值称之为哈希冲突。</li>
-</ul>
-</li>
-<li>学习哈希表主要解决的问题：<ul>
-<li>把键转换成索引</li>
-<li>解决哈希冲突</li>
-</ul>
-</li>
-<li>哈希表充分体现了算法设计思想：空间换时间。</li>
-<li>通过健得到索引分越均匀越好。</li>
-</ul>
-<h2 id="哈希函数的设计"><a href="#哈希函数的设计" class="headerlink" title="哈希函数的设计"></a>哈希函数的设计</h2><ul>
-<li>对于整型<ul>
-<li>小范围的正整数正常使用</li>
-<li>小范围的负整数进行偏移 -100~100-0~200</li>
-<li>大整数 比如身份证号码<br><code>110108198512166666</code> 选择模一个素数。</li>
-</ul>
-</li>
-<li>浮点型转换成整型<br>  <img src="https://i.imgur.com/yEOX2mI.png" alt=""></li>
-<li>字符串 转成整型处理<ul>
-<li>166 1<em>100+6</em>10+6*1</li>
-<li>code c<em>26^3+o</em>26^2+d<em>26^1+e</em>26^0;</li>
-<li>hash(code)=(c<em>B^3+o</em>B^2+d<em>B^1+e</em>B^0)%M;<br><img src="https://i.imgur.com/8fAdQtg.png" alt=""></li>
-</ul>
-</li>
-<li>设计哈希函数的原则：<ul>
-<li>一致性：如果a==b,则hash(a)==hash(b)</li>
-<li>高效性：计算高校便捷</li>
-<li>均匀性：哈希值均匀分布</li>
-</ul>
-</li>
-</ul>
-<h2 id="java中的hashcode"><a href="#java中的hashcode" class="headerlink" title="java中的hashcode"></a>java中的hashcode</h2><pre><code>package Hashtable;
-
-public class Student {
-    private int grade;
-    private int cls;
-    private String firstName;
-    private String lastName;
-
-    public Student(int grade, int cls, String firstName, String lastName) {
-        this.grade = grade;
-        this.cls = cls;
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
-
-    @Override
-    public int hashCode() {
-        int B=31;
-        int hash=0;
-        hash=hash*B+grade;
-        hash=hash*B+cls;
-        //不区分大小写。。
-        hash=hash*B+firstName.hashCode();
-        hash=hash*B+lastName.hashCode();
-        return hash;
-    }
-
-}
-</code></pre><h2 id="java中解决hashcode的方法-Seperate-Chaining"><a href="#java中解决hashcode的方法-Seperate-Chaining" class="headerlink" title="java中解决hashcode的方法 Seperate    Chaining"></a>java中解决hashcode的方法 Seperate    Chaining</h2><ul>
-<li>(hashCode(k1)&amp;0x7fffffff)%M 根据hash值就算出索引</li>
-<li><p>如果产生冲突了，就在后面添加一个，就相当于每个索引后面接一个链表，但是我们为了优化访问的速度，可以接一个红黑树。<br><img src="https://i.imgur.com/WKkYGA6.png" alt=""></p>
-<ul>
-<li>k2-&gt;k3相当于一个查找表。所以hashMap就相当于treemap的数组，HashSet相当于treeSet数组。</li>
-</ul>
-</li>
-<li><p><strong>在java8之前每一个位置对应一个链表，java8之后一开始一个位置对应一个链表，当哈希冲突达到一定程度每一个位置从链表变成红黑树，在数量小的时候红黑树会进行反转等操作。</strong></p>
-</li>
-</ul>
-
-        
-
-        
-            <div class="full-width auto-padding tags">
-                
-                    <a href="/tags/哈希表/"><i class="fas fa-tag fa-fw"></i>&nbsp;哈希表</a>
-                
-            </div>
-        
-    </section>
-</article>
-
-        </div>
-    
-        <div class="post-wrapper">
-            <article class="post reveal ">
-    <section class="meta">
-        <h2 class="title">
-            <a href="/2018/12/29/java-lamda/">
-                
-                    lamda
-                
-            </a>
-        </h2>
-        <time class="time">
-            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2018-12-29
-        </time>
-        
-    
-    <div class="cats">
-        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-        <a class="categories" href="/categories/java/">java</a>
-    </div>
-
-
-    </section>
-
-    <section class="article typo">
-        <h1 id="JAVA8新特性——Lamda表达式"><a href="#JAVA8新特性——Lamda表达式" class="headerlink" title="JAVA8新特性——Lamda表达式"></a>JAVA8新特性——Lamda表达式</h1><h2 id="Lamda表达式，读作λ表达式，它实质属于函数式编程的概念，要理解函数式编程的产生目的，就要先理解匿名内部类。"><a href="#Lamda表达式，读作λ表达式，它实质属于函数式编程的概念，要理解函数式编程的产生目的，就要先理解匿名内部类。" class="headerlink" title="Lamda表达式，读作λ表达式，它实质属于函数式编程的概念，要理解函数式编程的产生目的，就要先理解匿名内部类。"></a>Lamda表达式，读作λ表达式，它实质属于函数式编程的概念，要理解函数式编程的产生目的，就要先理解匿名内部类。</h2><ul>
-<li><p>先来看看传统的匿名内部类调用方式:</p>
-<pre><code>interface MyInterface{
-
-    void lMethod();
-}
-public class Main {
-
-    public static void test(MyInterface myInterface){
-        myInterface.lMethod();
-    }
-
-    public static void main(String[] args) {
-        test(new MyInterface() {
-            @Override
-            public void lMethod() {
-                System.out.println(&quot;Hello World!&quot;);
-            }
-        });
-    }
-}
-</code></pre><p>　在主类中的这么几行代码，嵌套几层就为了输出一个Hello World！是不是很麻烦？但是由于java结构的完整性，我们还不得不那么做，现在JDK1.8来了。</p>
-</li>
-<li><p>再来看看使用Lamda表达式改写上面的代码：</p>
-<pre><code> interface Myinterface{
-    void IMethod();
- }
-
-public class Main {
-    public static void test(Myinterface myinterface){
-        myinterface.IMethod();
-    }
-    public static void main(String[] args) {
-        test(()-&gt; System.out.println(&quot;666&quot;));
-    }
-}
-</code></pre><p>这就是Lamda表达式语言，为了解决匿名内部类繁杂的操作而出现。</p>
-</li>
-<li><p>Lamda语法有三种形式：</p>
-<ol>
-<li>(参数) -&gt;单行语句；</li>
-<li>(参数) -&gt;{多行语句}；</li>
-<li><p>(参数) -&gt;表达式；<br>括号（）可以大致理解为就是方法，里面是参数变量，在上面的例子中()-&gt;System.out.println(“Hello World!”) 前面的()代表void lMethod()方法，它没有入参，所以为空，-&gt;后面是一个单行语句；<br>如果-&gt;后面是多行语句，需要用{ }装起来，每条语句后需要有分号;<br>-&gt;后面也可以是一个表达式，如：a+b等。</p>
-<ul>
-<li><p>(参数) -&gt;单行语句；</p>
-<pre><code> interface MyInterface{
-
-    void lMethod(String str);
-}
-public class Main {
-
-    public static void test(MyInterface myInterface){
-        myInterface.lMethod(&quot;Hello World!&quot;);//设置参数内容
-    }
-
-    public static void main(String[] args) {
-        //首先在()中定义此表达式里面需要接收变量s，后面的单行语句中就可以使用该变量了
-        test((s)-&gt;System.out.println(s));
-    }
-}
-</code></pre></li>
-<li><p>(参数) -&gt;多行语句；</p>
-<pre><code> interface Myinterface{
-    void IMethod(String str);
- }
-public class Main {
-    public static void test(Myinterface myinterface){
-        myinterface.IMethod(&quot;hello word&quot;);
-    }
-    public static void main(String[] args) {
-        test((s)-&gt; {
-            s=s+s;
-            System.out.println(s);
-        });
-    }
-}
-</code></pre><p>　这样，Lamda表达式就看起来很简单了，有不有！</p>
-</li>
-</ul>
-</li>
-</ol>
-</li>
-</ul>
-<p>　　匿名内部类，我们比较常用的地方在哪儿？线程类Thread，以前我们可能这样写：</p>
-<h2 id="总结：利用Lamda表达式是为了避免匿名内部类定义过多无用的操作。"><a href="#总结：利用Lamda表达式是为了避免匿名内部类定义过多无用的操作。" class="headerlink" title="总结：利用Lamda表达式是为了避免匿名内部类定义过多无用的操作。"></a>总结：利用Lamda表达式是为了避免匿名内部类定义过多无用的操作。</h2>
-        
-
-        
-            <div class="full-width auto-padding tags">
-                
-                    <a href="/tags/lamda/"><i class="fas fa-tag fa-fw"></i>&nbsp;lamda</a>
-                
-            </div>
-        
-    </section>
-</article>
-
-        </div>
-    
-        <div class="post-wrapper">
-            <article class="post reveal ">
-    <section class="meta">
-        <h2 class="title">
-            <a href="/2018/12/22/数据结构-并查集/">
-                
-                    并查集
-                
-            </a>
-        </h2>
-        <time class="time">
-            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2018-12-22
-        </time>
-        
-    
-    <div class="cats">
-        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-        <a class="categories" href="/categories/数据结构/">数据结构</a>
-    </div>
-
-
-    </section>
-
-    <section class="article typo">
-        
-        
-
-        
-            <div class="full-width auto-padding tags">
-                
-                    <a href="/tags/并查集/"><i class="fas fa-tag fa-fw"></i>&nbsp;并查集</a>
-                
-            </div>
-        
-    </section>
-</article>
-
-        </div>
-    
 </section>
 
 
@@ -1508,7 +846,7 @@ public class Main {
                 </a>
             
             <p class="current">
-                2 / 3
+                2 / 4
             </p>
             
                 <a class="next" rel="next" href="/page/3/">
@@ -1569,11 +907,13 @@ public class Main {
         
             <ul class="entry">
                 
-                    <li><a class="flat-box" href="/categories/java/"><div class="name">java</div><div class="badge">3</div></a></li>
+                    <li><a class="flat-box" href="/categories/Redis/"><div class="name">Redis</div><div class="badge">1</div></a></li>
                 
-                    <li><a class="flat-box" href="/categories/leetcode/"><div class="name">leetcode</div><div class="badge">6</div></a></li>
+                    <li><a class="flat-box" href="/categories/java/"><div class="name">java</div><div class="badge">4</div></a></li>
                 
-                    <li><a class="flat-box" href="/categories/python/"><div class="name">python</div><div class="badge">1</div></a></li>
+                    <li><a class="flat-box" href="/categories/leetcode/"><div class="name">leetcode</div><div class="badge">7</div></a></li>
+                
+                    <li><a class="flat-box" href="/categories/python/"><div class="name">python</div><div class="badge">4</div></a></li>
                 
                     <li><a class="flat-box" href="/categories/剑指offer/"><div class="name">剑指offer</div><div class="badge">4</div></a></li>
                 
@@ -1600,7 +940,7 @@ public class Main {
             <div><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;标签</div>
         </header>
         <div class="content pure">
-            <a href="/tags/AVL树/" style="font-size: 14px; color: #999">AVL树</a> <a href="/tags/Trie/" style="font-size: 19px; color: #777">Trie</a> <a href="/tags/lamda/" style="font-size: 14px; color: #999">lamda</a> <a href="/tags/python/" style="font-size: 14px; color: #999">python</a> <a href="/tags/二叉树/" style="font-size: 14px; color: #999">二叉树</a> <a href="/tags/代理模式/" style="font-size: 14px; color: #999">代理模式</a> <a href="/tags/单链表/" style="font-size: 14px; color: #999">单链表</a> <a href="/tags/反射/" style="font-size: 14px; color: #999">反射</a> <a href="/tags/哈希表/" style="font-size: 14px; color: #999">哈希表</a> <a href="/tags/多线程/" style="font-size: 14px; color: #999">多线程</a> <a href="/tags/工厂模式/" style="font-size: 14px; color: #999">工厂模式</a> <a href="/tags/并查集/" style="font-size: 14px; color: #999">并查集</a> <a href="/tags/数据结构/" style="font-size: 24px; color: #555">数据结构</a> <a href="/tags/数组/" style="font-size: 24px; color: #555">数组</a> <a href="/tags/智力题/" style="font-size: 14px; color: #999">智力题</a> <a href="/tags/栈/" style="font-size: 14px; color: #999">栈</a> <a href="/tags/红黑树/" style="font-size: 14px; color: #999">红黑树</a> <a href="/tags/蓝桥杯/" style="font-size: 19px; color: #777">蓝桥杯</a> <a href="/tags/计算机网络/" style="font-size: 14px; color: #999">计算机网络</a> <a href="/tags/链表/" style="font-size: 19px; color: #777">链表</a>
+            <a href="/tags/AVL树/" style="font-size: 14px; color: #999">AVL树</a> <a href="/tags/JSON/" style="font-size: 14px; color: #999">JSON</a> <a href="/tags/Redis/" style="font-size: 14px; color: #999">Redis</a> <a href="/tags/Trie/" style="font-size: 17.33px; color: #828282">Trie</a> <a href="/tags/lamda/" style="font-size: 14px; color: #999">lamda</a> <a href="/tags/python/" style="font-size: 24px; color: #555">python</a> <a href="/tags/二叉树/" style="font-size: 14px; color: #999">二叉树</a> <a href="/tags/代理模式/" style="font-size: 14px; color: #999">代理模式</a> <a href="/tags/单链表/" style="font-size: 14px; color: #999">单链表</a> <a href="/tags/反射/" style="font-size: 14px; color: #999">反射</a> <a href="/tags/哈希表/" style="font-size: 14px; color: #999">哈希表</a> <a href="/tags/多线程/" style="font-size: 14px; color: #999">多线程</a> <a href="/tags/工厂模式/" style="font-size: 14px; color: #999">工厂模式</a> <a href="/tags/并查集/" style="font-size: 14px; color: #999">并查集</a> <a href="/tags/数据结构/" style="font-size: 20.67px; color: #6c6c6c">数据结构</a> <a href="/tags/数组/" style="font-size: 24px; color: #555">数组</a> <a href="/tags/智力题/" style="font-size: 14px; color: #999">智力题</a> <a href="/tags/栈/" style="font-size: 14px; color: #999">栈</a> <a href="/tags/红黑树/" style="font-size: 14px; color: #999">红黑树</a> <a href="/tags/蓝桥杯/" style="font-size: 17.33px; color: #828282">蓝桥杯</a> <a href="/tags/计算机网络/" style="font-size: 14px; color: #999">计算机网络</a> <a href="/tags/链表/" style="font-size: 17.33px; color: #828282">链表</a>
         </div>
     </section>
 
