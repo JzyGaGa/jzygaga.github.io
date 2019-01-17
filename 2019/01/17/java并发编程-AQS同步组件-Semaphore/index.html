@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <title>python的正则表达式 | 飞翔的傻瓜</title>
+  <title>AQS同步组件-Semaphore | 飞翔的傻瓜</title>
   
   <meta name="keywords" content="编程">
   
@@ -126,14 +126,14 @@
     <div class="l_body">
     <div class='container clearfix'>
         <div class='l_main'>
-            <article id="post-python-3的正则表达式和json" class="post white-box article-type-post" itemscope="" itemprop="blogPost">
+            <article id="post-java并发编程-AQS同步组件-Semaphore" class="post white-box article-type-post" itemscope="" itemprop="blogPost">
     <section class="meta">
         
-            <h1 class="title">python的正则表达式</h1>
+            <h1 class="title">AQS同步组件-Semaphore</h1>
         
         <time class="time">
             <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-            2019-01-09
+            2019-01-17
         </time>
         
           <div class="browse busuanzi"><i class="fas fa-eye fa-fw" aria-hidden="true"></i>
@@ -145,7 +145,7 @@
     
     <div class="cats">
         <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-        <a class="categories" href="/categories/python/">python</a>
+        <a class="categories" href="/categories/java并发/">java并发</a>
     </div>
 
 
@@ -154,31 +154,90 @@
     <section class="article typo">
 
         <div class="article-entry" itemprop="articleBody">
-            <h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><pre><code>import re
+            <h2 id="1-Semaphore？"><a href="#1-Semaphore？" class="headerlink" title="1.Semaphore？"></a>1.Semaphore？</h2><p>　技术信号量用来控制能够同时访问某特定资源的活动的数量，或者同时执行某一给定操作的数据。计数信号量可以用来实现资源池或者给一个容器限定边界。</p>
+<p>　　信号量维护了一个许可集，许可的初始量通过构造函数传递给Semaphore。活动能够获取许可，并在使用之后释放许可，如果没有可用的许可，acquire方法会被阻塞，直到有可用的为止。每个release方法添加一个许可，从而可能释放一个正在阻塞的获取者</p>
+<h2 id="2-使用方法"><a href="#2-使用方法" class="headerlink" title="2.使用方法"></a>2.使用方法</h2><ul>
+<li>Semaphore(int permits)：创建具有给定许可数和非公平设置的Semaphore</li>
+<li>int availablePermits() ：返回此信号量中当前可用的许可证数。</li>
+<li>int getQueueLength()：返回正在等待获取许可证的线程数。</li>
+<li>boolean hasQueuedThreads() ：是否有线程正在等待获取许可证。</li>
+<li>void reducePermits(int reduction) ：减少reduction个许可证。是个protected方法。</li>
+<li>Collection getQueuedThreads() ：返回所有等待获取许可证的线程集合。是个protected方法。</li>
+</ul>
+<h2 id="3-SemaphoreDemo"><a href="#3-SemaphoreDemo" class="headerlink" title="3.SemaphoreDemo"></a>3.SemaphoreDemo</h2><ul>
+<li><p>SemaphoreDemo</p>
+<pre><code>package com.mmall.concurrency.example.AQS.semaphore;
 
-language = &apos;PythonC#JavaC#PHPC#&apos;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Semaphore;
 
+public class SemaphoreDemo {
+    public static void main(String[] args) {
+        Semaphore semaphore=new Semaphore(3);
 
-def convert(value):
-    match = value.group()
-    return &apos;!!&apos;+match+&apos;!!&apos;
+        Workers worker=new Workers(&quot;小黄&quot;,semaphore);
+        Workers worker1=new Workers(&quot;小蓝&quot;,semaphore);
+        Workers worker2=new Workers(&quot;小白&quot;,semaphore);
+        Workers worker3=new Workers(&quot;小子&quot;,semaphore);
+        Workers worker4=new Workers(&quot;小绿&quot;,semaphore);
+        Workers worker5=new Workers(&quot;小黑&quot;,semaphore);
+        Workers worker6=new Workers(&quot;小红&quot;,semaphore);
+        ExecutorService executorService=Executors.newCachedThreadPool();
+        executorService.execute(worker);
+        executorService.execute(worker1);
+        executorService.execute(worker2);
+        executorService.execute(worker3);
+        executorService.execute(worker4);
+        executorService.execute(worker5);
+        executorService.execute(worker6);
+    }
+}
+</code></pre></li>
+<li><p>Workers</p>
+<pre><code>package com.mmall.concurrency.example.AQS.semaphore;
 
+import lombok.extern.slf4j.Slf4j;
 
-r = re.sub(&apos;C#&apos;, convert, language)
-print(r)
-</code></pre>
+import java.util.concurrent.Semaphore;
+@Slf4j
+public class Workers implements Runnable {
+    private String name;
+    private Semaphore semaphore;
+
+    public Workers(String name, Semaphore semaphore) {
+        this.name = name;
+        this.semaphore = semaphore;
+    }
+
+    @Override
+    public void run() {
+        try {
+            semaphore.acquire();
+            System.out.println(String.format(&quot;%s拿到了指令许可&quot;, name));
+            Thread.sleep(3000);
+            System.out.println(String.format(&quot;%s工作结束，还剩%s没有拿到指令许可&quot;, name, semaphore.getQueueLength()));
+        }catch (Exception e){
+            log.info(&quot;error{}&quot;,e);
+        }
+        semaphore.release();
+    }
+}
+</code></pre></li>
+</ul>
+
         </div>
 
         <section class="meta">
-            <time class="time" itemprop="dateUpdated" datetime="2019-01-09T15:59:14+08:00" content="2019-01-09">
+            <time class="time" itemprop="dateUpdated" datetime="2019-01-17T21:21:01+08:00" content="2019-01-17">
                 <i class="fas fa-pen fa-fw" aria-hidden="true"></i>
-                本文最后更新于：2019-01-09
+                本文最后更新于：2019-01-17
             </time>
             
                 
                 <div class="tags">
                     <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
-                    <a class="tag" href="/tags/python/">python</a>
+                    <a class="tag" href="/tags/java并发/">java并发</a>
                 </div>
             
         </section>
@@ -190,18 +249,12 @@ print(r)
                         <span class="art-item-left">
                             <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一篇</h6>
                             <h4>
-                                <a href="/2019/01/09/java-Json/" rel="prev" title="准备编辑的博客">
+                                <a href="/2019/01/17/准备编辑的博客-1/" rel="prev" title="准备编辑的博客">
                                   
                                       准备编辑的博客
                                   
                                 </a>
                             </h4>
-                            
-                                
-                                <h6 class="tags">
-                                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
-                                    <a class="tag" href="/tags/JSON/">JSON</a>
-                                </h6>
                             
                         </span>
                     </section>
@@ -211,9 +264,9 @@ print(r)
                         <span class="art-item-right" aria-hidden="true">
                             <h6>下一篇&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
                             <h4>
-                                <a href="/2019/01/08/python-2赋值/" rel="prev" title="Python的赋值">
+                                <a href="/2019/01/17/java并发编程-AQS同步组件-CountDownLatch/" rel="prev" title="AQS同步组件-CountDownLatch">
                                     
-                                        Python的赋值
+                                        AQS同步组件-CountDownLatch
                                     
                                 </a>
                             </h4>
@@ -221,7 +274,7 @@ print(r)
                                 
                                 <h6 class="tags">
                                     <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
-                                    <a class="tag" href="/tags/python/">python</a>
+                                    <a class="tag" href="/tags/java并发/">java并发</a>
                                 </h6>
                             
                         </span>
@@ -248,15 +301,15 @@ print(r)
         <h4><i class="fas fa-bookmark fa-fw" aria-hidden="true"></i>&nbsp;你可能感兴趣的文章</h4>
         <ul>
             
+                <li><a href="https://jzygaga.github.io/2019/01/17/准备编辑的博客-1/">准备编辑的博客</a></li>
+            
+                <li><a href="https://jzygaga.github.io/2019/01/17/java并发编程-AQS同步组件-CountDownLatch/">AQS同步组件-CountDownLatch</a></li>
+            
+                <li><a href="https://jzygaga.github.io/2019/01/13/leetocde-665. Non-decreasing Array/">Non-decreasing Array</a></li>
+            
+                <li><a href="https://jzygaga.github.io/2019/01/12/Redis之（一）初识Redis/">Redis之（一）初识Redis</a></li>
+            
                 <li><a href="https://jzygaga.github.io/2019/01/09/准备编辑的博客/">python的枚举</a></li>
-            
-                <li><a href="https://jzygaga.github.io/2019/01/09/java-Json/">准备编辑的博客</a></li>
-            
-                <li><a href="https://jzygaga.github.io/2019/01/08/python-2赋值/">Python的赋值</a></li>
-            
-                <li><a href="https://jzygaga.github.io/2019/01/07/python-1数据类型/">python入门</a></li>
-            
-                <li><a href="https://jzygaga.github.io/2019/01/07/蓝桥杯-快速过桥/">快速过桥</a></li>
             
         </ul>
     </div>
@@ -294,7 +347,7 @@ print(r)
 
 <script>
     window.subData = {
-        title: 'python的正则表达式',
+        title: 'AQS同步组件-Semaphore',
         tools: true
     }
 </script>
@@ -395,7 +448,7 @@ print(r)
             <div class="wrapper"><a class="s-toc rightBtn" title="固定到顶部" target="_blank" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
         </header>
         <div class="content pure">
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#正则表达式"><span class="toc-text">正则表达式</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Semaphore？"><span class="toc-text">1.Semaphore？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-使用方法"><span class="toc-text">2.使用方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-SemaphoreDemo"><span class="toc-text">3.SemaphoreDemo</span></a></li></ol>
         </div>
     </section>
 

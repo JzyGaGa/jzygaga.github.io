@@ -134,6 +134,143 @@
             <article class="post reveal ">
     <section class="meta">
         <h2 class="title">
+            <a href="/2019/01/17/准备编辑的博客-1/">
+                
+                    准备编辑的博客
+                
+            </a>
+        </h2>
+        <time class="time">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2019-01-17
+        </time>
+        
+
+    </section>
+
+    <section class="article typo">
+        
+        
+
+        
+    </section>
+</article>
+
+        </div>
+    
+        <div class="post-wrapper">
+            <article class="post reveal ">
+    <section class="meta">
+        <h2 class="title">
+            <a href="/2019/01/17/java并发编程-AQS同步组件-Semaphore/">
+                
+                    AQS同步组件-Semaphore
+                
+            </a>
+        </h2>
+        <time class="time">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2019-01-17
+        </time>
+        
+    
+    <div class="cats">
+        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+        <a class="categories" href="/categories/java并发/">java并发</a>
+    </div>
+
+
+    </section>
+
+    <section class="article typo">
+        <h2 id="1-Semaphore？"><a href="#1-Semaphore？" class="headerlink" title="1.Semaphore？"></a>1.Semaphore？</h2><p>　技术信号量用来控制能够同时访问某特定资源的活动的数量，或者同时执行某一给定操作的数据。计数信号量可以用来实现资源池或者给一个容器限定边界。</p>
+<p>　　信号量维护了一个许可集，许可的初始量通过构造函数传递给Semaphore。活动能够获取许可，并在使用之后释放许可，如果没有可用的许可，acquire方法会被阻塞，直到有可用的为止。每个release方法添加一个许可，从而可能释放一个正在阻塞的获取者</p>
+<h2 id="2-使用方法"><a href="#2-使用方法" class="headerlink" title="2.使用方法"></a>2.使用方法</h2><ul>
+<li>Semaphore(int permits)：创建具有给定许可数和非公平设置的Semaphore</li>
+<li>int availablePermits() ：返回此信号量中当前可用的许可证数。</li>
+<li>int getQueueLength()：返回正在等待获取许可证的线程数。</li>
+<li>boolean hasQueuedThreads() ：是否有线程正在等待获取许可证。</li>
+<li>void reducePermits(int reduction) ：减少reduction个许可证。是个protected方法。</li>
+<li>Collection getQueuedThreads() ：返回所有等待获取许可证的线程集合。是个protected方法。</li>
+</ul>
+<h2 id="3-SemaphoreDemo"><a href="#3-SemaphoreDemo" class="headerlink" title="3.SemaphoreDemo"></a>3.SemaphoreDemo</h2><ul>
+<li><p>SemaphoreDemo</p>
+<pre><code>package com.mmall.concurrency.example.AQS.semaphore;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Semaphore;
+
+public class SemaphoreDemo {
+    public static void main(String[] args) {
+        Semaphore semaphore=new Semaphore(3);
+
+        Workers worker=new Workers(&quot;小黄&quot;,semaphore);
+        Workers worker1=new Workers(&quot;小蓝&quot;,semaphore);
+        Workers worker2=new Workers(&quot;小白&quot;,semaphore);
+        Workers worker3=new Workers(&quot;小子&quot;,semaphore);
+        Workers worker4=new Workers(&quot;小绿&quot;,semaphore);
+        Workers worker5=new Workers(&quot;小黑&quot;,semaphore);
+        Workers worker6=new Workers(&quot;小红&quot;,semaphore);
+        ExecutorService executorService=Executors.newCachedThreadPool();
+        executorService.execute(worker);
+        executorService.execute(worker1);
+        executorService.execute(worker2);
+        executorService.execute(worker3);
+        executorService.execute(worker4);
+        executorService.execute(worker5);
+        executorService.execute(worker6);
+    }
+}
+</code></pre></li>
+<li><p>Workers</p>
+<pre><code>package com.mmall.concurrency.example.AQS.semaphore;
+
+import lombok.extern.slf4j.Slf4j;
+
+import java.util.concurrent.Semaphore;
+@Slf4j
+public class Workers implements Runnable {
+    private String name;
+    private Semaphore semaphore;
+
+    public Workers(String name, Semaphore semaphore) {
+        this.name = name;
+        this.semaphore = semaphore;
+    }
+
+    @Override
+    public void run() {
+        try {
+            semaphore.acquire();
+            System.out.println(String.format(&quot;%s拿到了指令许可&quot;, name));
+            Thread.sleep(3000);
+            System.out.println(String.format(&quot;%s工作结束，还剩%s没有拿到指令许可&quot;, name, semaphore.getQueueLength()));
+        }catch (Exception e){
+            log.info(&quot;error{}&quot;,e);
+        }
+        semaphore.release();
+    }
+}
+</code></pre></li>
+</ul>
+
+        
+
+        
+            <div class="full-width auto-padding tags">
+                
+                    <a href="/tags/java并发/"><i class="fas fa-tag fa-fw"></i>&nbsp;java并发</a>
+                
+            </div>
+        
+    </section>
+</article>
+
+        </div>
+    
+        <div class="post-wrapper">
+            <article class="post reveal ">
+    <section class="meta">
+        <h2 class="title">
             <a href="/2019/01/17/java并发编程-AQS同步组件-CountDownLatch/">
                 
                     AQS同步组件-CountDownLatch
@@ -738,124 +875,6 @@ print(r)
 
         </div>
     
-        <div class="post-wrapper">
-            <article class="post reveal ">
-    <section class="meta">
-        <h2 class="title">
-            <a href="/2019/01/07/蓝桥杯-快速过桥/">
-                
-                    快速过桥
-                
-            </a>
-        </h2>
-        <time class="time">
-            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2019-01-07
-        </time>
-        
-    
-    <div class="cats">
-        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-        <a class="categories" href="/categories/蓝桥杯/">蓝桥杯</a>
-    </div>
-
-
-    </section>
-
-    <section class="article typo">
-        <h2 id="快速过桥"><a href="#快速过桥" class="headerlink" title="快速过桥"></a>快速过桥</h2><ul>
-<li><strong>问题描述：</strong>n个人的队伍想在晚上通过一座大桥。任何时间最多有2人通过，每组必须有一个手电筒。很可怜，这n个人只有一个手电筒可用，因此必须合理地安排，让手电筒能回到另一端，这样才能让更多人通过大桥。每个人有不同的速度，编组后，一个组的速度等于慢的那个人的速度。你的任务是实现一种策略，让所有人在最短时间内通过。</li>
-<li><strong>样例输入</strong><br>【样例输入】<br>  1<br>  4<br>  1<br>  2<br>  5<br>  10<br>【样例输出】<br>  17<br>  1 2<br>  1<br>  5 10<br>  2<br>  1 2</li>
-<li><a href="https://blog.csdn.net/qq_41061455/article/details/79536991" target="_blank" rel="noopener">https://blog.csdn.net/qq_41061455/article/details/79536991</a></li>
-</ul>
-
-        
-
-        
-            <div class="full-width auto-padding tags">
-                
-                    <a href="/tags/智力题/"><i class="fas fa-tag fa-fw"></i>&nbsp;智力题</a>
-                
-            </div>
-        
-    </section>
-</article>
-
-        </div>
-    
-        <div class="post-wrapper">
-            <article class="post reveal ">
-    <section class="meta">
-        <h2 class="title">
-            <a href="/2019/01/06/剑指offer-斐波那契数列/">
-                
-                    斐波那契数列
-                
-            </a>
-        </h2>
-        <time class="time">
-            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2019-01-06
-        </time>
-        
-    
-    <div class="cats">
-        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-        <a class="categories" href="/categories/剑指offer/">剑指offer</a>
-    </div>
-
-
-    </section>
-
-    <section class="article typo">
-        <h2 id="斐波那契数列"><a href="#斐波那契数列" class="headerlink" title="斐波那契数列"></a>斐波那契数列</h2><ul>
-<li>描述<br><strong>大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项（从0开始，第0项为0）。n&lt;=39 </strong></li>
-<li>代码<pre><code>public int Fibonacci1(int n) {
-      if(n==1)
-          return 1;
-      if(n==2)
-          return 1;
-        int[] arr=new int[n];
-        arr[0]=1;
-        arr[1]=1;
-        for(int i=2;i&lt;n;i++) {
-            arr[i]=arr[i-1]+arr[i-2];
-        }
-        return arr[n-1];
-    }
-</code></pre></li>
-<li><p>代码</p>
-<pre><code>import java.util.HashMap;
-import java.util.Map;
-
-public class Solution {
-    private Map&lt;Integer,Integer&gt; map=new HashMap&lt;&gt;();
-    public int Fibonacci(int n) {
-         if(n==1)
-           return 1;
-         if(n==2)
-          return 1;
-         if(map.get(n)!=null)
-             return map.get(n);
-        map.put(n, Fibonacci(n-1)+Fibonacci(n-2));
-        return map.get(n);
-    }
-}
-</code></pre></li>
-</ul>
-
-        
-
-        
-            <div class="full-width auto-padding tags">
-                
-                    <a href="/tags/数组/"><i class="fas fa-tag fa-fw"></i>&nbsp;数组</a>
-                
-            </div>
-        
-    </section>
-</article>
-
-        </div>
-    
 </section>
 
 
@@ -929,7 +948,7 @@ public class Solution {
                 
                     <li><a class="flat-box" href="/categories/java/"><div class="name">java</div><div class="badge">4</div></a></li>
                 
-                    <li><a class="flat-box" href="/categories/java并发/"><div class="name">java并发</div><div class="badge">1</div></a></li>
+                    <li><a class="flat-box" href="/categories/java并发/"><div class="name">java并发</div><div class="badge">2</div></a></li>
                 
                     <li><a class="flat-box" href="/categories/leetcode/"><div class="name">leetcode</div><div class="badge">7</div></a></li>
                 
@@ -960,7 +979,7 @@ public class Solution {
             <div><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;标签</div>
         </header>
         <div class="content pure">
-            <a href="/tags/AVL树/" style="font-size: 14px; color: #999">AVL树</a> <a href="/tags/JSON/" style="font-size: 14px; color: #999">JSON</a> <a href="/tags/Redis/" style="font-size: 14px; color: #999">Redis</a> <a href="/tags/Trie/" style="font-size: 17.33px; color: #828282">Trie</a> <a href="/tags/java并发/" style="font-size: 14px; color: #999">java并发</a> <a href="/tags/lamda/" style="font-size: 14px; color: #999">lamda</a> <a href="/tags/python/" style="font-size: 24px; color: #555">python</a> <a href="/tags/二叉树/" style="font-size: 14px; color: #999">二叉树</a> <a href="/tags/代理模式/" style="font-size: 14px; color: #999">代理模式</a> <a href="/tags/单链表/" style="font-size: 14px; color: #999">单链表</a> <a href="/tags/反射/" style="font-size: 14px; color: #999">反射</a> <a href="/tags/哈希表/" style="font-size: 14px; color: #999">哈希表</a> <a href="/tags/多线程/" style="font-size: 14px; color: #999">多线程</a> <a href="/tags/工厂模式/" style="font-size: 14px; color: #999">工厂模式</a> <a href="/tags/并查集/" style="font-size: 14px; color: #999">并查集</a> <a href="/tags/数据结构/" style="font-size: 20.67px; color: #6c6c6c">数据结构</a> <a href="/tags/数组/" style="font-size: 24px; color: #555">数组</a> <a href="/tags/智力题/" style="font-size: 14px; color: #999">智力题</a> <a href="/tags/栈/" style="font-size: 14px; color: #999">栈</a> <a href="/tags/红黑树/" style="font-size: 14px; color: #999">红黑树</a> <a href="/tags/蓝桥杯/" style="font-size: 17.33px; color: #828282">蓝桥杯</a> <a href="/tags/计算机网络/" style="font-size: 14px; color: #999">计算机网络</a> <a href="/tags/链表/" style="font-size: 17.33px; color: #828282">链表</a>
+            <a href="/tags/AVL树/" style="font-size: 14px; color: #999">AVL树</a> <a href="/tags/JSON/" style="font-size: 14px; color: #999">JSON</a> <a href="/tags/Redis/" style="font-size: 14px; color: #999">Redis</a> <a href="/tags/Trie/" style="font-size: 17.33px; color: #828282">Trie</a> <a href="/tags/java并发/" style="font-size: 17.33px; color: #828282">java并发</a> <a href="/tags/lamda/" style="font-size: 14px; color: #999">lamda</a> <a href="/tags/python/" style="font-size: 24px; color: #555">python</a> <a href="/tags/二叉树/" style="font-size: 14px; color: #999">二叉树</a> <a href="/tags/代理模式/" style="font-size: 14px; color: #999">代理模式</a> <a href="/tags/单链表/" style="font-size: 14px; color: #999">单链表</a> <a href="/tags/反射/" style="font-size: 14px; color: #999">反射</a> <a href="/tags/哈希表/" style="font-size: 14px; color: #999">哈希表</a> <a href="/tags/多线程/" style="font-size: 14px; color: #999">多线程</a> <a href="/tags/工厂模式/" style="font-size: 14px; color: #999">工厂模式</a> <a href="/tags/并查集/" style="font-size: 14px; color: #999">并查集</a> <a href="/tags/数据结构/" style="font-size: 20.67px; color: #6c6c6c">数据结构</a> <a href="/tags/数组/" style="font-size: 24px; color: #555">数组</a> <a href="/tags/智力题/" style="font-size: 14px; color: #999">智力题</a> <a href="/tags/栈/" style="font-size: 14px; color: #999">栈</a> <a href="/tags/红黑树/" style="font-size: 14px; color: #999">红黑树</a> <a href="/tags/蓝桥杯/" style="font-size: 17.33px; color: #828282">蓝桥杯</a> <a href="/tags/计算机网络/" style="font-size: 14px; color: #999">计算机网络</a> <a href="/tags/链表/" style="font-size: 17.33px; color: #828282">链表</a>
         </div>
     </section>
 

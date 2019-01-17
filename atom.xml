@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jzygaga.github.io/"/>
-  <updated>2019-01-17T12:13:13.524Z</updated>
+  <updated>2019-01-17T13:21:25.263Z</updated>
   <id>https://jzygaga.github.io/</id>
   
   <author>
@@ -15,6 +15,45 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>准备编辑的博客</title>
+    <link href="https://jzygaga.github.io/2019/01/17/%E5%87%86%E5%A4%87%E7%BC%96%E8%BE%91%E7%9A%84%E5%8D%9A%E5%AE%A2-1/"/>
+    <id>https://jzygaga.github.io/2019/01/17/准备编辑的博客-1/</id>
+    <published>2019-01-17T13:21:25.000Z</published>
+    <updated>2019-01-17T13:21:25.263Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>AQS同步组件-Semaphore</title>
+    <link href="https://jzygaga.github.io/2019/01/17/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-AQS%E5%90%8C%E6%AD%A5%E7%BB%84%E4%BB%B6-Semaphore/"/>
+    <id>https://jzygaga.github.io/2019/01/17/java并发编程-AQS同步组件-Semaphore/</id>
+    <published>2019-01-17T13:05:03.000Z</published>
+    <updated>2019-01-17T13:21:01.953Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-Semaphore？"><a href="#1-Semaphore？" class="headerlink" title="1.Semaphore？"></a>1.Semaphore？</h2><p>　技术信号量用来控制能够同时访问某特定资源的活动的数量，或者同时执行某一给定操作的数据。计数信号量可以用来实现资源池或者给一个容器限定边界。</p><p>　　信号量维护了一个许可集，许可的初始量通过构造函数传递给Semaphore。活动能够获取许可，并在使用之后释放许可，如果没有可用的许可，acquire方法会被阻塞，直到有可用的为止。每个release方法添加一个许可，从而可能释放一个正在阻塞的获取者</p><h2 id="2-使用方法"><a href="#2-使用方法" class="headerlink" title="2.使用方法"></a>2.使用方法</h2><ul><li>Semaphore(int permits)：创建具有给定许可数和非公平设置的Semaphore</li><li>int availablePermits() ：返回此信号量中当前可用的许可证数。</li><li>int getQueueLength()：返回正在等待获取许可证的线程数。</li><li>boolean hasQueuedThreads() ：是否有线程正在等待获取许可证。</li><li>void reducePermits(int reduction) ：减少reduction个许可证。是个protected方法。</li><li>Collection getQueuedThreads() ：返回所有等待获取许可证的线程集合。是个protected方法。</li></ul><h2 id="3-SemaphoreDemo"><a href="#3-SemaphoreDemo" class="headerlink" title="3.SemaphoreDemo"></a>3.SemaphoreDemo</h2><ul><li><p>SemaphoreDemo</p><pre><code>package com.mmall.concurrency.example.AQS.semaphore;import java.util.concurrent.ExecutorService;import java.util.concurrent.Executors;import java.util.concurrent.Semaphore;public class SemaphoreDemo {    public static void main(String[] args) {        Semaphore semaphore=new Semaphore(3);        Workers worker=new Workers(&quot;小黄&quot;,semaphore);        Workers worker1=new Workers(&quot;小蓝&quot;,semaphore);        Workers worker2=new Workers(&quot;小白&quot;,semaphore);        Workers worker3=new Workers(&quot;小子&quot;,semaphore);        Workers worker4=new Workers(&quot;小绿&quot;,semaphore);        Workers worker5=new Workers(&quot;小黑&quot;,semaphore);        Workers worker6=new Workers(&quot;小红&quot;,semaphore);        ExecutorService executorService=Executors.newCachedThreadPool();        executorService.execute(worker);        executorService.execute(worker1);        executorService.execute(worker2);        executorService.execute(worker3);        executorService.execute(worker4);        executorService.execute(worker5);        executorService.execute(worker6);    }}</code></pre></li><li><p>Workers</p><pre><code>package com.mmall.concurrency.example.AQS.semaphore;import lombok.extern.slf4j.Slf4j;import java.util.concurrent.Semaphore;@Slf4jpublic class Workers implements Runnable {    private String name;    private Semaphore semaphore;    public Workers(String name, Semaphore semaphore) {        this.name = name;        this.semaphore = semaphore;    }    @Override    public void run() {        try {            semaphore.acquire();            System.out.println(String.format(&quot;%s拿到了指令许可&quot;, name));            Thread.sleep(3000);            System.out.println(String.format(&quot;%s工作结束，还剩%s没有拿到指令许可&quot;, name, semaphore.getQueueLength()));        }catch (Exception e){            log.info(&quot;error{}&quot;,e);        }        semaphore.release();    }}</code></pre></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;1-Semaphore？&quot;&gt;&lt;a href=&quot;#1-Semaphore？&quot; class=&quot;headerlink&quot; title=&quot;1.Semaphore？&quot;&gt;&lt;/a&gt;1.Semaphore？&lt;/h2&gt;&lt;p&gt;　技术信号量用来控制能够同时访问某特定资源的活动的数量，或者
+      
+    
+    </summary>
+    
+      <category term="java并发" scheme="https://jzygaga.github.io/categories/java%E5%B9%B6%E5%8F%91/"/>
+    
+    
+      <category term="java并发" scheme="https://jzygaga.github.io/tags/java%E5%B9%B6%E5%8F%91/"/>
+    
+  </entry>
   
   <entry>
     <title>AQS同步组件-CountDownLatch</title>
@@ -485,49 +524,6 @@ language = &amp;apos;PythonC#JavaC#PHPC#&amp;ap
     
     
       <category term="数组" scheme="https://jzygaga.github.io/tags/%E6%95%B0%E7%BB%84/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>反射</title>
-    <link href="https://jzygaga.github.io/2019/01/02/java-%E5%8F%8D%E5%B0%84/"/>
-    <id>https://jzygaga.github.io/2019/01/02/java-反射/</id>
-    <published>2019-01-02T05:34:53.000Z</published>
-    <updated>2019-01-02T06:16:14.561Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="对方的付费"><a href="#对方的付费" class="headerlink" title="对方的付费"></a>对方的付费</h2>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;对方的付费&quot;&gt;&lt;a href=&quot;#对方的付费&quot; class=&quot;headerlink&quot; title=&quot;对方的付费&quot;&gt;&lt;/a&gt;对方的付费&lt;/h2&gt;
-      
-    
-    </summary>
-    
-      <category term="java" scheme="https://jzygaga.github.io/categories/java/"/>
-    
-    
-      <category term="反射" scheme="https://jzygaga.github.io/tags/%E5%8F%8D%E5%B0%84/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>工厂模式</title>
-    <link href="https://jzygaga.github.io/2019/01/01/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/"/>
-    <id>https://jzygaga.github.io/2019/01/01/设计模式-代理模式/</id>
-    <published>2019-01-01T12:53:48.000Z</published>
-    <updated>2019-01-02T05:15:53.836Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-      <category term="设计模式" scheme="https://jzygaga.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-    
-      <category term="代理模式" scheme="https://jzygaga.github.io/tags/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   
