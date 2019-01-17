@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jzygaga.github.io/"/>
-  <updated>2019-01-13T09:16:05.682Z</updated>
+  <updated>2019-01-17T12:13:13.524Z</updated>
   <id>https://jzygaga.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>AQS同步组件-CountDownLatch</title>
+    <link href="https://jzygaga.github.io/2019/01/17/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-AQS%E5%90%8C%E6%AD%A5%E7%BB%84%E4%BB%B6-CountDownLatch/"/>
+    <id>https://jzygaga.github.io/2019/01/17/java并发编程-AQS同步组件-CountDownLatch/</id>
+    <published>2019-01-17T11:40:17.000Z</published>
+    <updated>2019-01-17T12:13:13.524Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-什么是CountDownLatch？"><a href="#1-什么是CountDownLatch？" class="headerlink" title="1.什么是CountDownLatch？"></a>1.什么是CountDownLatch？</h2><p>CountDownLatch是闭锁，CountDownLatch是JAVA提供在java.util.concurrent包下的一个辅助类，可以把它看成是一个计数器，其内部维护着一个count计数，只不过对这个计数器的操作都是<strong>原子操作</strong>，同时只能有一个线程去操作这个计数器，CountDownLatch通过构造函数传入一个初始计数值，调用者可以通过调用CounDownLatch对象的cutDown()方法，来使计数减1；如果调用对象上的await()方法，那么调用者就会一直阻塞在这里，直到别人通过cutDown方法，将计数减到0，才可以继续执行。</p><ul><li><strong>原子操作</strong> :所谓原子操作是指不会被线程调度机制打断的操作；这种操作一旦开始，就一直运行到结束，中间不会有任何 context switch （切 [1]  换到另一个线程）。<h2 id="2-应用场景"><a href="#2-应用场景" class="headerlink" title="2.应用场景"></a>2.应用场景</h2></li></ul><ol><li>确保一个计算不会执行，直到它所需要的资源被初始化</li><li>确保一个服务不会开始，直到它依赖的其他服务都已经开始</li><li>等待，直到活动的所有部分都为继续处理做好充分准备</li></ol><h2 id="3-使用方法"><a href="#3-使用方法" class="headerlink" title="3.使用方法"></a>3.使用方法</h2><ul><li>void await()：使当前线程在锁存器倒计数至零之前一直等待，除非线程被中断。</li><li>void await()：使当前线程在锁存器倒计数至零之前一直等待，除非线程被中断。</li><li>void countDown()：递减锁存器的计数，如果计数到达零，则释放所有等待的线程。</li><li>long getCount()：返回当前计数。</li><li>String toString()：返回标识此锁存器及其状态的字符串。</li></ul><h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h2><ul><li><p>Boss类</p><pre><code>package com.mmall.concurrency.example.AQS.countDownDemo;import lombok.extern.slf4j.Slf4j;import java.util.Random;import java.util.concurrent.CountDownLatch;import java.util.concurrent.TimeUnit;@Slf4jpublic class Boss implements Runnable{    private CountDownLatch countDownLatch;    private String name;    public Boss(CountDownLatch countDownLatch,String name){        this.countDownLatch=countDownLatch;        this.name=name;    }    @Override    public void run() {        System.out.println(String.format(&quot;%s开始检查了&quot;,name));        try {        TimeUnit.SECONDS.sleep(new Random().nextInt(10));        }catch (Exception e){            log.error(&quot;{}&quot;,e);        }        try {            countDownLatch.await();        }catch (Exception e){            log.error(&quot;{}&quot;,e);        }        System.out.println(String.format(&quot;%s检查完了&quot;,name));    }}</code></pre></li><li><p>work类</p><pre><code>package com.mmall.concurrency.example.AQS.countDownDemo;import lombok.extern.slf4j.Slf4j;import java.util.Random;import java.util.concurrent.CountDownLatch;import java.util.concurrent.TimeUnit;@Slf4jpublic class Worker implements Runnable{    private CountDownLatch countDownLatch;    private String name;    public Worker(CountDownLatch countDownLatch,String name){        this.countDownLatch=countDownLatch;        this.name=name;    }    @Override    public void run() {        System.out.println(String.format(&quot;%s开始干活了&quot;,name));        try {            TimeUnit.SECONDS.sleep(new Random().nextInt(10));        }catch (Exception e){            log.error(&quot;{}&quot;,e);        }        System.out.println(String.format(&quot;%s干完活了&quot;,name));        countDownLatch.countDown();        log.info(&quot;{}&quot;,countDownLatch.getCount());    }}</code></pre></li><li><p>CountDownLatchDemo</p><pre><code>package com.mmall.concurrency.example.AQS.countDownDemo;import java.util.concurrent.CountDownLatch;import java.util.concurrent.ExecutorService;import java.util.concurrent.Executors;public class CountDownLatchDemo {    public static void main(String[] args) {        ExecutorService executorService=Executors.newCachedThreadPool();        CountDownLatch countDownLatch=new CountDownLatch(3);        Worker worker1=new Worker(countDownLatch,&quot;小明&quot;);        Worker worker2=new Worker(countDownLatch,&quot;老王&quot;);        Worker worker3=new Worker(countDownLatch,&quot;张三&quot;);        Boss boss=new Boss(countDownLatch,&quot;王老板&quot;);        executorService.execute(worker1);        executorService.execute(worker2);        executorService.execute(worker3);        executorService.execute(boss);        executorService.shutdown();    }}</code></pre></li><li><p>res</p><pre><code>王老板开始检查了小明开始干活了老王开始干活了张三开始干活了张三干完活了20:11:25.822 [pool-1-thread-3] INFO com.mmall.concurrency.example.AQS.countDownDemo.Worker - 2老王干完活了20:11:28.818 [pool-1-thread-2] INFO com.mmall.concurrency.example.AQS.countDownDemo.Worker - 1小明干完活了王老板检查完了20:11:31.818 [pool-1-thread-1] INFO com.mmall.concurrency.example.AQS.countDownDemo.Worker - 0</code></pre></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;1-什么是CountDownLatch？&quot;&gt;&lt;a href=&quot;#1-什么是CountDownLatch？&quot; class=&quot;headerlink&quot; title=&quot;1.什么是CountDownLatch？&quot;&gt;&lt;/a&gt;1.什么是CountDownLatch？&lt;/h2&gt;&lt;
+      
+    
+    </summary>
+    
+      <category term="java并发" scheme="https://jzygaga.github.io/categories/java%E5%B9%B6%E5%8F%91/"/>
+    
+    
+      <category term="java并发" scheme="https://jzygaga.github.io/tags/java%E5%B9%B6%E5%8F%91/"/>
+    
+  </entry>
   
   <entry>
     <title>Non-decreasing Array</title>
@@ -503,24 +528,6 @@ language = &amp;apos;PythonC#JavaC#PHPC#&amp;ap
     
     
       <category term="代理模式" scheme="https://jzygaga.github.io/tags/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>工厂模式</title>
-    <link href="https://jzygaga.github.io/2019/01/01/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%B7%A5%E4%BA%A7%E6%A8%A1%E5%BC%8F/"/>
-    <id>https://jzygaga.github.io/2019/01/01/设计模式-工产模式/</id>
-    <published>2019-01-01T12:53:48.000Z</published>
-    <updated>2019-01-02T05:10:24.762Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-      <category term="设计模式" scheme="https://jzygaga.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-    
-      <category term="工厂模式" scheme="https://jzygaga.github.io/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   

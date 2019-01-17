@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <title>Tag: 智力题 | 飞翔的傻瓜</title>
+  <title>Tag: java并发 | 飞翔的傻瓜</title>
   
   <meta name="keywords" content="编程">
   
@@ -128,7 +128,7 @@
         <div class='l_main'>
             
     <script>
-        window.subData= { title:'标签 : 智力题'}
+        window.subData= { title:'标签 : java并发'}
     </script>
 
 
@@ -138,30 +138,144 @@
             <article class="post reveal ">
     <section class="meta">
         <h2 class="title">
-            <a href="/2019/01/07/蓝桥杯-快速过桥/">
+            <a href="/2019/01/17/java并发编程-AQS同步组件-CountDownLatch/">
                 
-                    快速过桥
+                    AQS同步组件-CountDownLatch
                 
             </a>
         </h2>
         <time class="time">
-            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2019-01-07
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2019-01-17
         </time>
         
     
     <div class="cats">
         <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-        <a class="categories" href="/categories/蓝桥杯/">蓝桥杯</a>
+        <a class="categories" href="/categories/java并发/">java并发</a>
     </div>
 
 
     </section>
 
     <section class="article typo">
-        <h2 id="快速过桥"><a href="#快速过桥" class="headerlink" title="快速过桥"></a>快速过桥</h2><ul>
-<li><strong>问题描述：</strong>n个人的队伍想在晚上通过一座大桥。任何时间最多有2人通过，每组必须有一个手电筒。很可怜，这n个人只有一个手电筒可用，因此必须合理地安排，让手电筒能回到另一端，这样才能让更多人通过大桥。每个人有不同的速度，编组后，一个组的速度等于慢的那个人的速度。你的任务是实现一种策略，让所有人在最短时间内通过。</li>
-<li><strong>样例输入</strong><br>【样例输入】<br>  1<br>  4<br>  1<br>  2<br>  5<br>  10<br>【样例输出】<br>  17<br>  1 2<br>  1<br>  5 10<br>  2<br>  1 2</li>
-<li><a href="https://blog.csdn.net/qq_41061455/article/details/79536991" target="_blank" rel="noopener">https://blog.csdn.net/qq_41061455/article/details/79536991</a></li>
+        <h2 id="1-什么是CountDownLatch？"><a href="#1-什么是CountDownLatch？" class="headerlink" title="1.什么是CountDownLatch？"></a>1.什么是CountDownLatch？</h2><p>CountDownLatch是闭锁，CountDownLatch是JAVA提供在java.util.concurrent包下的一个辅助类，可以把它看成是一个计数器，其内部维护着一个count计数，只不过对这个计数器的操作都是<strong>原子操作</strong>，同时只能有一个线程去操作这个计数器，CountDownLatch通过构造函数传入一个初始计数值，调用者可以通过调用CounDownLatch对象的cutDown()方法，来使计数减1；如果调用对象上的await()方法，那么调用者就会一直阻塞在这里，直到别人通过cutDown方法，将计数减到0，才可以继续执行。</p>
+<ul>
+<li><strong>原子操作</strong> :所谓原子操作是指不会被线程调度机制打断的操作；这种操作一旦开始，就一直运行到结束，中间不会有任何 context switch （切 [1]  换到另一个线程）。<h2 id="2-应用场景"><a href="#2-应用场景" class="headerlink" title="2.应用场景"></a>2.应用场景</h2></li>
+</ul>
+<ol>
+<li>确保一个计算不会执行，直到它所需要的资源被初始化</li>
+<li>确保一个服务不会开始，直到它依赖的其他服务都已经开始</li>
+<li>等待，直到活动的所有部分都为继续处理做好充分准备</li>
+</ol>
+<h2 id="3-使用方法"><a href="#3-使用方法" class="headerlink" title="3.使用方法"></a>3.使用方法</h2><ul>
+<li>void await()：使当前线程在锁存器倒计数至零之前一直等待，除非线程被中断。</li>
+<li>void await()：使当前线程在锁存器倒计数至零之前一直等待，除非线程被中断。</li>
+<li>void countDown()：递减锁存器的计数，如果计数到达零，则释放所有等待的线程。</li>
+<li>long getCount()：返回当前计数。</li>
+<li>String toString()：返回标识此锁存器及其状态的字符串。</li>
+</ul>
+<h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h2><ul>
+<li><p>Boss类</p>
+<pre><code>package com.mmall.concurrency.example.AQS.countDownDemo;
+
+import lombok.extern.slf4j.Slf4j;
+
+import java.util.Random;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
+@Slf4j
+public class Boss implements Runnable{
+    private CountDownLatch countDownLatch;
+    private String name;
+    public Boss(CountDownLatch countDownLatch,String name){
+        this.countDownLatch=countDownLatch;
+        this.name=name;
+    }
+
+    @Override
+    public void run() {
+        System.out.println(String.format(&quot;%s开始检查了&quot;,name));
+        try {
+        TimeUnit.SECONDS.sleep(new Random().nextInt(10));
+        }catch (Exception e){
+            log.error(&quot;{}&quot;,e);
+        }
+
+        try {
+            countDownLatch.await();
+        }catch (Exception e){
+            log.error(&quot;{}&quot;,e);
+        }
+        System.out.println(String.format(&quot;%s检查完了&quot;,name));
+    }
+}
+</code></pre></li>
+<li><p>work类</p>
+<pre><code>package com.mmall.concurrency.example.AQS.countDownDemo;
+
+import lombok.extern.slf4j.Slf4j;
+
+import java.util.Random;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
+
+@Slf4j
+public class Worker implements Runnable{
+    private CountDownLatch countDownLatch;
+    private String name;
+    public Worker(CountDownLatch countDownLatch,String name){
+        this.countDownLatch=countDownLatch;
+        this.name=name;
+    }
+
+    @Override
+    public void run() {
+        System.out.println(String.format(&quot;%s开始干活了&quot;,name));
+        try {
+            TimeUnit.SECONDS.sleep(new Random().nextInt(10));
+        }catch (Exception e){
+            log.error(&quot;{}&quot;,e);
+        }
+        System.out.println(String.format(&quot;%s干完活了&quot;,name));
+        countDownLatch.countDown();
+        log.info(&quot;{}&quot;,countDownLatch.getCount());
+    }
+}
+</code></pre></li>
+<li><p>CountDownLatchDemo</p>
+<pre><code>package com.mmall.concurrency.example.AQS.countDownDemo;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+public class CountDownLatchDemo {
+    public static void main(String[] args) {
+        ExecutorService executorService=Executors.newCachedThreadPool();
+        CountDownLatch countDownLatch=new CountDownLatch(3);
+        Worker worker1=new Worker(countDownLatch,&quot;小明&quot;);
+        Worker worker2=new Worker(countDownLatch,&quot;老王&quot;);
+        Worker worker3=new Worker(countDownLatch,&quot;张三&quot;);
+        Boss boss=new Boss(countDownLatch,&quot;王老板&quot;);
+        executorService.execute(worker1);
+        executorService.execute(worker2);
+        executorService.execute(worker3);
+        executorService.execute(boss);
+        executorService.shutdown();
+    }
+}
+</code></pre></li>
+<li><p>res</p>
+<pre><code>王老板开始检查了
+小明开始干活了
+老王开始干活了
+张三开始干活了
+张三干完活了
+20:11:25.822 [pool-1-thread-3] INFO com.mmall.concurrency.example.AQS.countDownDemo.Worker - 2
+老王干完活了
+20:11:28.818 [pool-1-thread-2] INFO com.mmall.concurrency.example.AQS.countDownDemo.Worker - 1
+小明干完活了
+王老板检查完了
+20:11:31.818 [pool-1-thread-1] INFO com.mmall.concurrency.example.AQS.countDownDemo.Worker - 0
+</code></pre></li>
 </ul>
 
         
@@ -169,7 +283,7 @@
         
             <div class="full-width auto-padding tags">
                 
-                    <a href="/tags/智力题/"><i class="fas fa-tag fa-fw"></i>&nbsp;智力题</a>
+                    <a href="/tags/java并发/"><i class="fas fa-tag fa-fw"></i>&nbsp;java并发</a>
                 
             </div>
         
