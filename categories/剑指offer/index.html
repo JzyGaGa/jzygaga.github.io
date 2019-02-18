@@ -138,6 +138,239 @@
             <article class="post reveal ">
     <section class="meta">
         <h2 class="title">
+            <a href="/2019/02/18/准备编辑的博客/">
+                
+                    旋转最小的数字
+                
+            </a>
+        </h2>
+        <time class="time">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2019-02-18
+        </time>
+        
+    
+    <div class="cats">
+        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+        <a class="categories" href="/categories/剑指offer/">剑指offer</a>
+    </div>
+
+
+    </section>
+
+    <section class="article typo">
+        <p><strong>题目描述</strong><br>把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。 输入一个非减排序的数组的一个旋转，输出旋转数组的最小元素。 例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。 NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。</p>
+<p><strong>代码：</strong></p>
+<pre><code>    import java.util.ArrayList;
+public class Solution {
+    public int minNumberInRotateArray(int [] array) {
+        if(array==null||array.length==0){
+            return 0;
+        }
+        int index1 = 0;
+        int index2 = array.length - 1;
+        int indexmid = index1;
+        while (array[index1] &gt;= array[index2]) {
+
+            if ((index2 -index1) == 1)
+                return array[index2];
+            /**
+             * 会存在....{10111111}
+             * 无法判断中间的一个1是属于第一个递增的空间还是第二个递增空间
+             */
+            indexmid=(index1+index2)/2;
+            if(array[indexmid]==array[index1]&amp;&amp;array[index1]==array[index2])
+                return MinInOrder(array,index1,index2);
+            if(array[index1]&lt;=array[indexmid])
+                index1=indexmid;
+            else if(array[index2]&gt;=array[indexmid])
+                index2=indexmid;
+        }
+        //直接排好序了就return。
+        return array[index2];
+    }
+
+    private int MinInOrder(int[] array, int index1, int index2) {
+
+        int res=array[index1];
+
+        for (int i = index1+1; i &lt; index2; i++) {
+            if(res&gt;array[i]){
+                res=array[i];
+            }
+        }
+        return res;
+    }
+}
+</code></pre>
+        
+
+        
+            <div class="full-width auto-padding tags">
+                
+                    <a href="/tags/剑指offer/"><i class="fas fa-tag fa-fw"></i>&nbsp;剑指offer</a>
+                
+            </div>
+        
+    </section>
+</article>
+
+        </div>
+    
+        <div class="post-wrapper">
+            <article class="post reveal ">
+    <section class="meta">
+        <h2 class="title">
+            <a href="/2019/02/18/剑指offer-旋转数组中最小的数字/">
+                
+                    旋转最小的数字
+                
+            </a>
+        </h2>
+        <time class="time">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2019-02-18
+        </time>
+        
+    
+    <div class="cats">
+        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+        <a class="categories" href="/categories/剑指offer/">剑指offer</a>
+    </div>
+
+
+    </section>
+
+    <section class="article typo">
+        <p><strong>题目描述</strong><br>把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。 输入一个非减排序的数组的一个旋转，输出旋转数组的最小元素。 例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。 NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。</p>
+<p><strong>代码：</strong></p>
+<pre><code>    import java.util.ArrayList;
+public class Solution {
+    public int minNumberInRotateArray(int [] array) {
+        if(array==null||array.length==0){
+            return 0;
+        }
+        int index1 = 0;
+        int index2 = array.length - 1;
+        int indexmid = index1;
+        while (array[index1] &gt;= array[index2]) {
+
+            if ((index2 -index1) == 1)
+                return array[index2];
+            /**
+             * 会存在....{10111111}
+             * 无法判断中间的一个1是属于第一个递增的空间还是第二个递增空间
+             */
+            indexmid=(index1+index2)/2;
+            if(array[indexmid]==array[index1]&amp;&amp;array[index1]==array[index2])
+                return MinInOrder(array,index1,index2);
+            if(array[index1]&lt;=array[indexmid])
+                index1=indexmid;
+            else if(array[index2]&gt;=array[indexmid])
+                index2=indexmid;
+        }
+        //直接排好序了就return。
+        return array[index2];
+    }
+
+    private int MinInOrder(int[] array, int index1, int index2) {
+
+        int res=array[index1];
+
+        for (int i = index1+1; i &lt; index2; i++) {
+            if(res&gt;array[i]){
+                res=array[i];
+            }
+        }
+        return res;
+    }
+}
+</code></pre>
+        
+
+        
+            <div class="full-width auto-padding tags">
+                
+                    <a href="/tags/剑指offer/"><i class="fas fa-tag fa-fw"></i>&nbsp;剑指offer</a>
+                
+            </div>
+        
+    </section>
+</article>
+
+        </div>
+    
+        <div class="post-wrapper">
+            <article class="post reveal ">
+    <section class="meta">
+        <h2 class="title">
+            <a href="/2019/01/24/剑指offer-青蛙跳台阶/">
+                
+                    青蛙跳台阶
+                
+            </a>
+        </h2>
+        <time class="time">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2019-01-24
+        </time>
+        
+    
+    <div class="cats">
+        <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+        <a class="categories" href="/categories/剑指offer/">剑指offer</a>
+    </div>
+
+
+    </section>
+
+    <section class="article typo">
+        <p><strong>题目描述</strong><br>一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法（先后次序不同算不同的结果）。<br><strong>代码：</strong><br>这样又占了几个空间</p>
+<pre><code>    public class Solution {
+     public int JumpFloor(int target) {
+        if(target==1)
+            return 1;
+        if(target==2)
+            return 2;
+        int[] arr=new int[target];
+        arr[0]=1;
+        arr[1]=2;
+        for(int i=0;i&lt;target;i++){
+            arr[i]=arr[i-1]+arr[i-2];
+        }
+        return arr[target-1];
+    }
+}
+</code></pre><p><strong>代码：</strong></p>
+<pre><code>public int JumpFloor(int target) {
+    if(target&lt;0)
+        return 0;
+    if(target==1||target==2)
+        return target;
+    int j1=1,j2=2,res=0;
+    for(int i=2;i&lt;target;i++){
+        res=j1+j2;
+        j1=j2;
+        j2=res;
+    }
+    return res;
+}
+</code></pre>
+        
+
+        
+            <div class="full-width auto-padding tags">
+                
+                    <a href="/tags/剑指offer/"><i class="fas fa-tag fa-fw"></i>&nbsp;剑指offer</a>
+                
+            </div>
+        
+    </section>
+</article>
+
+        </div>
+    
+        <div class="post-wrapper">
+            <article class="post reveal ">
+    <section class="meta">
+        <h2 class="title">
             <a href="/2019/01/06/剑指offer-斐波那契数列/">
                 
                     斐波那契数列
@@ -484,7 +717,7 @@ public class Solution {
                 
                     <li><a class="flat-box" href="/categories/python/"><div class="name">python</div><div class="badge">3</div></a></li>
                 
-                    <li><a class="flat-box" href="/categories/剑指offer/"><div class="name">剑指offer</div><div class="badge">4</div></a></li>
+                    <li><a class="flat-box" href="/categories/剑指offer/"><div class="name">剑指offer</div><div class="badge">7</div></a></li>
                 
                     <li><a class="flat-box" href="/categories/图结构/"><div class="name">图结构</div><div class="badge">1</div></a></li>
                 
@@ -509,7 +742,7 @@ public class Solution {
             <div><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;标签</div>
         </header>
         <div class="content pure">
-            <a href="/tags/AVL树/" style="font-size: 14px; color: #999">AVL树</a> <a href="/tags/JSON/" style="font-size: 14px; color: #999">JSON</a> <a href="/tags/Redis/" style="font-size: 14px; color: #999">Redis</a> <a href="/tags/Trie/" style="font-size: 17.33px; color: #828282">Trie</a> <a href="/tags/java并发/" style="font-size: 17.33px; color: #828282">java并发</a> <a href="/tags/lamda/" style="font-size: 14px; color: #999">lamda</a> <a href="/tags/python/" style="font-size: 20.67px; color: #6c6c6c">python</a> <a href="/tags/二叉树/" style="font-size: 14px; color: #999">二叉树</a> <a href="/tags/代理模式/" style="font-size: 14px; color: #999">代理模式</a> <a href="/tags/单链表/" style="font-size: 14px; color: #999">单链表</a> <a href="/tags/反射/" style="font-size: 14px; color: #999">反射</a> <a href="/tags/哈希表/" style="font-size: 14px; color: #999">哈希表</a> <a href="/tags/多线程/" style="font-size: 14px; color: #999">多线程</a> <a href="/tags/工厂模式/" style="font-size: 14px; color: #999">工厂模式</a> <a href="/tags/并查集/" style="font-size: 14px; color: #999">并查集</a> <a href="/tags/数据结构/" style="font-size: 20.67px; color: #6c6c6c">数据结构</a> <a href="/tags/数组/" style="font-size: 24px; color: #555">数组</a> <a href="/tags/智力题/" style="font-size: 14px; color: #999">智力题</a> <a href="/tags/栈/" style="font-size: 14px; color: #999">栈</a> <a href="/tags/红黑树/" style="font-size: 14px; color: #999">红黑树</a> <a href="/tags/蓝桥杯/" style="font-size: 17.33px; color: #828282">蓝桥杯</a> <a href="/tags/计算机网络/" style="font-size: 14px; color: #999">计算机网络</a> <a href="/tags/链表/" style="font-size: 17.33px; color: #828282">链表</a>
+            <a href="/tags/AVL树/" style="font-size: 14px; color: #999">AVL树</a> <a href="/tags/JSON/" style="font-size: 14px; color: #999">JSON</a> <a href="/tags/Redis/" style="font-size: 14px; color: #999">Redis</a> <a href="/tags/Trie/" style="font-size: 17.33px; color: #828282">Trie</a> <a href="/tags/java并发/" style="font-size: 17.33px; color: #828282">java并发</a> <a href="/tags/lamda/" style="font-size: 14px; color: #999">lamda</a> <a href="/tags/python/" style="font-size: 20.67px; color: #6c6c6c">python</a> <a href="/tags/二叉树/" style="font-size: 14px; color: #999">二叉树</a> <a href="/tags/代理模式/" style="font-size: 14px; color: #999">代理模式</a> <a href="/tags/剑指offer/" style="font-size: 20.67px; color: #6c6c6c">剑指offer</a> <a href="/tags/单链表/" style="font-size: 14px; color: #999">单链表</a> <a href="/tags/反射/" style="font-size: 14px; color: #999">反射</a> <a href="/tags/哈希表/" style="font-size: 14px; color: #999">哈希表</a> <a href="/tags/多线程/" style="font-size: 14px; color: #999">多线程</a> <a href="/tags/工厂模式/" style="font-size: 14px; color: #999">工厂模式</a> <a href="/tags/并查集/" style="font-size: 14px; color: #999">并查集</a> <a href="/tags/数据结构/" style="font-size: 20.67px; color: #6c6c6c">数据结构</a> <a href="/tags/数组/" style="font-size: 24px; color: #555">数组</a> <a href="/tags/智力题/" style="font-size: 14px; color: #999">智力题</a> <a href="/tags/栈/" style="font-size: 14px; color: #999">栈</a> <a href="/tags/红黑树/" style="font-size: 14px; color: #999">红黑树</a> <a href="/tags/蓝桥杯/" style="font-size: 17.33px; color: #828282">蓝桥杯</a> <a href="/tags/计算机网络/" style="font-size: 14px; color: #999">计算机网络</a> <a href="/tags/链表/" style="font-size: 17.33px; color: #828282">链表</a>
         </div>
     </section>
 

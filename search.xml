@@ -3,6 +3,86 @@
   
     
     <entry>
+      <title>旋转最小的数字</title>
+      <link href="/2019/02/18/%E5%87%86%E5%A4%87%E7%BC%96%E8%BE%91%E7%9A%84%E5%8D%9A%E5%AE%A2/"/>
+      <url>/2019/02/18/%E5%87%86%E5%A4%87%E7%BC%96%E8%BE%91%E7%9A%84%E5%8D%9A%E5%AE%A2/</url>
+      
+        <content type="html"><![CDATA[<p><strong>题目描述</strong><br>把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。 输入一个非减排序的数组的一个旋转，输出旋转数组的最小元素。 例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。 NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。</p><p><strong>代码：</strong></p><pre><code>    import java.util.ArrayList;public class Solution {    public int minNumberInRotateArray(int [] array) {        if(array==null||array.length==0){            return 0;        }        int index1 = 0;        int index2 = array.length - 1;        int indexmid = index1;        while (array[index1] &gt;= array[index2]) {            if ((index2 -index1) == 1)                return array[index2];            /**             * 会存在....{10111111}             * 无法判断中间的一个1是属于第一个递增的空间还是第二个递增空间             */            indexmid=(index1+index2)/2;            if(array[indexmid]==array[index1]&amp;&amp;array[index1]==array[index2])                return MinInOrder(array,index1,index2);            if(array[index1]&lt;=array[indexmid])                index1=indexmid;            else if(array[index2]&gt;=array[indexmid])                index2=indexmid;        }        //直接排好序了就return。        return array[index2];    }    private int MinInOrder(int[] array, int index1, int index2) {        int res=array[index1];        for (int i = index1+1; i &lt; index2; i++) {            if(res&gt;array[i]){                res=array[i];            }        }        return res;    }}</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 剑指offer </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 剑指offer </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>旋转最小的数字</title>
+      <link href="/2019/02/18/%E5%89%91%E6%8C%87offer-%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E4%B8%AD%E6%9C%80%E5%B0%8F%E7%9A%84%E6%95%B0%E5%AD%97/"/>
+      <url>/2019/02/18/%E5%89%91%E6%8C%87offer-%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E4%B8%AD%E6%9C%80%E5%B0%8F%E7%9A%84%E6%95%B0%E5%AD%97/</url>
+      
+        <content type="html"><![CDATA[<p><strong>题目描述</strong><br>把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。 输入一个非减排序的数组的一个旋转，输出旋转数组的最小元素。 例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。 NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。</p><p><strong>代码：</strong></p><pre><code>    import java.util.ArrayList;public class Solution {    public int minNumberInRotateArray(int [] array) {        if(array==null||array.length==0){            return 0;        }        int index1 = 0;        int index2 = array.length - 1;        int indexmid = index1;        while (array[index1] &gt;= array[index2]) {            if ((index2 -index1) == 1)                return array[index2];            /**             * 会存在....{10111111}             * 无法判断中间的一个1是属于第一个递增的空间还是第二个递增空间             */            indexmid=(index1+index2)/2;            if(array[indexmid]==array[index1]&amp;&amp;array[index1]==array[index2])                return MinInOrder(array,index1,index2);            if(array[index1]&lt;=array[indexmid])                index1=indexmid;            else if(array[index2]&gt;=array[indexmid])                index2=indexmid;        }        //直接排好序了就return。        return array[index2];    }    private int MinInOrder(int[] array, int index1, int index2) {        int res=array[index1];        for (int i = index1+1; i &lt; index2; i++) {            if(res&gt;array[i]){                res=array[i];            }        }        return res;    }}</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 剑指offer </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 剑指offer </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>准备编辑的博客</title>
+      <link href="/2019/02/16/%E5%87%86%E5%A4%87%E7%BC%96%E8%BE%91%E7%9A%84%E5%8D%9A%E5%AE%A2-2/"/>
+      <url>/2019/02/16/%E5%87%86%E5%A4%87%E7%BC%96%E8%BE%91%E7%9A%84%E5%8D%9A%E5%AE%A2-2/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    <entry>
+      <title>青蛙跳台阶</title>
+      <link href="/2019/01/24/%E5%89%91%E6%8C%87offer-%E9%9D%92%E8%9B%99%E8%B7%B3%E5%8F%B0%E9%98%B6/"/>
+      <url>/2019/01/24/%E5%89%91%E6%8C%87offer-%E9%9D%92%E8%9B%99%E8%B7%B3%E5%8F%B0%E9%98%B6/</url>
+      
+        <content type="html"><![CDATA[<p><strong>题目描述</strong><br>一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法（先后次序不同算不同的结果）。<br><strong>代码：</strong><br>这样又占了几个空间</p><pre><code>    public class Solution {     public int JumpFloor(int target) {        if(target==1)            return 1;        if(target==2)            return 2;        int[] arr=new int[target];        arr[0]=1;        arr[1]=2;        for(int i=0;i&lt;target;i++){            arr[i]=arr[i-1]+arr[i-2];        }        return arr[target-1];    }}</code></pre><p><strong>代码：</strong></p><pre><code>public int JumpFloor(int target) {    if(target&lt;0)        return 0;    if(target==1||target==2)        return target;    int j1=1,j2=2,res=0;    for(int i=2;i&lt;target;i++){        res=j1+j2;        j1=j2;        j2=res;    }    return res;}</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 剑指offer </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 剑指offer </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>准备编辑的博客</title>
       <link href="/2019/01/17/%E5%87%86%E5%A4%87%E7%BC%96%E8%BE%91%E7%9A%84%E5%8D%9A%E5%AE%A2-1/"/>
       <url>/2019/01/17/%E5%87%86%E5%A4%87%E7%BC%96%E8%BE%91%E7%9A%84%E5%8D%9A%E5%AE%A2-1/</url>
@@ -682,10 +762,10 @@
     
     <entry>
       <title>数据结构--数组</title>
-      <link href="/2018/12/14/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%88/"/>
-      <url>/2018/12/14/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%88/</url>
+      <link href="/2018/12/14/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-BST/"/>
+      <url>/2018/12/14/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-BST/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h1 id="二叉搜索树"><a href="#二叉搜索树" class="headerlink" title="二叉搜索树"></a>二叉搜索树</h1><pre><code>    public class BST&lt;E extends Comparable&lt;E&gt;&gt; {    private class Node {        public E e;        public Node left, right;        public Node(E e) {            this.e = e;            left = null;            right = null;        }    }    private Node root;    private int size;    public BST(){        root = null;        size = 0;    }    public int size(){        return size;    }    public boolean isEmpty(){        return size == 0;    }    // 向二分搜索树中添加新的元素e    public void add(E e){        if(root == null){            root = new Node(e);            size ++;        }        else            add(root, e);    }    // 向以node为根的二分搜索树中插入元素e，递归算法    private void add(Node node, E e){        if(e.equals(node.e))            return;        else if(e.compareTo(node.e) &lt; 0 &amp;&amp; node.left == null){            node.left = new Node(e);            size ++;            return;        }        else if(e.compareTo(node.e) &gt; 0 &amp;&amp; node.right == null){            node.right = new Node(e);            size ++;            return;        }        if(e.compareTo(node.e) &lt; 0)            add(node.left, e);        else //e.compareTo(node.e) &gt; 0            add(node.right, e);    }}</code></pre>]]></content>
       
       
       
@@ -699,10 +779,10 @@
     
     <entry>
       <title>数据结构--数组</title>
-      <link href="/2018/12/14/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-BST/"/>
-      <url>/2018/12/14/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-BST/</url>
+      <link href="/2018/12/14/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%88/"/>
+      <url>/2018/12/14/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%88/</url>
       
-        <content type="html"><![CDATA[<h1 id="二叉搜索树"><a href="#二叉搜索树" class="headerlink" title="二叉搜索树"></a>二叉搜索树</h1><pre><code>    public class BST&lt;E extends Comparable&lt;E&gt;&gt; {    private class Node {        public E e;        public Node left, right;        public Node(E e) {            this.e = e;            left = null;            right = null;        }    }    private Node root;    private int size;    public BST(){        root = null;        size = 0;    }    public int size(){        return size;    }    public boolean isEmpty(){        return size == 0;    }    // 向二分搜索树中添加新的元素e    public void add(E e){        if(root == null){            root = new Node(e);            size ++;        }        else            add(root, e);    }    // 向以node为根的二分搜索树中插入元素e，递归算法    private void add(Node node, E e){        if(e.equals(node.e))            return;        else if(e.compareTo(node.e) &lt; 0 &amp;&amp; node.left == null){            node.left = new Node(e);            size ++;            return;        }        else if(e.compareTo(node.e) &gt; 0 &amp;&amp; node.right == null){            node.right = new Node(e);            size ++;            return;        }        if(e.compareTo(node.e) &lt; 0)            add(node.left, e);        else //e.compareTo(node.e) &gt; 0            add(node.right, e);    }}</code></pre>]]></content>
+        <content type="html"><![CDATA[]]></content>
       
       
       

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jzygaga.github.io/"/>
-  <updated>2019-01-17T13:21:25.263Z</updated>
+  <updated>2019-02-18T14:13:27.813Z</updated>
   <id>https://jzygaga.github.io/</id>
   
   <author>
@@ -15,6 +15,96 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>旋转最小的数字</title>
+    <link href="https://jzygaga.github.io/2019/02/18/%E5%87%86%E5%A4%87%E7%BC%96%E8%BE%91%E7%9A%84%E5%8D%9A%E5%AE%A2/"/>
+    <id>https://jzygaga.github.io/2019/02/18/准备编辑的博客/</id>
+    <published>2019-02-18T14:07:52.000Z</published>
+    <updated>2019-02-18T14:13:27.813Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>题目描述</strong><br>把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。 输入一个非减排序的数组的一个旋转，输出旋转数组的最小元素。 例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。 NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。</p><p><strong>代码：</strong></p><pre><code>    import java.util.ArrayList;public class Solution {    public int minNumberInRotateArray(int [] array) {        if(array==null||array.length==0){            return 0;        }        int index1 = 0;        int index2 = array.length - 1;        int indexmid = index1;        while (array[index1] &gt;= array[index2]) {            if ((index2 -index1) == 1)                return array[index2];            /**             * 会存在....{10111111}             * 无法判断中间的一个1是属于第一个递增的空间还是第二个递增空间             */            indexmid=(index1+index2)/2;            if(array[indexmid]==array[index1]&amp;&amp;array[index1]==array[index2])                return MinInOrder(array,index1,index2);            if(array[index1]&lt;=array[indexmid])                index1=indexmid;            else if(array[index2]&gt;=array[indexmid])                index2=indexmid;        }        //直接排好序了就return。        return array[index2];    }    private int MinInOrder(int[] array, int index1, int index2) {        int res=array[index1];        for (int i = index1+1; i &lt; index2; i++) {            if(res&gt;array[i]){                res=array[i];            }        }        return res;    }}</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;br&gt;把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。 输入一个非减排序的数组的一个旋转，输出旋转数组的最小元素。 例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。 NOTE
+      
+    
+    </summary>
+    
+      <category term="剑指offer" scheme="https://jzygaga.github.io/categories/%E5%89%91%E6%8C%87offer/"/>
+    
+    
+      <category term="剑指offer" scheme="https://jzygaga.github.io/tags/%E5%89%91%E6%8C%87offer/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>旋转最小的数字</title>
+    <link href="https://jzygaga.github.io/2019/02/18/%E5%89%91%E6%8C%87offer-%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E4%B8%AD%E6%9C%80%E5%B0%8F%E7%9A%84%E6%95%B0%E5%AD%97/"/>
+    <id>https://jzygaga.github.io/2019/02/18/剑指offer-旋转数组中最小的数字/</id>
+    <published>2019-02-18T14:07:52.000Z</published>
+    <updated>2019-02-18T14:12:29.546Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>题目描述</strong><br>把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。 输入一个非减排序的数组的一个旋转，输出旋转数组的最小元素。 例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。 NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。</p><p><strong>代码：</strong></p><pre><code>    import java.util.ArrayList;public class Solution {    public int minNumberInRotateArray(int [] array) {        if(array==null||array.length==0){            return 0;        }        int index1 = 0;        int index2 = array.length - 1;        int indexmid = index1;        while (array[index1] &gt;= array[index2]) {            if ((index2 -index1) == 1)                return array[index2];            /**             * 会存在....{10111111}             * 无法判断中间的一个1是属于第一个递增的空间还是第二个递增空间             */            indexmid=(index1+index2)/2;            if(array[indexmid]==array[index1]&amp;&amp;array[index1]==array[index2])                return MinInOrder(array,index1,index2);            if(array[index1]&lt;=array[indexmid])                index1=indexmid;            else if(array[index2]&gt;=array[indexmid])                index2=indexmid;        }        //直接排好序了就return。        return array[index2];    }    private int MinInOrder(int[] array, int index1, int index2) {        int res=array[index1];        for (int i = index1+1; i &lt; index2; i++) {            if(res&gt;array[i]){                res=array[i];            }        }        return res;    }}</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;br&gt;把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。 输入一个非减排序的数组的一个旋转，输出旋转数组的最小元素。 例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。 NOTE
+      
+    
+    </summary>
+    
+      <category term="剑指offer" scheme="https://jzygaga.github.io/categories/%E5%89%91%E6%8C%87offer/"/>
+    
+    
+      <category term="剑指offer" scheme="https://jzygaga.github.io/tags/%E5%89%91%E6%8C%87offer/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>准备编辑的博客</title>
+    <link href="https://jzygaga.github.io/2019/02/16/%E5%87%86%E5%A4%87%E7%BC%96%E8%BE%91%E7%9A%84%E5%8D%9A%E5%AE%A2-2/"/>
+    <id>https://jzygaga.github.io/2019/02/16/准备编辑的博客-2/</id>
+    <published>2019-02-16T15:49:49.000Z</published>
+    <updated>2019-02-16T15:49:50.047Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>青蛙跳台阶</title>
+    <link href="https://jzygaga.github.io/2019/01/24/%E5%89%91%E6%8C%87offer-%E9%9D%92%E8%9B%99%E8%B7%B3%E5%8F%B0%E9%98%B6/"/>
+    <id>https://jzygaga.github.io/2019/01/24/剑指offer-青蛙跳台阶/</id>
+    <published>2019-01-24T13:50:58.000Z</published>
+    <updated>2019-02-16T15:56:18.119Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>题目描述</strong><br>一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法（先后次序不同算不同的结果）。<br><strong>代码：</strong><br>这样又占了几个空间</p><pre><code>    public class Solution {     public int JumpFloor(int target) {        if(target==1)            return 1;        if(target==2)            return 2;        int[] arr=new int[target];        arr[0]=1;        arr[1]=2;        for(int i=0;i&lt;target;i++){            arr[i]=arr[i-1]+arr[i-2];        }        return arr[target-1];    }}</code></pre><p><strong>代码：</strong></p><pre><code>public int JumpFloor(int target) {    if(target&lt;0)        return 0;    if(target==1||target==2)        return target;    int j1=1,j2=2,res=0;    for(int i=2;i&lt;target;i++){        res=j1+j2;        j1=j2;        j2=res;    }    return res;}</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt;题目描述&lt;/strong&gt;&lt;br&gt;一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法（先后次序不同算不同的结果）。&lt;br&gt;&lt;strong&gt;代码：&lt;/strong&gt;&lt;br&gt;这样又占了几个空间&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+      
+    
+    </summary>
+    
+      <category term="剑指offer" scheme="https://jzygaga.github.io/categories/%E5%89%91%E6%8C%87offer/"/>
+    
+    
+      <category term="剑指offer" scheme="https://jzygaga.github.io/tags/%E5%89%91%E6%8C%87offer/"/>
+    
+  </entry>
   
   <entry>
     <title>准备编辑的博客</title>
@@ -420,108 +510,6 @@ language = &amp;apos;PythonC#JavaC#PHPC#&amp;ap
     
     
       <category term="单链表" scheme="https://jzygaga.github.io/tags/%E5%8D%95%E9%93%BE%E8%A1%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>206. Reverse Linked List</title>
-    <link href="https://jzygaga.github.io/2019/01/03/leetcode-206.%20Reverse%20Linked%20List/"/>
-    <id>https://jzygaga.github.io/2019/01/03/leetcode-206. Reverse Linked List/</id>
-    <published>2019-01-03T04:18:55.000Z</published>
-    <updated>2019-01-03T05:51:01.841Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Reverse-Linked-List"><a href="#Reverse-Linked-List" class="headerlink" title="Reverse Linked List"></a>Reverse Linked List</h2><p><strong>Reverse a singly linked list.</strong><br><strong> Example:</strong></p><pre><code>Input: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULLOutput: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL</code></pre><p><strong>代码</strong></p><ul><li><p>迭代的代码</p><pre><code>class Solution {     public ListNode reverseList(ListNode head) {        ListNode reverseNode=null;        ListNode cur=head;        ListNode toDeal=null;        while(cur!=null) {            //拿到待处理的节点            toDeal =cur;            cur=cur.next;            //拿到一边进行连接            toDeal.next=reverseNode;            reverseNode=toDeal;        }        return reverseNode;    }}</code></pre></li></ul><ul><li><p>递归的代码<br><strong>代码一</strong></p><pre><code>class Solution {     public ListNode reverseList(ListNode head) {        if(head==null||head.next==null)            return head;        return toReverse(head,null);    }    private ListNode toReverse(ListNode head, ListNode reverse) {        if(head==null) {            return reverse;        }        ListNode cur=head.next;        //与另一个链表相连接        head.next=reverse;        //        reverse=head;        return toReverse(cur,reverse);    }}</code></pre></li></ul><p><strong>代码二</strong></p><pre><code>public ListNode reverseList(ListNode head) {    if(head==null||head.next==null)        return head;    ListNode newHead= reverseList(head.next);    //两个借点之间的链接进行翻转    head.next.next=head;    head.next=null;    return newHead;}</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Reverse-Linked-List&quot;&gt;&lt;a href=&quot;#Reverse-Linked-List&quot; class=&quot;headerlink&quot; title=&quot;Reverse Linked List&quot;&gt;&lt;/a&gt;Reverse Linked List&lt;/h2&gt;&lt;p&gt;&lt;s
-      
-    
-    </summary>
-    
-      <category term="leetcode" scheme="https://jzygaga.github.io/categories/leetcode/"/>
-    
-    
-      <category term="链表" scheme="https://jzygaga.github.io/tags/%E9%93%BE%E8%A1%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Middle of the Linked List</title>
-    <link href="https://jzygaga.github.io/2019/01/03/leetcode-876.%20Middle%20of%20the%20Linked%20List/"/>
-    <id>https://jzygaga.github.io/2019/01/03/leetcode-876. Middle of the Linked List/</id>
-    <published>2019-01-02T22:05:24.000Z</published>
-    <updated>2019-01-02T22:54:08.431Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="876-Middle-of-the-Linked-List"><a href="#876-Middle-of-the-Linked-List" class="headerlink" title="876. Middle of the Linked List"></a>876. Middle of the Linked List</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><p><strong> Given a non-empty, singly linked list with head node head, return a middle node of linked list.<br>if there are two middle nodes, return the second middle node. </strong></p><ul><li>Example 1:<br>  Input: [1,2,3,4,5]<br>  Output: Node 3 from this list (Serialization: [3,4,5])<br>  The returned node has value 3.  (The judge’s serialization of this node is [3,4,5]).<br>  Note that we returned a ListNode object ans, such that:<br>  ans.val = 3, ans.next.val = 4, ans.next.next.val = 5, and ans.next.next.next = NULL.</li><li><p>Example 2：<br>  Input: [1,2,3,4,5]<br>  Output: Node 3 from this list (Serialization: [3,4,5])<br>  The returned node has value 3.  (The judge’s serialization of this node is [3,4,5]).<br>  Note that we returned a ListNode object ans, such that:<br>  ans.val = 3, ans.next.val = 4, ans.next.next.val = 5, and ans.next.next.next = NULL.</p><h3 id="代码一"><a href="#代码一" class="headerlink" title="代码一"></a>代码一</h3><pre><code>    class Solution {    public ListNode middleNode(ListNode head) {        ListNode node=head;        int i=0;        while(node!=null) {             i++;             node=node.next;        }        int loc=i/2+1;        i=1;        ListNode node1=head;        while(i&lt;loc) {            node1=node1.next;            i++;        }        return node1;    }}</code></pre><h3 id="代码二"><a href="#代码二" class="headerlink" title="代码二"></a>代码二</h3><pre><code>public ListNode middleNode(ListNode head) {    ListNode listNode = new ListNode(0);    ListNode fast=head;    ListNode low=head;    while(fast!=null&amp;&amp;fast.next!=null) {        fast=fast.next.next;        low=low.next;    }    return low.next;}</code></pre><h3 id="代码三"><a href="#代码三" class="headerlink" title="代码三"></a>代码三</h3><pre><code>  class Solution {    public ListNode middleNode(ListNode head) {        ListNode fast=head;        ListNode low=head;        //对比2方法，假装自己先跑了两步         if(fast!=null&amp;&amp;fast.next!=null){            fast=fast.next.next;        }else{            return low;        }        while(fast!=null&amp;&amp;fast.next!=null) {            fast=fast.next.next;            low=low.next;        }        return low.next;    }}</code></pre><h3 id="代码四"><a href="#代码四" class="headerlink" title="代码四"></a>代码四</h3><pre><code>public ListNode middleNode(ListNode head) {    ListNode fast=head;    ListNode low=head;    //对比2方法，假装自己先跑了两步    if(head==null&amp;&amp;head.next==null)        return head;    while(fast!=null&amp;&amp;fast.next!=null) {        fast=fast.next.next;        low=low.next;    }    return low;}</code></pre></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;876-Middle-of-the-Linked-List&quot;&gt;&lt;a href=&quot;#876-Middle-of-the-Linked-List&quot; class=&quot;headerlink&quot; title=&quot;876. Middle of the Linked List&quot;&gt;&lt;/
-      
-    
-    </summary>
-    
-      <category term="leetcode" scheme="https://jzygaga.github.io/categories/leetcode/"/>
-    
-    
-      <category term="链表" scheme="https://jzygaga.github.io/tags/%E9%93%BE%E8%A1%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>二维数组中的查找</title>
-    <link href="https://jzygaga.github.io/2019/01/02/%E5%89%91%E6%8C%87offer-%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9F%A5%E6%89%BE%20/"/>
-    <id>https://jzygaga.github.io/2019/01/02/剑指offer-二维数组中的查找 /</id>
-    <published>2019-01-02T06:19:14.000Z</published>
-    <updated>2019-01-03T08:21:57.515Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="二维数组中的查找"><a href="#二维数组中的查找" class="headerlink" title="二维数组中的查找"></a>二维数组中的查找</h2><p><strong>描述：</strong></p><ul><li><p>在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。<br><strong>代码</strong></p><pre><code>public class Solution {    public boolean Find(int target, int [][] array) {        int y=0;        int x=array.length-1;        int row=array.length-1;        int col=array[0].length-1;        while((0&lt;=x&amp;&amp;x&lt;=col)&amp;&amp;(0&lt;=y&amp;&amp;y&lt;=row)){            if(array[x][y]==target)                return true;            if(array[x][y]&lt;target){                y++;               continue;             }            if(array[x][y]&gt;target){                x--;               continue;            }        }        return false;    }}</code></pre><h2 id="注意数组根据先后赋值，排列是从上到下来的"><a href="#注意数组根据先后赋值，排列是从上到下来的" class="headerlink" title="注意数组根据先后赋值，排列是从上到下来的"></a>注意数组根据先后赋值，排列是从上到下来的</h2></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;二维数组中的查找&quot;&gt;&lt;a href=&quot;#二维数组中的查找&quot; class=&quot;headerlink&quot; title=&quot;二维数组中的查找&quot;&gt;&lt;/a&gt;二维数组中的查找&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;描述：&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;在一个二维数组中（
-      
-    
-    </summary>
-    
-      <category term="剑指offer" scheme="https://jzygaga.github.io/categories/%E5%89%91%E6%8C%87offer/"/>
-    
-    
-      <category term="数组" scheme="https://jzygaga.github.io/tags/%E6%95%B0%E7%BB%84/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>反射</title>
-    <link href="https://jzygaga.github.io/2019/01/02/java-%E5%8F%8D%E5%B0%84/"/>
-    <id>https://jzygaga.github.io/2019/01/02/java-反射/</id>
-    <published>2019-01-02T05:34:53.000Z</published>
-    <updated>2019-01-02T06:16:14.561Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="对方的付费"><a href="#对方的付费" class="headerlink" title="对方的付费"></a>对方的付费</h2>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;对方的付费&quot;&gt;&lt;a href=&quot;#对方的付费&quot; class=&quot;headerlink&quot; title=&quot;对方的付费&quot;&gt;&lt;/a&gt;对方的付费&lt;/h2&gt;
-      
-    
-    </summary>
-    
-      <category term="java" scheme="https://jzygaga.github.io/categories/java/"/>
-    
-    
-      <category term="反射" scheme="https://jzygaga.github.io/tags/%E5%8F%8D%E5%B0%84/"/>
     
   </entry>
   
